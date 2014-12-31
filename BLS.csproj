@@ -27,7 +27,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>    
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -395,7 +395,6 @@
     <Content Include="BLSFullPackage\DBScript\BLSFullScript.sql" />
     <Content Include="DBScripts\BLSFullLatestScript.sql" />
     <Content Include="DBScripts\TblHistoryEdit.sql" />
-    <Content Include="DBScripts\TblIssue.sql" />
     <Content Include="DBScripts\TblIssue.sql" />
     <Content Include="DLLs\ASPSnippets.SmsAPI.dll" />
     <Content Include="DLLs\Microsoft.SqlServer.ConnectionInfo.dll" />
