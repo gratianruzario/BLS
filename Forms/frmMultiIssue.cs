@@ -12,7 +12,7 @@ namespace LibraryDesign_frontEndUI
     public partial class frmMultiIssue : Form
     {
         BLSSchema.ctStockDataTable _dtNewIssue = new BLSSchema.ctStockDataTable();
-        internal int _intCustomerID = 2014150002;
+        internal int _intCustomerID = 2013140002;
         internal string _strMemberShipType = string.Empty;
         internal float _fltCurrentBookAmount = 0;
 
@@ -51,5 +51,7 @@ namespace LibraryDesign_frontEndUI
                 MessageBox.Show("Please select the book(s) to issue.", "Error");
             }
         }
+
+     
     }
 }

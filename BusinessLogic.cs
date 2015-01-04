@@ -571,8 +571,8 @@ namespace LibraryDesign_frontEndUI
 
                 cmd.ExecuteNonQuery();
 
-                float fltMaxLimit = float.Parse(outputMaxLimit.Value.ToString());
-                float fltLimitUsed = float.Parse(outputLimitUsed.Value.ToString());
+                float fltMaxLimit = (outputMaxLimit.Value == DBNull.Value) ? 0 : float.Parse(outputMaxLimit.Value.ToString());
+                float fltLimitUsed = (outputLimitUsed.Value == DBNull.Value) ? 0 : float.Parse(outputLimitUsed.Value.ToString());
 
                 float[] fltItems = new float[2];
                 fltItems[0] = fltMaxLimit;
