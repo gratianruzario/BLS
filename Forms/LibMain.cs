@@ -419,7 +419,11 @@ namespace LibraryDesign_frontEndUI
             tlpOrderAddSearch.Visible = false;
             tlpStockAddSearch.Hide();
 
-            frmTransactionReport frmReports = new frmTransactionReport();
+            //frmTransactionReport frmReports = new frmTransactionReport();
+            //frmReports.MdiParent = this;
+            //frmReports.Show();
+
+            frmMultiIssue frmReports = new frmMultiIssue();
             frmReports.MdiParent = this;
             frmReports.Show();
         }

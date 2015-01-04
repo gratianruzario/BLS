@@ -392,7 +392,6 @@
             // 
             // pbCustImage
             // 
-            this.pbCustImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbCustImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbCustImage.ErrorImage")));
             this.pbCustImage.Location = new System.Drawing.Point(3, 16);
             this.pbCustImage.Name = "pbCustImage";
@@ -434,7 +433,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.96154F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.03846F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel3.Controls.Add(this.label9, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 42);
@@ -467,7 +466,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(319, 21);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(318, 21);
             this.tableLayoutPanel4.TabIndex = 1;
             this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
@@ -476,7 +475,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(70, 0);
+            this.label10.Location = new System.Drawing.Point(69, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(153, 16);
             this.label10.TabIndex = 0;
