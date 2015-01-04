@@ -127,7 +127,7 @@ namespace LibraryDesign_frontEndUI
 
                 string strEdition = dgvCustDetails.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
 
-                string strPublisher = dgvCustDetails.Rows[e.RowIndex].Cells["Publisher"].Value.ToString();
+                string strPublisher = dgvCustDetails.Rows[e.RowIndex].Cells["BookPublisher"].Value.ToString();
 
                 float fltPrice = float.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["BookPrice"].Value.ToString());
 
@@ -430,8 +430,8 @@ namespace LibraryDesign_frontEndUI
                        //if (intBookCount > 1)
                         //{
                             txtIssueDate.Text = dgvCustDetails.Rows[intRowIndex].Cells["IssueDate"].Value.ToString().Substring(0, 10);
-                            txtReturnDate.Text = dgvCustDetails.Rows[intRowIndex].Cells["ReturnDate"].Value.ToString().Substring(0, 10);
-                            int intExtraDays = GetExtraDays(dgvCustDetails.Rows[intRowIndex].Cells["ReturnDate"].Value.ToString());
+                            txtReturnDate.Text = dgvCustDetails.Rows[intRowIndex].Cells["Returndate"].Value.ToString().Substring(0, 10);
+                            int intExtraDays = GetExtraDays(dgvCustDetails.Rows[intRowIndex].Cells["Returndate"].Value.ToString());
                             if (intExtraDays > 0)
                             {
                                 txtExtraDays.BackColor = Color.Red;
@@ -519,7 +519,7 @@ namespace LibraryDesign_frontEndUI
             row.Title = dgvCustDetails.Rows[_intRowIndex].Cells["Title"].Value.ToString();
             row.Author = dgvCustDetails.Rows[_intRowIndex].Cells["Author"].Value.ToString();
             row.Edition = dgvCustDetails.Rows[_intRowIndex].Cells["Edition"].Value.ToString();
-            row.Publisher = dgvCustDetails.Rows[_intRowIndex].Cells["Publisher"].Value.ToString();
+            row.Publisher = dgvCustDetails.Rows[_intRowIndex].Cells["BookPublisher"].Value.ToString();
             row.IssueDate = dgvCustDetails.Rows[_intRowIndex].Cells["IssueDate"].Value.ToString();
             row.BookCount = txtBookCount.Text;
             row.BookPrice = dgvCustDetails.Rows[_intRowIndex].Cells["BookPrice"].Value.ToString();
@@ -586,8 +586,8 @@ namespace LibraryDesign_frontEndUI
         {
             // If the column is the Artist column, check the 
             // value. 
-            if (this.dgvSelectedBooks.Columns[e.ColumnIndex].Name == "IssueDate" ||
-                this.dgvSelectedBooks.Columns[e.ColumnIndex].Name == "Returndate")
+            if (this.dgvSelectedBooks.Columns[e.ColumnIndex].Name == "SelectedIssueDate" ||
+                this.dgvSelectedBooks.Columns[e.ColumnIndex].Name == "SelectedReturndate")
             {
                 if (e.Value != null)
                 {
@@ -634,11 +634,7 @@ namespace LibraryDesign_frontEndUI
                 MessageBox.Show("Please select atleast one book to return", "Return List empty");
                 return;
             }
-        }
-
-        
-
-      
+        }     
         
     }
 }

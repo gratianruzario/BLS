@@ -29,24 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReturn));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCustDetails = new System.Windows.Forms.DataGridView();
-            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recieptNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.earlyIssueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Return = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ctIssueDataTableBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.ctIssueBookListDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctReturnDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -75,19 +62,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvSelectedBooks = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedIssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedBookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedBookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecieptNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedHistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedReturndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.blsSchema1 = new LibraryDesign_frontEndUI.BLSSchema();
             this.grbInfoDisplay = new System.Windows.Forms.GroupBox();
             this.txtRefundAmt = new System.Windows.Forms.TextBox();
@@ -110,6 +84,33 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblBookCount = new System.Windows.Forms.Label();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookPublisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecieptNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.earlyIssueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Return = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ctIssueBookListDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedEdition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedIssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedBookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedBookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recieptNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedReturndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedHistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.earlyIssueDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource2)).BeginInit();
@@ -132,6 +133,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -155,24 +157,25 @@
             this.Title,
             this.Author,
             this.Edition,
+            this.BookPublisher,
             this.IssueDate,
             this.BookCount,
             this.BookPrice,
-            this.recieptNumberDataGridViewTextBoxColumn,
+            this.RecieptNumber,
             this.HistoryUID,
             this.IssueType,
             this.Returndate,
             this.earlyIssueDataGridViewCheckBoxColumn,
             this.Return});
-            this.dgvCustDetails.DataSource = this.ctIssueDataTableBindingSource2;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCustDetails.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvCustDetails.DataSource = this.ctIssueDataTableBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCustDetails.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCustDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustDetails.Location = new System.Drawing.Point(3, 16);
             this.dgvCustDetails.Name = "dgvCustDetails";
@@ -183,91 +186,6 @@
             this.dgvCustDetails.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCustDetails_CellFormatting);
             this.dgvCustDetails.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCustDetails_CellMouseClick);
             this.dgvCustDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvCustDetails_RowPostPaint);
-            // 
-            // CustomerID
-            // 
-            this.CustomerID.DataPropertyName = "CustomerID";
-            this.CustomerID.HeaderText = "CustomerID";
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.Visible = false;
-            // 
-            // Title
-            // 
-            this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            // 
-            // Author
-            // 
-            this.Author.DataPropertyName = "Author";
-            this.Author.HeaderText = "Author";
-            this.Author.Name = "Author";
-            // 
-            // Edition
-            // 
-            this.Edition.DataPropertyName = "Edition";
-            this.Edition.HeaderText = "Edition";
-            this.Edition.Name = "Edition";
-            // 
-            // IssueDate
-            // 
-            this.IssueDate.DataPropertyName = "IssueDate";
-            this.IssueDate.HeaderText = "IssueDate";
-            this.IssueDate.Name = "IssueDate";
-            // 
-            // BookCount
-            // 
-            this.BookCount.DataPropertyName = "BookCount";
-            this.BookCount.HeaderText = "BookCount";
-            this.BookCount.Name = "BookCount";
-            // 
-            // BookPrice
-            // 
-            this.BookPrice.DataPropertyName = "BookPrice";
-            this.BookPrice.HeaderText = "BookPrice";
-            this.BookPrice.Name = "BookPrice";
-            // 
-            // recieptNumberDataGridViewTextBoxColumn
-            // 
-            this.recieptNumberDataGridViewTextBoxColumn.DataPropertyName = "RecieptNumber";
-            this.recieptNumberDataGridViewTextBoxColumn.HeaderText = "RecieptNumber";
-            this.recieptNumberDataGridViewTextBoxColumn.Name = "recieptNumberDataGridViewTextBoxColumn";
-            this.recieptNumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // HistoryUID
-            // 
-            this.HistoryUID.DataPropertyName = "HistoryUID";
-            this.HistoryUID.HeaderText = "HistoryUID";
-            this.HistoryUID.Name = "HistoryUID";
-            this.HistoryUID.Visible = false;
-            // 
-            // IssueType
-            // 
-            this.IssueType.DataPropertyName = "IssueType";
-            this.IssueType.HeaderText = "IssueType";
-            this.IssueType.Name = "IssueType";
-            // 
-            // Returndate
-            // 
-            this.Returndate.DataPropertyName = "Returndate";
-            this.Returndate.HeaderText = "Returndate";
-            this.Returndate.Name = "Returndate";
-            // 
-            // earlyIssueDataGridViewCheckBoxColumn
-            // 
-            this.earlyIssueDataGridViewCheckBoxColumn.DataPropertyName = "EarlyIssue";
-            this.earlyIssueDataGridViewCheckBoxColumn.HeaderText = "EarlyIssue";
-            this.earlyIssueDataGridViewCheckBoxColumn.Name = "earlyIssueDataGridViewCheckBoxColumn";
-            this.earlyIssueDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // Return
-            // 
-            this.Return.DataPropertyName = "Return";
-            this.Return.FalseValue = "False";
-            this.Return.HeaderText = "Select";
-            this.Return.Name = "Return";
-            this.Return.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Return.TrueValue = "True";
             // 
             // ctIssueDataTableBindingSource2
             // 
@@ -307,7 +225,6 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
             this.btnReturn.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnReturn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(1011, 16);
@@ -509,28 +426,27 @@
             this.dgvSelectedBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSelectedBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSelectedBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
+            this.customerIDDataGridViewTextBoxColumn,
+            this.SelectedTitle,
+            this.SelectedAuthor,
+            this.SelectedEdition,
             this.SelectedIssueDate,
             this.SelectedBookCount,
             this.SelectedBookPrice,
-            this.RecieptNumber,
-            this.SelectedHistoryUID,
-            this.dataGridViewTextBoxColumn11,
+            this.recieptNumberDataGridViewTextBoxColumn,
             this.SelectedReturndate,
-            this.dataGridViewCheckBoxColumn1,
+            this.SelectedHistoryUID,
+            this.earlyIssueDataGridViewCheckBoxColumn1,
             this.Remove});
-            this.dgvSelectedBooks.DataSource = this.ctIssueDataTableBindingSource2;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSelectedBooks.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvSelectedBooks.DataSource = this.ctIssueBookListDataTableBindingSource1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSelectedBooks.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSelectedBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSelectedBooks.Location = new System.Drawing.Point(3, 16);
             this.dgvSelectedBooks.Name = "dgvSelectedBooks";
@@ -538,89 +454,6 @@
             this.dgvSelectedBooks.TabIndex = 11;
             this.dgvSelectedBooks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectedBooks_CellClick);
             this.dgvSelectedBooks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSelectedBooks_CellFormatting);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Author";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Edition";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Edition";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // SelectedIssueDate
-            // 
-            this.SelectedIssueDate.DataPropertyName = "IssueDate";
-            this.SelectedIssueDate.HeaderText = "IssueDate";
-            this.SelectedIssueDate.Name = "SelectedIssueDate";
-            // 
-            // SelectedBookCount
-            // 
-            this.SelectedBookCount.DataPropertyName = "BookCount";
-            this.SelectedBookCount.HeaderText = "BookCount";
-            this.SelectedBookCount.Name = "SelectedBookCount";
-            // 
-            // SelectedBookPrice
-            // 
-            this.SelectedBookPrice.DataPropertyName = "BookPrice";
-            this.SelectedBookPrice.HeaderText = "BookPrice";
-            this.SelectedBookPrice.Name = "SelectedBookPrice";
-            // 
-            // RecieptNumber
-            // 
-            this.RecieptNumber.DataPropertyName = "RecieptNumber";
-            this.RecieptNumber.HeaderText = "RecieptNumber";
-            this.RecieptNumber.Name = "RecieptNumber";
-            this.RecieptNumber.Visible = false;
-            // 
-            // SelectedHistoryUID
-            // 
-            this.SelectedHistoryUID.DataPropertyName = "HistoryUID";
-            this.SelectedHistoryUID.HeaderText = "HistoryUID";
-            this.SelectedHistoryUID.Name = "SelectedHistoryUID";
-            this.SelectedHistoryUID.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "IssueType";
-            this.dataGridViewTextBoxColumn11.HeaderText = "IssueType";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // SelectedReturndate
-            // 
-            this.SelectedReturndate.DataPropertyName = "Returndate";
-            this.SelectedReturndate.HeaderText = "Returndate";
-            this.SelectedReturndate.Name = "SelectedReturndate";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "EarlyIssue";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "EarlyIssue";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Visible = false;
-            // 
-            // Remove
-            // 
-            this.Remove.HeaderText = "Remove";
-            this.Remove.Name = "Remove";
-            this.Remove.Text = "Remove";
-            this.Remove.UseColumnTextForButtonValue = true;
             // 
             // blsSchema1
             // 
@@ -879,6 +712,178 @@
             this.lblBookCount.TabIndex = 16;
             this.lblBookCount.Text = "0";
             // 
+            // CustomerID
+            // 
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "CustomerID";
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.Visible = false;
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            // 
+            // Author
+            // 
+            this.Author.DataPropertyName = "Author";
+            this.Author.HeaderText = "Author";
+            this.Author.Name = "Author";
+            // 
+            // Edition
+            // 
+            this.Edition.DataPropertyName = "Edition";
+            this.Edition.HeaderText = "Edition";
+            this.Edition.Name = "Edition";
+            // 
+            // BookPublisher
+            // 
+            this.BookPublisher.DataPropertyName = "Publisher";
+            this.BookPublisher.HeaderText = "Publisher";
+            this.BookPublisher.Name = "BookPublisher";
+            // 
+            // IssueDate
+            // 
+            this.IssueDate.DataPropertyName = "IssueDate";
+            this.IssueDate.HeaderText = "IssueDate";
+            this.IssueDate.Name = "IssueDate";
+            // 
+            // BookCount
+            // 
+            this.BookCount.DataPropertyName = "BookCount";
+            this.BookCount.HeaderText = "BookCount";
+            this.BookCount.Name = "BookCount";
+            // 
+            // BookPrice
+            // 
+            this.BookPrice.DataPropertyName = "BookPrice";
+            this.BookPrice.HeaderText = "BookPrice";
+            this.BookPrice.Name = "BookPrice";
+            // 
+            // RecieptNumber
+            // 
+            this.RecieptNumber.DataPropertyName = "RecieptNumber";
+            this.RecieptNumber.HeaderText = "RecieptNumber";
+            this.RecieptNumber.Name = "RecieptNumber";
+            this.RecieptNumber.Visible = false;
+            // 
+            // HistoryUID
+            // 
+            this.HistoryUID.DataPropertyName = "HistoryUID";
+            this.HistoryUID.HeaderText = "HistoryUID";
+            this.HistoryUID.Name = "HistoryUID";
+            this.HistoryUID.Visible = false;
+            // 
+            // IssueType
+            // 
+            this.IssueType.DataPropertyName = "IssueType";
+            this.IssueType.HeaderText = "IssueType";
+            this.IssueType.Name = "IssueType";
+            // 
+            // Returndate
+            // 
+            this.Returndate.DataPropertyName = "Returndate";
+            this.Returndate.HeaderText = "Returndate";
+            this.Returndate.Name = "Returndate";
+            // 
+            // earlyIssueDataGridViewCheckBoxColumn
+            // 
+            this.earlyIssueDataGridViewCheckBoxColumn.DataPropertyName = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn.HeaderText = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn.Name = "earlyIssueDataGridViewCheckBoxColumn";
+            this.earlyIssueDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // Return
+            // 
+            this.Return.DataPropertyName = "Return";
+            this.Return.FalseValue = "False";
+            this.Return.HeaderText = "Select";
+            this.Return.Name = "Return";
+            this.Return.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Return.TrueValue = "True";
+            // 
+            // ctIssueBookListDataTableBindingSource1
+            // 
+            this.ctIssueBookListDataTableBindingSource1.DataSource = typeof(LibraryDesign_frontEndUI.BLSSchema.ctIssueBookListDataTable);
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // SelectedTitle
+            // 
+            this.SelectedTitle.DataPropertyName = "Title";
+            this.SelectedTitle.HeaderText = "Title";
+            this.SelectedTitle.Name = "SelectedTitle";
+            // 
+            // SelectedAuthor
+            // 
+            this.SelectedAuthor.DataPropertyName = "Author";
+            this.SelectedAuthor.HeaderText = "Author";
+            this.SelectedAuthor.Name = "SelectedAuthor";
+            // 
+            // SelectedEdition
+            // 
+            this.SelectedEdition.DataPropertyName = "Edition";
+            this.SelectedEdition.HeaderText = "Edition";
+            this.SelectedEdition.Name = "SelectedEdition";
+            // 
+            // SelectedIssueDate
+            // 
+            this.SelectedIssueDate.DataPropertyName = "IssueDate";
+            this.SelectedIssueDate.HeaderText = "IssueDate";
+            this.SelectedIssueDate.Name = "SelectedIssueDate";
+            // 
+            // SelectedBookCount
+            // 
+            this.SelectedBookCount.DataPropertyName = "BookCount";
+            this.SelectedBookCount.HeaderText = "BookCount";
+            this.SelectedBookCount.Name = "SelectedBookCount";
+            // 
+            // SelectedBookPrice
+            // 
+            this.SelectedBookPrice.DataPropertyName = "BookPrice";
+            this.SelectedBookPrice.HeaderText = "BookPrice";
+            this.SelectedBookPrice.Name = "SelectedBookPrice";
+            // 
+            // recieptNumberDataGridViewTextBoxColumn
+            // 
+            this.recieptNumberDataGridViewTextBoxColumn.DataPropertyName = "RecieptNumber";
+            this.recieptNumberDataGridViewTextBoxColumn.HeaderText = "RecieptNumber";
+            this.recieptNumberDataGridViewTextBoxColumn.Name = "recieptNumberDataGridViewTextBoxColumn";
+            this.recieptNumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // SelectedReturndate
+            // 
+            this.SelectedReturndate.DataPropertyName = "Returndate";
+            this.SelectedReturndate.HeaderText = "Returndate";
+            this.SelectedReturndate.Name = "SelectedReturndate";
+            // 
+            // SelectedHistoryUID
+            // 
+            this.SelectedHistoryUID.DataPropertyName = "HistoryUID";
+            this.SelectedHistoryUID.HeaderText = "HistoryUID";
+            this.SelectedHistoryUID.Name = "SelectedHistoryUID";
+            this.SelectedHistoryUID.Visible = false;
+            // 
+            // earlyIssueDataGridViewCheckBoxColumn1
+            // 
+            this.earlyIssueDataGridViewCheckBoxColumn1.DataPropertyName = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn1.HeaderText = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn1.Name = "earlyIssueDataGridViewCheckBoxColumn1";
+            this.earlyIssueDataGridViewCheckBoxColumn1.Visible = false;
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "Remove";
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "Remove";
+            this.Remove.UseColumnTextForButtonValue = true;
+            // 
             // frmReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -915,6 +920,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -950,20 +956,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvSelectedBooks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edition;
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IssueDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recieptNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryUID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Returndate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn earlyIssueDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Return;
         private BLSSchema blsSchema1;
         private System.Windows.Forms.GroupBox grbInfoDisplay;
         private System.Windows.Forms.TextBox txtRefundAmt;
@@ -987,19 +980,33 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label lblBookCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookPublisher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IssueDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecieptNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryUID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Returndate;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn earlyIssueDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Return;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedAuthor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedEdition;
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedIssueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedBookCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedBookPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RecieptNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedHistoryUID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recieptNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedReturndate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedHistoryUID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn earlyIssueDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.BindingSource ctIssueBookListDataTableBindingSource1;
     }
 }
