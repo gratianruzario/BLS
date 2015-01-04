@@ -220,22 +220,24 @@ namespace LibraryDesign_frontEndUI.Forms
 
                 if (float.Parse(txtPreviousBalance.Text) > 0)
                 {
-                    _fltTotalAmtPayable = float.Parse(txtAmountPayable.Text) + float.Parse(txtPreviousBalance.Text);
+                    if (float.Parse(txtPreviousBalance.Text) > _fltTotalAmtPayable)
+                    {
+                        _fltBalance = float.Parse(txtPreviousBalance.Text) - _fltTotalAmtPayable;
+                        _fltTotalAmtPayable = 0;
+                    }
+                    else
+                    {
+                        _fltTotalAmtPayable = _fltTotalAmtPayable - float.Parse(txtPreviousBalance.Text);
+                        _fltBalance = 0;
+
+                    }                 
 
                 }
 
                 if (float.Parse(txtPreviousAdvance.Text) > 0)
                 {
-                    if (float.Parse(txtPreviousAdvance.Text) >= float.Parse(txtAmountPayable.Text))
-                    {
-                        _fltBalance = float.Parse(txtPreviousAdvance.Text) - _fltTotalAmtPayable;
-                        _fltTotalAmtPayable = 0;
-                    }
-                    else
-                    {
-                        _fltTotalAmtPayable = _fltTotalAmtPayable - float.Parse(txtPreviousAdvance.Text);
-                    }
-
+                   _fltTotalAmtPayable += float.Parse(txtPreviousAdvance.Text);
+                   _fltAdvance = 0;
                 }
 
                 txtTotalAmountPayable.Text = _fltTotalAmtPayable.ToString();
