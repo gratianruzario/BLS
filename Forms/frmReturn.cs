@@ -25,6 +25,7 @@ namespace LibraryDesign_frontEndUI
         BLSSchema _Bschema = new BLSSchema();
 
         BLSSchema.ctIssueBookListDataTable _dtSelectedReturnBooks = new BLSSchema.ctIssueBookListDataTable();
+        BLSSchema.ctTempDataTable _dtTemp = new BLSSchema.ctTempDataTable();
 
         string _strCustomerID = string.Empty;
         string _strMobile = string.Empty;
@@ -49,6 +50,7 @@ namespace LibraryDesign_frontEndUI
             lblBookCount.Text = "";
             lblBookCount.Text = "0";
             _frmParentref = frmRef;
+            _Bschema.ctTemp.Clear();
             Search();
         }
 
@@ -323,7 +325,7 @@ namespace LibraryDesign_frontEndUI
             _blnCancelledFromPreview = false;
         }
 
-        private void UpdateAmounts(bool blnAdd)
+        private void UpdateAmounts(bool blnAdd,float fltRfAmount)
         {            
             try
             {
@@ -335,8 +337,8 @@ namespace LibraryDesign_frontEndUI
                     inttotalBookCount = int.Parse(lblBookCount.Text) + int.Parse(txtBookCount.Text);                   
                 }
                 else
-                {
-                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) - float.Parse(txtRefundAmt.Text);
+                {                       
+                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) - fltRfAmount;
                     inttotalBookCount = int.Parse(lblBookCount.Text) - int.Parse(txtBookCount.Text);  
                 }
                 lblAmountPayable.Text = fltCurrentPayableAmount.ToString();
@@ -381,22 +383,7 @@ namespace LibraryDesign_frontEndUI
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            if (_intBookCount > 0)
-            {
-                frmReturnPreviews frmRtnPrv = new frmReturnPreviews(this);
-                frmRtnPrv.txtPreviousAdvance.Text = lblAdvance.Text;
-                frmRtnPrv.txtPreviousBalance.Text = lblBalanceAmount.Text;
-                frmRtnPrv.txtCustName.Text = lblCustomerName.Text;
-                frmRtnPrv.BookCount.Text = lblBookCount.Text;
-                frmRtnPrv.txtAmountPayable.Text = lblAmountPayable.Text;
-                frmRtnPrv.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Please select atleast one book to return", "Return List empty");
-                return;
-            }
+        {            
         }        
 
         /// <summary>
@@ -524,10 +511,10 @@ namespace LibraryDesign_frontEndUI
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-            UpdateAmounts(true);
+        {            
+            UpdateAmounts(true,0);
             BLSSchema.ctIssueBookListRow row = _dtSelectedReturnBooks.NewctIssueBookListRow();
+            BLSSchema.ctTempRow Temprow = _dtTemp.NewctTempRow();
             row.CustomerID = dgvCustDetails.Rows[_intRowIndex].Cells["CustomerID"].Value.ToString();
             row.Title = dgvCustDetails.Rows[_intRowIndex].Cells["Title"].Value.ToString();
             row.Author = dgvCustDetails.Rows[_intRowIndex].Cells["Author"].Value.ToString();
@@ -541,7 +528,10 @@ namespace LibraryDesign_frontEndUI
             row.HistoryUID = dgvCustDetails.Rows[_intRowIndex].Cells["HistoryUID"].Value.ToString();
             row.IssueType = dgvCustDetails.Rows[_intRowIndex].Cells["IssueType"].Value.ToString();
             //row.EarlyIssue = bool.Parse(dgvCustDetails.Rows[intRowIndex].Cells["EarlyIssue"].Value.ToString());
+            Temprow.ID = dgvCustDetails.Rows[_intRowIndex].Cells["HistoryUID"].Value.ToString();
+            Temprow.RefundAmount = txtRefundAmt.Text;
             _dtSelectedReturnBooks.Rows.Add(row);
+            _dtTemp.Rows.Add(Temprow);
             dgvSelectedBooks.DataSource = _dtSelectedReturnBooks;
             _Bschema.ctIssueBookList.RemovectIssueBookListRow(_Bschema.ctIssueBookList[_intRowIndex]);
             ClearTexts();
@@ -616,13 +606,37 @@ namespace LibraryDesign_frontEndUI
                 if (dgvSelectedBooks.Columns[e.ColumnIndex].HeaderText.ToString() == "Remove")
                 {
                     VerifyCheckedOrNot(dgvSelectedBooks, e.RowIndex, e.ColumnIndex, false);
-                     UpdateAmounts(false);                   
+                    DataRow[] dt = _dtTemp.Select("ID = '" + dgvSelectedBooks.Rows[e.RowIndex].Cells["SelectedHistoryUID"].Value.ToString() + "'");
+                    float fltAmount = float.Parse(dt[0]["RefundAmount"].ToString());
+                    UpdateAmounts(false,fltAmount);                   
                     _Bschema.ctIssueBookList.ImportRow(_dtSelectedReturnBooks[e.RowIndex]);
                     _dtSelectedReturnBooks.RemovectIssueBookListRow(_dtSelectedReturnBooks[e.RowIndex]);
+                    _dtTemp.RemovectTempRow((BLSSchema.ctTempRow)dt[0]);
                     ClearTexts();
                 }
             }
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            if (_dtSelectedReturnBooks.Rows.Count > 0)
+            {
+                frmReturnPreviews frmRtnPrv = new frmReturnPreviews(this);
+                frmRtnPrv.txtPreviousAdvance.Text = lblAdvance.Text;
+                frmRtnPrv.txtPreviousBalance.Text = lblBalanceAmount.Text;
+                frmRtnPrv.txtCustName.Text = lblCustomerName.Text;
+                frmRtnPrv.BookCount.Text = lblBookCount.Text;
+                frmRtnPrv.txtAmountPayable.Text = lblAmountPayable.Text;
+                frmRtnPrv.ShowDialog();             
+            }
+            else
+            {
+                MessageBox.Show("Please select atleast one book to return", "Return List empty");
+                return;
+            }
+        }
+
+        
 
       
         
