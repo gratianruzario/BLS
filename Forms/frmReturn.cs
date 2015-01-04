@@ -16,6 +16,7 @@ namespace LibraryDesign_frontEndUI
         int _intRowIndex = -1;
         int _intColumnIndex = -1;
         internal int _intCurrentSelectedCount = 0;
+        bool _blnIsChecked = false;
 
         internal bool _blnCancelledFromPreview = false;
 
@@ -46,6 +47,7 @@ namespace LibraryDesign_frontEndUI
             lblBalanceAmount.Text = strelements[7];            
             lblAmountPayable.Text = "0";
             lblBookCount.Text = "";
+            lblBookCount.Text = "0";
             _frmParentref = frmRef;
             Search();
         }
@@ -321,40 +323,24 @@ namespace LibraryDesign_frontEndUI
             _blnCancelledFromPreview = false;
         }
 
-        private void UpdateAmounts(DataGridViewRow row,int intIndex,bool blnReturnOrCancel)
-        {
-            int intExtraDays = 0;
-            float fltTotalPrice = 0;
-            float fltPercentAmount = 0;
-            float fltAmountPayable = 0;
-            float fltTotalAmountPayable = 0;
-            float fltBalance = 0;
+        private void UpdateAmounts(bool blnAdd)
+        {            
             try
             {
-                intExtraDays = GetExtraDays(row.Cells["ReturnDate"].Value.ToString());
-                fltTotalPrice = float.Parse(row.Cells["BookCount"].Value.ToString()) * float.Parse(row.Cells["BookPrice"].Value.ToString());
-                fltPercentAmount = fltTotalPrice / 4;
-                fltAmountPayable = fltTotalPrice - fltPercentAmount;
                 float fltCurrentPayableAmount = 0;
-                if (blnReturnOrCancel)
+                int inttotalBookCount = 0;
+                if (blnAdd)
                 {
-                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) + fltAmountPayable;
+                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) + float.Parse(txtRefundAmt.Text);
+                    inttotalBookCount = int.Parse(lblBookCount.Text) + int.Parse(txtBookCount.Text);                   
                 }
                 else
                 {
-                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) - fltAmountPayable;
+                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) - float.Parse(txtRefundAmt.Text);
+                    inttotalBookCount = int.Parse(lblBookCount.Text) - int.Parse(txtBookCount.Text);  
                 }
                 lblAmountPayable.Text = fltCurrentPayableAmount.ToString();
-                if (blnReturnOrCancel)
-                {
-                    _intBookCount += int.Parse(row.Cells["BookCount"].Value.ToString());
-                }
-                else
-                {
-                    _intBookCount -= int.Parse(row.Cells["BookCount"].Value.ToString());
-                }
-                lblBookCount.Text = _intBookCount.ToString();
-
+                lblBookCount.Text = inttotalBookCount.ToString();
             }
             catch (Exception ex)
             {
@@ -420,8 +406,7 @@ namespace LibraryDesign_frontEndUI
         /// <param name="intRowIndex"></param>
         /// <param name="boolIsChecked"></param>
         private void SetDataGridViewRowAsHighlighted(DataGridView dgvCustDetails, int intRowIndex, bool boolIsChecked)
-        {
-            UpdateAmounts(dgvCustDetails.Rows[intRowIndex], intRowIndex, boolIsChecked);
+        {  
 
             if (boolIsChecked)
             {
@@ -436,60 +421,87 @@ namespace LibraryDesign_frontEndUI
             }
         }
 
-        private void VerifyCheckedOrNot(DataGridView dgvCustDetails,int intRowIndex,int intColumnIndex)
+        private void VerifyCheckedOrNot(DataGridView dgvCustDetails,int intRowIndex,int intColumnIndex,bool blnIsCheck)
         {
-            DataGridViewRow dgvrow = dgvCustDetails.Rows[intRowIndex];
-
-            DataGridViewCheckBoxCell checkbox = (DataGridViewCheckBoxCell)dgvrow.Cells[intColumnIndex];
-
-            bool blnIsChecked = false;
-
-            if (checkbox != null)
+            
+            if (blnIsCheck)
             {
-                blnIsChecked = (bool)checkbox.EditedFormattedValue;
+                _intRowIndex = intRowIndex;
+                DataGridViewRow dgvrow = dgvCustDetails.Rows[intRowIndex];
 
-                if (Convert.ToBoolean(blnIsChecked) == true)
-                {    
-                    int intBookCount = int.Parse(dgvCustDetails.Rows[intRowIndex].Cells["BookCount"].Value.ToString());
-                    if (intBookCount > 1)
+                DataGridViewCheckBoxCell checkbox = (DataGridViewCheckBoxCell)dgvrow.Cells[intColumnIndex];
+
+                bool blnIsChecked = false;
+
+                if (checkbox != null)
+                {
+                    blnIsChecked = (bool)checkbox.EditedFormattedValue;
+
+                    if (Convert.ToBoolean(blnIsChecked) == true)
                     {
-                        frmReturnDetails frmRDetails = new frmReturnDetails(this);
-                        frmRDetails._intCurrentCount = intBookCount;
-                        frmRDetails.ShowDialog();
-                        BLSSchema.ctIssueBookListRow row = _dtSelectedReturnBooks.NewctIssueBookListRow();
-                        row.CustomerID = dgvCustDetails.Rows[intRowIndex].Cells["Title"].Value.ToString();
-                        row.Title = dgvCustDetails.Rows[intRowIndex].Cells["Title"].Value.ToString();
-                        row.Author = dgvCustDetails.Rows[intRowIndex].Cells["Author"].Value.ToString();
-                        row.Edition = dgvCustDetails.Rows[intRowIndex].Cells["Edition"].Value.ToString();
-                        row.Publisher = dgvCustDetails.Rows[intRowIndex].Cells["Publisher"].Value.ToString();
-                        row.IssueDate = dgvCustDetails.Rows[intRowIndex].Cells["IssueDate"].Value.ToString();
-                        row.BookCount = _intCurrentSelectedCount.ToString();
-                        row.BookPrice = dgvCustDetails.Rows[intRowIndex].Cells["BookPrice"].Value.ToString();
-                        //row.RecieptNumber = dgvCustDetails.Rows[intRowIndex].Cells["RecieptNumber"].Value.ToString();
-                        row.ReturnDate = dgvCustDetails.Rows[intRowIndex].Cells["ReturnDate"].Value.ToString();
-                        row.HistoryUID = dgvCustDetails.Rows[intRowIndex].Cells["HistoryUID"].Value.ToString();
-                        row.IssueType = dgvCustDetails.Rows[intRowIndex].Cells["IssueType"].Value.ToString();
-                        //row.EarlyIssue = bool.Parse(dgvCustDetails.Rows[intRowIndex].Cells["EarlyIssue"].Value.ToString());
-                        _dtSelectedReturnBooks.Rows.Add(row);
-                        dgvSelectedBooks.DataSource = _dtSelectedReturnBooks;
-
-
+                        //int intBookCount = int.Parse(dgvCustDetails.Rows[intRowIndex].Cells["BookCount"].Value.ToString());
+                       //if (intBookCount > 1)
+                        //{
+                            txtIssueDate.Text = dgvCustDetails.Rows[intRowIndex].Cells["IssueDate"].Value.ToString().Substring(0, 10);
+                            txtReturnDate.Text = dgvCustDetails.Rows[intRowIndex].Cells["ReturnDate"].Value.ToString().Substring(0, 10);
+                            int intExtraDays = GetExtraDays(dgvCustDetails.Rows[intRowIndex].Cells["ReturnDate"].Value.ToString());
+                            if (intExtraDays > 0)
+                            {
+                                txtExtraDays.BackColor = Color.Red;
+                            }
+                            else
+                            {
+                                txtExtraDays.BackColor = Color.White;
+                            }
+                            txtExtraDays.Text = intExtraDays.ToString();
+                            txtBookPrice.Text = dgvCustDetails.Rows[intRowIndex].Cells["BookPrice"].Value.ToString();
+                            txtBookCount.Text = dgvCustDetails.Rows[intRowIndex].Cells["BookCount"].Value.ToString();
+                            float fltAmt = CalCulateRefundAmount(float.Parse(txtBookPrice.Text), float.Parse(txtPercentDeduction.Text));                            
+                            txtRefundAmt.Text = fltAmt.ToString();
+                        //}
+                        _blnIsChecked = true;
+                        //SetDataGridViewRowAsHighlighted(dgvCustDetails, intRowIndex, true);                       
                     }
-                    SetDataGridViewRowAsHighlighted(dgvCustDetails, intRowIndex, true);
+                    else
+                    {
+                        _blnIsChecked = false;
+                        //SetDataGridViewRowAsHighlighted(dgvCustDetails, intRowIndex, false);
+                    }
+                    dgvCustDetails.Refresh();
                 }
-                else
-                {                   
-                    SetDataGridViewRowAsHighlighted(dgvCustDetails, intRowIndex, false);
-                }
-                dgvCustDetails.Refresh();
             }
+            else
+            {
+                int intBookCount = int.Parse(dgvSelectedBooks.Rows[intRowIndex].Cells["SelectedBookCount"].Value.ToString());
+                //if (intBookCount > 1)
+               // {
+                    txtIssueDate.Text = dgvSelectedBooks.Rows[intRowIndex].Cells["SelectedIssueDate"].Value.ToString().Substring(0, 10);
+                    txtReturnDate.Text = dgvSelectedBooks.Rows[intRowIndex].Cells["SelectedReturndate"].Value.ToString().Substring(0, 10);
+                    int intExtraDays = GetExtraDays(dgvSelectedBooks.Rows[intRowIndex].Cells["SelectedReturndate"].Value.ToString());                    
+                    txtExtraDays.Text = intExtraDays.ToString();
+                    txtBookPrice.Text = dgvSelectedBooks.Rows[intRowIndex].Cells["SelectedBookPrice"].Value.ToString();
+                    txtBookCount.Text = dgvSelectedBooks.Rows[intRowIndex].Cells["SelectedBookCount"].Value.ToString();
+                    float fltAmt = CalCulateRefundAmount(float.Parse(txtBookPrice.Text), float.Parse(txtPercentDeduction.Text));
+                    fltAmt = fltAmt * float.Parse(txtBookCount.Text);
+                    txtRefundAmt.Text = fltAmt.ToString();
+                //}               
+            }
+            
+        }
+
+        private float CalCulateRefundAmount(float fltPrice, float fltPercntDeduction)
+        {
+            float RefundAmount = 0;
+            float PercntAmt = (fltPrice / 100) * fltPercntDeduction;
+            RefundAmount = fltPrice - PercntAmt;
+            return RefundAmount;
         }
 
         private void dgvCustDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCustDetails.Columns[e.ColumnIndex].HeaderText == "Select")
             {
-                VerifyCheckedOrNot(dgvCustDetails, e.RowIndex, e.ColumnIndex);
+                VerifyCheckedOrNot(dgvCustDetails, e.RowIndex, e.ColumnIndex,true);
             }
         
         }
@@ -510,6 +522,109 @@ namespace LibraryDesign_frontEndUI
                 }
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            UpdateAmounts(true);
+            BLSSchema.ctIssueBookListRow row = _dtSelectedReturnBooks.NewctIssueBookListRow();
+            row.CustomerID = dgvCustDetails.Rows[_intRowIndex].Cells["CustomerID"].Value.ToString();
+            row.Title = dgvCustDetails.Rows[_intRowIndex].Cells["Title"].Value.ToString();
+            row.Author = dgvCustDetails.Rows[_intRowIndex].Cells["Author"].Value.ToString();
+            row.Edition = dgvCustDetails.Rows[_intRowIndex].Cells["Edition"].Value.ToString();
+            row.Publisher = dgvCustDetails.Rows[_intRowIndex].Cells["Publisher"].Value.ToString();
+            row.IssueDate = dgvCustDetails.Rows[_intRowIndex].Cells["IssueDate"].Value.ToString();
+            row.BookCount = txtBookCount.Text;
+            row.BookPrice = dgvCustDetails.Rows[_intRowIndex].Cells["BookPrice"].Value.ToString();
+            //row.RecieptNumber = dgvCustDetails.Rows[intRowIndex].Cells["RecieptNumber"].Value.ToString();
+            row.ReturnDate = dgvCustDetails.Rows[_intRowIndex].Cells["ReturnDate"].Value.ToString();
+            row.HistoryUID = dgvCustDetails.Rows[_intRowIndex].Cells["HistoryUID"].Value.ToString();
+            row.IssueType = dgvCustDetails.Rows[_intRowIndex].Cells["IssueType"].Value.ToString();
+            //row.EarlyIssue = bool.Parse(dgvCustDetails.Rows[intRowIndex].Cells["EarlyIssue"].Value.ToString());
+            _dtSelectedReturnBooks.Rows.Add(row);
+            dgvSelectedBooks.DataSource = _dtSelectedReturnBooks;
+            _Bschema.ctIssueBookList.RemovectIssueBookListRow(_Bschema.ctIssueBookList[_intRowIndex]);
+            ClearTexts();
+
+        }
+
+        private void ClearTexts()
+        {
+            txtIssueDate.Text = "";
+            txtReturnDate.Text = "";
+            txtBookPrice.Text = "";
+            txtBookCount.Text = "";
+            txtPercentDeduction.Text = "25";
+            txtRefundAmt.Text = "";
+            txtExtraDays.Text = "";
+            txtExtraDays.BackColor = Color.White;
+        }
+
+        //private void txtBookCount_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(txtBookCount.Text) && !string.IsNullOrWhiteSpace(txtPercentDeduction.Text))
+        //    {
+        //        UpdateRespctdValues();
+        //    }
+        //}
+        private void UpdateRespctdValues()
+        {
+            float fltAmt = CalCulateRefundAmount(float.Parse(txtBookPrice.Text), float.Parse(txtPercentDeduction.Text));
+            fltAmt = fltAmt * float.Parse(txtBookCount.Text);
+            txtRefundAmt.Text = fltAmt.ToString();
+        }
+
+        private void txtPercentDeduction_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtPercentDeduction.Text) && !string.IsNullOrWhiteSpace(txtBookPrice.Text))
+            {
+                UpdateRespctdValues();
+            }
+        }
+
+        private void txtBookCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Program.MainObj.Number_Validation(sender, e);
+        }
+
+        private void txtPercentDeduction_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Program.MainObj.Number_Validation(sender, e);
+        }
+
+        private void dgvSelectedBooks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // If the column is the Artist column, check the 
+            // value. 
+            if (this.dgvSelectedBooks.Columns[e.ColumnIndex].Name == "IssueDate" ||
+                this.dgvSelectedBooks.Columns[e.ColumnIndex].Name == "Returndate")
+            {
+                if (e.Value != null)
+                {
+                    // Check for the string "pink" in the cell.
+                    string stringValue = (string)e.Value;
+                    e.Value = stringValue.Substring(0, 10);
+
+                }
+            }
+        }
+
+        private void dgvSelectedBooks_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1&&e.ColumnIndex!=-1)
+            {
+                if (dgvSelectedBooks.Columns[e.ColumnIndex].HeaderText.ToString() == "Remove")
+                {
+                    VerifyCheckedOrNot(dgvSelectedBooks, e.RowIndex, e.ColumnIndex, false);
+                     UpdateAmounts(false);                   
+                    _Bschema.ctIssueBookList.ImportRow(_dtSelectedReturnBooks[e.RowIndex]);
+                    _dtSelectedReturnBooks.RemovectIssueBookListRow(_dtSelectedReturnBooks[e.RowIndex]);
+                    ClearTexts();
+                }
+            }
+        }
+
+      
         
     }
 }
