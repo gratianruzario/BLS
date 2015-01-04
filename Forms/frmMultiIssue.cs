@@ -23,9 +23,8 @@ namespace LibraryDesign_frontEndUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddStock frmStock = new frmAddStock(this, "MI", false, ref _dtNewIssue, _intCustomerID, _strMemberShipType, _fltCurrentBookAmount);
-            frmStock.ShowDialog();
-            dgvStudentBooks.DataSource = _dtNewIssue;
+            frmChooseStockItem frmChooseItem = new frmChooseStockItem(this);
+            frmChooseItem.ShowDialog();
         }
 
         private void dgvStudentBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
