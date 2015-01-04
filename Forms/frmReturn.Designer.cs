@@ -38,7 +38,6 @@
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +79,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectedIssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectedBookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectedBookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -157,7 +155,6 @@
             this.Title,
             this.Author,
             this.Edition,
-            this.Publisher,
             this.IssueDate,
             this.BookCount,
             this.BookPrice,
@@ -211,12 +208,6 @@
             this.Edition.DataPropertyName = "Edition";
             this.Edition.HeaderText = "Edition";
             this.Edition.Name = "Edition";
-            // 
-            // Publisher
-            // 
-            this.Publisher.DataPropertyName = "Publisher";
-            this.Publisher.HeaderText = "Publisher";
-            this.Publisher.Name = "Publisher";
             // 
             // IssueDate
             // 
@@ -520,7 +511,6 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
             this.SelectedIssueDate,
             this.SelectedBookCount,
             this.SelectedBookPrice,
@@ -571,12 +561,6 @@
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Edition";
             this.dataGridViewTextBoxColumn4.HeaderText = "Edition";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Publisher";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Publisher";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // SelectedIssueDate
             // 

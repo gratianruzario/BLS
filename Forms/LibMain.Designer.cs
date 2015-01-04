@@ -40,6 +40,7 @@
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
+            this.chkUseSpeechCommands = new System.Windows.Forms.CheckBox();
             this.tlpStockAddSearch = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearchStock = new System.Windows.Forms.Button();
             this.btnAddStock = new System.Windows.Forms.Button();
@@ -77,7 +78,6 @@
             this.tblpnlCustomer = new System.Windows.Forms.TableLayoutPanel();
             this.btnCustomerSearch = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.chkUseSpeechCommands = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpStockAddSearch.SuspendLayout();
             this.tlpOrderAddSearch.SuspendLayout();
@@ -242,8 +242,19 @@
             this.btnReports.TabIndex = 7;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = true;
-            this.btnReports.Visible = false;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
+            // chkUseSpeechCommands
+            // 
+            this.chkUseSpeechCommands.AutoSize = true;
+            this.chkUseSpeechCommands.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkUseSpeechCommands.ForeColor = System.Drawing.Color.Black;
+            this.chkUseSpeechCommands.Location = new System.Drawing.Point(1146, 3);
+            this.chkUseSpeechCommands.Name = "chkUseSpeechCommands";
+            this.chkUseSpeechCommands.Size = new System.Drawing.Size(115, 59);
+            this.chkUseSpeechCommands.TabIndex = 8;
+            this.chkUseSpeechCommands.Text = "Use Speech Commands";
+            this.chkUseSpeechCommands.UseVisualStyleBackColor = true;
             // 
             // tlpStockAddSearch
             // 
@@ -624,18 +635,6 @@
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegisterr_Click);
-            // 
-            // chkUseSpeechCommands
-            // 
-            this.chkUseSpeechCommands.AutoSize = true;
-            this.chkUseSpeechCommands.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkUseSpeechCommands.ForeColor = System.Drawing.Color.Black;
-            this.chkUseSpeechCommands.Location = new System.Drawing.Point(1146, 3);
-            this.chkUseSpeechCommands.Name = "chkUseSpeechCommands";
-            this.chkUseSpeechCommands.Size = new System.Drawing.Size(115, 59);
-            this.chkUseSpeechCommands.TabIndex = 8;
-            this.chkUseSpeechCommands.Text = "Use Speech Commands";
-            this.chkUseSpeechCommands.UseVisualStyleBackColor = true;
             // 
             // LibMain
             // 
