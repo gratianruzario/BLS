@@ -571,6 +571,7 @@
             this.dtpDob.TabIndex = 3;
             this.dtpDob.Value = new System.DateTime(2013, 11, 7, 0, 0, 0, 0);
             this.dtpDob.Enter += new System.EventHandler(this.dtpDob_Enter);
+            this.dtpDob.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpDob_KeyDown);
             // 
             // label19
             // 
@@ -857,6 +858,7 @@
             this.dtpDOR.TabIndex = 4;
             this.dtpDOR.Value = new System.DateTime(2013, 11, 7, 0, 0, 0, 0);
             this.dtpDOR.Enter += new System.EventHandler(this.dtpDOR_Enter);
+            this.dtpDOR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpDOR_KeyDown);
             // 
             // lblDOR
             // 
@@ -914,13 +916,14 @@
             this.lbxCollegeContainer.TabIndex = 60;
             this.lbxCollegeContainer.Visible = false;
             this.lbxCollegeContainer.Click += new System.EventHandler(this.lbxCollegeContainer_Click);
+            //this.lbxCollegeContainer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbxCollegeContainer_KeyDown);
             // 
             // lbxNameContainer
             // 
             this.lbxNameContainer.BackColor = System.Drawing.Color.Moccasin;
             this.lbxNameContainer.FormattingEnabled = true;
             this.lbxNameContainer.ItemHeight = 19;
-            this.lbxNameContainer.Location = new System.Drawing.Point(116, 82);
+            this.lbxNameContainer.Location = new System.Drawing.Point(116, 80);
             this.lbxNameContainer.Name = "lbxNameContainer";
             this.lbxNameContainer.Size = new System.Drawing.Size(378, 61);
             this.lbxNameContainer.TabIndex = 61;

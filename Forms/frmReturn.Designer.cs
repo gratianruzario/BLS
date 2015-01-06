@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReturn));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCustDetails = new System.Windows.Forms.DataGridView();
+            this.ctIssueDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctIssueDataTableBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.ctIssueBookListDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctReturnDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -52,7 +53,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ctStockSearchDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctReturnDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ctIssueDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctIssueDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bLSSchema = new LibraryDesign_frontEndUI.BLSSchema();
             this.ctCustomerBookDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,6 +62,19 @@
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvSelectedBooks = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedEdition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedIssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedBookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedBookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recieptNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedReturndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedHistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.earlyIssueDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ctIssueBookListDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.blsSchema1 = new LibraryDesign_frontEndUI.BLSSchema();
             this.grbInfoDisplay = new System.Windows.Forms.GroupBox();
             this.txtRefundAmt = new System.Windows.Forms.TextBox();
@@ -97,22 +110,13 @@
             this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.earlyIssueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Return = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ctIssueBookListDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedEdition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedIssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedBookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedBookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recieptNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedReturndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelectedHistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.earlyIssueDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.pbCustImage = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctReturnDataTableBindingSource1)).BeginInit();
@@ -120,20 +124,22 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctStockSearchDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctReturnDataTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bLSSchema)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctCustomerBookDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectedBooks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blsSchema1)).BeginInit();
             this.grbInfoDisplay.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource1)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -142,7 +148,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(908, 198);
+            this.groupBox2.Size = new System.Drawing.Size(908, 185);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             // 
@@ -166,26 +172,30 @@
             this.IssueType,
             this.Returndate,
             this.earlyIssueDataGridViewCheckBoxColumn,
-            this.Return});
+            this.Select});
             this.dgvCustDetails.DataSource = this.ctIssueDataTableBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCustDetails.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCustDetails.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCustDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustDetails.Location = new System.Drawing.Point(3, 16);
             this.dgvCustDetails.Name = "dgvCustDetails";
-            this.dgvCustDetails.Size = new System.Drawing.Size(902, 179);
+            this.dgvCustDetails.Size = new System.Drawing.Size(902, 166);
             this.dgvCustDetails.TabIndex = 11;
             this.dgvCustDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustDetails_CellClick);
             this.dgvCustDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustDetails_CellContentClick);
             this.dgvCustDetails.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCustDetails_CellFormatting);
             this.dgvCustDetails.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCustDetails_CellMouseClick);
             this.dgvCustDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvCustDetails_RowPostPaint);
+            // 
+            // ctIssueDataTableBindingSource
+            // 
+            this.ctIssueDataTableBindingSource.DataSource = typeof(LibraryDesign_frontEndUI.BLSSchema.ctIssueDataTable);
             // 
             // ctIssueDataTableBindingSource2
             // 
@@ -205,7 +215,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnReturn);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Controls.Add(this.lblBalanceAmount);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblCustID);
@@ -216,22 +226,22 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblCustomerName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1133, 59);
+            this.groupBox1.Size = new System.Drawing.Size(1133, 135);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             // 
             // btnReturn
             // 
-            this.btnReturn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnReturn.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
+            this.btnReturn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReturn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(1011, 16);
+            this.btnReturn.Location = new System.Drawing.Point(3, 33);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(119, 40);
+            this.btnReturn.Size = new System.Drawing.Size(124, 53);
             this.btnReturn.TabIndex = 18;
-            this.btnReturn.Text = "Return";
+            this.btnReturn.Text = "RETURN";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
@@ -240,7 +250,7 @@
             this.lblBalanceAmount.AutoSize = true;
             this.lblBalanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalanceAmount.ForeColor = System.Drawing.Color.White;
-            this.lblBalanceAmount.Location = new System.Drawing.Point(875, 23);
+            this.lblBalanceAmount.Location = new System.Drawing.Point(326, 78);
             this.lblBalanceAmount.Name = "lblBalanceAmount";
             this.lblBalanceAmount.Size = new System.Drawing.Size(110, 16);
             this.lblBalanceAmount.TabIndex = 17;
@@ -251,7 +261,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(819, 22);
+            this.label5.Location = new System.Drawing.Point(268, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 16;
@@ -262,7 +272,7 @@
             this.lblCustID.AutoSize = true;
             this.lblCustID.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustID.ForeColor = System.Drawing.Color.White;
-            this.lblCustID.Location = new System.Drawing.Point(250, 24);
+            this.lblCustID.Location = new System.Drawing.Point(95, 78);
             this.lblCustID.Name = "lblCustID";
             this.lblCustID.Size = new System.Drawing.Size(89, 16);
             this.lblCustID.TabIndex = 17;
@@ -273,7 +283,7 @@
             this.lblCustomerType.AutoSize = true;
             this.lblCustomerType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerType.ForeColor = System.Drawing.Color.White;
-            this.lblCustomerType.Location = new System.Drawing.Point(449, 23);
+            this.lblCustomerType.Location = new System.Drawing.Point(581, 22);
             this.lblCustomerType.Name = "lblCustomerType";
             this.lblCustomerType.Size = new System.Drawing.Size(105, 16);
             this.lblCustomerType.TabIndex = 17;
@@ -284,7 +294,7 @@
             this.lblAdvance.AutoSize = true;
             this.lblAdvance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdvance.ForeColor = System.Drawing.Color.White;
-            this.lblAdvance.Location = new System.Drawing.Point(672, 22);
+            this.lblAdvance.Location = new System.Drawing.Point(349, 22);
             this.lblAdvance.Name = "lblAdvance";
             this.lblAdvance.Size = new System.Drawing.Size(114, 16);
             this.lblAdvance.TabIndex = 15;
@@ -295,7 +305,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(207, 23);
+            this.label2.Location = new System.Drawing.Point(60, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 16;
@@ -306,7 +316,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(393, 22);
+            this.label3.Location = new System.Drawing.Point(525, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
             this.label3.TabIndex = 16;
@@ -317,7 +327,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(587, 23);
+            this.label1.Location = new System.Drawing.Point(264, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 14;
@@ -328,7 +338,7 @@
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerName.ForeColor = System.Drawing.Color.White;
-            this.lblCustomerName.Location = new System.Drawing.Point(78, 22);
+            this.lblCustomerName.Location = new System.Drawing.Point(111, 22);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(110, 16);
             this.lblCustomerName.TabIndex = 15;
@@ -339,7 +349,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(22, 22);
+            this.label4.Location = new System.Drawing.Point(41, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 16);
             this.label4.TabIndex = 14;
@@ -352,10 +362,6 @@
             // ctReturnDataTableBindingSource
             // 
             this.ctReturnDataTableBindingSource.DataSource = typeof(LibraryDesign_frontEndUI.BLSSchema.ctReturnDataTable);
-            // 
-            // ctIssueDataTableBindingSource
-            // 
-            this.ctIssueDataTableBindingSource.DataSource = typeof(LibraryDesign_frontEndUI.BLSSchema.ctIssueDataTable);
             // 
             // ctIssueDataTableBindingSource1
             // 
@@ -413,9 +419,9 @@
             // 
             this.groupBox3.Controls.Add(this.dgvSelectedBooks);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 207);
+            this.groupBox3.Location = new System.Drawing.Point(3, 194);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(908, 215);
+            this.groupBox3.Size = new System.Drawing.Size(908, 201);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             // 
@@ -439,21 +445,102 @@
             this.earlyIssueDataGridViewCheckBoxColumn1,
             this.Remove});
             this.dgvSelectedBooks.DataSource = this.ctIssueBookListDataTableBindingSource1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSelectedBooks.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSelectedBooks.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSelectedBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSelectedBooks.Location = new System.Drawing.Point(3, 16);
             this.dgvSelectedBooks.Name = "dgvSelectedBooks";
-            this.dgvSelectedBooks.Size = new System.Drawing.Size(902, 196);
+            this.dgvSelectedBooks.Size = new System.Drawing.Size(902, 182);
             this.dgvSelectedBooks.TabIndex = 11;
             this.dgvSelectedBooks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectedBooks_CellClick);
             this.dgvSelectedBooks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSelectedBooks_CellFormatting);
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // SelectedTitle
+            // 
+            this.SelectedTitle.DataPropertyName = "Title";
+            this.SelectedTitle.HeaderText = "Title";
+            this.SelectedTitle.Name = "SelectedTitle";
+            // 
+            // SelectedAuthor
+            // 
+            this.SelectedAuthor.DataPropertyName = "Author";
+            this.SelectedAuthor.HeaderText = "Author";
+            this.SelectedAuthor.Name = "SelectedAuthor";
+            // 
+            // SelectedEdition
+            // 
+            this.SelectedEdition.DataPropertyName = "Edition";
+            this.SelectedEdition.HeaderText = "Edition";
+            this.SelectedEdition.Name = "SelectedEdition";
+            // 
+            // SelectedIssueDate
+            // 
+            this.SelectedIssueDate.DataPropertyName = "IssueDate";
+            this.SelectedIssueDate.HeaderText = "IssueDate";
+            this.SelectedIssueDate.Name = "SelectedIssueDate";
+            // 
+            // SelectedBookCount
+            // 
+            this.SelectedBookCount.DataPropertyName = "BookCount";
+            this.SelectedBookCount.HeaderText = "BookCount";
+            this.SelectedBookCount.Name = "SelectedBookCount";
+            // 
+            // SelectedBookPrice
+            // 
+            this.SelectedBookPrice.DataPropertyName = "BookPrice";
+            this.SelectedBookPrice.HeaderText = "BookPrice";
+            this.SelectedBookPrice.Name = "SelectedBookPrice";
+            // 
+            // recieptNumberDataGridViewTextBoxColumn
+            // 
+            this.recieptNumberDataGridViewTextBoxColumn.DataPropertyName = "RecieptNumber";
+            this.recieptNumberDataGridViewTextBoxColumn.HeaderText = "RecieptNumber";
+            this.recieptNumberDataGridViewTextBoxColumn.Name = "recieptNumberDataGridViewTextBoxColumn";
+            this.recieptNumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // SelectedReturndate
+            // 
+            this.SelectedReturndate.DataPropertyName = "Returndate";
+            this.SelectedReturndate.HeaderText = "Returndate";
+            this.SelectedReturndate.Name = "SelectedReturndate";
+            // 
+            // SelectedHistoryUID
+            // 
+            this.SelectedHistoryUID.DataPropertyName = "HistoryUID";
+            this.SelectedHistoryUID.HeaderText = "HistoryUID";
+            this.SelectedHistoryUID.Name = "SelectedHistoryUID";
+            this.SelectedHistoryUID.Visible = false;
+            // 
+            // earlyIssueDataGridViewCheckBoxColumn1
+            // 
+            this.earlyIssueDataGridViewCheckBoxColumn1.DataPropertyName = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn1.HeaderText = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn1.Name = "earlyIssueDataGridViewCheckBoxColumn1";
+            this.earlyIssueDataGridViewCheckBoxColumn1.Visible = false;
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "Remove";
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "Remove";
+            this.Remove.UseColumnTextForButtonValue = true;
+            // 
+            // ctIssueBookListDataTableBindingSource1
+            // 
+            this.ctIssueBookListDataTableBindingSource1.DataSource = typeof(LibraryDesign_frontEndUI.BLSSchema.ctIssueBookListDataTable);
             // 
             // blsSchema1
             // 
@@ -480,7 +567,7 @@
             this.grbInfoDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbInfoDisplay.Location = new System.Drawing.Point(3, 3);
             this.grbInfoDisplay.Name = "grbInfoDisplay";
-            this.grbInfoDisplay.Size = new System.Drawing.Size(201, 340);
+            this.grbInfoDisplay.Size = new System.Drawing.Size(201, 316);
             this.grbInfoDisplay.TabIndex = 33;
             this.grbInfoDisplay.TabStop = false;
             // 
@@ -618,14 +705,14 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
+            this.btnAdd.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
             this.btnAdd.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(42, 273);
+            this.btnAdd.Location = new System.Drawing.Point(46, 278);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(127, 57);
+            this.btnAdd.Size = new System.Drawing.Size(127, 32);
             this.btnAdd.TabIndex = 25;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -648,11 +735,11 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 65);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 141);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1133, 431);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1133, 404);
             this.tableLayoutPanel3.TabIndex = 34;
             // 
             // tableLayoutPanel4
@@ -667,7 +754,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.0315F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.9685F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(914, 425);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(914, 398);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -680,9 +767,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(923, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.491F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.509F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(207, 425);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.15578F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.84422F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(207, 398);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -694,7 +781,7 @@
             this.tableLayoutPanel5.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.lblBookCount, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.lblAmountPayable, 1, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 349);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 325);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -794,102 +881,64 @@
             this.earlyIssueDataGridViewCheckBoxColumn.Name = "earlyIssueDataGridViewCheckBoxColumn";
             this.earlyIssueDataGridViewCheckBoxColumn.Visible = false;
             // 
-            // Return
+            // Select
             // 
-            this.Return.DataPropertyName = "Return";
-            this.Return.FalseValue = "False";
-            this.Return.HeaderText = "Select";
-            this.Return.Name = "Return";
-            this.Return.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Return.TrueValue = "True";
+            this.Select.DataPropertyName = "Select";
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Select.Text = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
             // 
-            // ctIssueBookListDataTableBindingSource1
+            // tableLayoutPanel2
             // 
-            this.ctIssueBookListDataTableBindingSource1.DataSource = typeof(LibraryDesign_frontEndUI.BLSSchema.ctIssueBookListDataTable);
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.pbCustImage, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(858, 16);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(272, 116);
+            this.tableLayoutPanel2.TabIndex = 19;
             // 
-            // customerIDDataGridViewTextBoxColumn
+            // tableLayoutPanel6
             // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.Visible = false;
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.btnReturn, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(139, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.375F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.625F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(130, 110);
+            this.tableLayoutPanel6.TabIndex = 0;
             // 
-            // SelectedTitle
+            // pbCustImage
             // 
-            this.SelectedTitle.DataPropertyName = "Title";
-            this.SelectedTitle.HeaderText = "Title";
-            this.SelectedTitle.Name = "SelectedTitle";
-            // 
-            // SelectedAuthor
-            // 
-            this.SelectedAuthor.DataPropertyName = "Author";
-            this.SelectedAuthor.HeaderText = "Author";
-            this.SelectedAuthor.Name = "SelectedAuthor";
-            // 
-            // SelectedEdition
-            // 
-            this.SelectedEdition.DataPropertyName = "Edition";
-            this.SelectedEdition.HeaderText = "Edition";
-            this.SelectedEdition.Name = "SelectedEdition";
-            // 
-            // SelectedIssueDate
-            // 
-            this.SelectedIssueDate.DataPropertyName = "IssueDate";
-            this.SelectedIssueDate.HeaderText = "IssueDate";
-            this.SelectedIssueDate.Name = "SelectedIssueDate";
-            // 
-            // SelectedBookCount
-            // 
-            this.SelectedBookCount.DataPropertyName = "BookCount";
-            this.SelectedBookCount.HeaderText = "BookCount";
-            this.SelectedBookCount.Name = "SelectedBookCount";
-            // 
-            // SelectedBookPrice
-            // 
-            this.SelectedBookPrice.DataPropertyName = "BookPrice";
-            this.SelectedBookPrice.HeaderText = "BookPrice";
-            this.SelectedBookPrice.Name = "SelectedBookPrice";
-            // 
-            // recieptNumberDataGridViewTextBoxColumn
-            // 
-            this.recieptNumberDataGridViewTextBoxColumn.DataPropertyName = "RecieptNumber";
-            this.recieptNumberDataGridViewTextBoxColumn.HeaderText = "RecieptNumber";
-            this.recieptNumberDataGridViewTextBoxColumn.Name = "recieptNumberDataGridViewTextBoxColumn";
-            this.recieptNumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // SelectedReturndate
-            // 
-            this.SelectedReturndate.DataPropertyName = "Returndate";
-            this.SelectedReturndate.HeaderText = "Returndate";
-            this.SelectedReturndate.Name = "SelectedReturndate";
-            // 
-            // SelectedHistoryUID
-            // 
-            this.SelectedHistoryUID.DataPropertyName = "HistoryUID";
-            this.SelectedHistoryUID.HeaderText = "HistoryUID";
-            this.SelectedHistoryUID.Name = "SelectedHistoryUID";
-            this.SelectedHistoryUID.Visible = false;
-            // 
-            // earlyIssueDataGridViewCheckBoxColumn1
-            // 
-            this.earlyIssueDataGridViewCheckBoxColumn1.DataPropertyName = "EarlyIssue";
-            this.earlyIssueDataGridViewCheckBoxColumn1.HeaderText = "EarlyIssue";
-            this.earlyIssueDataGridViewCheckBoxColumn1.Name = "earlyIssueDataGridViewCheckBoxColumn1";
-            this.earlyIssueDataGridViewCheckBoxColumn1.Visible = false;
-            // 
-            // Remove
-            // 
-            this.Remove.HeaderText = "Remove";
-            this.Remove.Name = "Remove";
-            this.Remove.Text = "Remove";
-            this.Remove.UseColumnTextForButtonValue = true;
+            this.pbCustImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbCustImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbCustImage.ErrorImage")));
+            this.pbCustImage.Image = ((System.Drawing.Image)(resources.GetObject("pbCustImage.Image")));
+            this.pbCustImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbCustImage.InitialImage")));
+            this.pbCustImage.Location = new System.Drawing.Point(3, 3);
+            this.pbCustImage.Name = "pbCustImage";
+            this.pbCustImage.Size = new System.Drawing.Size(130, 110);
+            this.pbCustImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCustImage.TabIndex = 39;
+            this.pbCustImage.TabStop = false;
             // 
             // frmReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1133, 496);
+            this.ClientSize = new System.Drawing.Size(1133, 545);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmReturn";
@@ -897,6 +946,7 @@
             this.Text = "Return";
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctReturnDataTableBindingSource1)).EndInit();
@@ -905,13 +955,13 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctStockSearchDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctReturnDataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bLSSchema)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctCustomerBookDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectedBooks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blsSchema1)).EndInit();
             this.grbInfoDisplay.ResumeLayout(false);
             this.grbInfoDisplay.PerformLayout();
@@ -920,7 +970,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ctIssueBookListDataTableBindingSource1)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -981,20 +1033,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label lblBookCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Edition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookPublisher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IssueDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RecieptNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryUID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Returndate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn earlyIssueDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Return;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedAuthor;
@@ -1008,5 +1046,22 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn earlyIssueDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
         private System.Windows.Forms.BindingSource ctIssueBookListDataTableBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Edition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookPublisher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IssueDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecieptNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryUID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IssueType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Returndate;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn earlyIssueDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.PictureBox pbCustImage;
     }
 }

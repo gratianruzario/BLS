@@ -22,6 +22,8 @@ namespace LibraryDesign_frontEndUI
     public partial class frmRegisterCustomer : Form
     {
         LibMain _frmMainRef = null;
+        int _intDOBCounter = 1;
+        int _intDORCounter = 1;
 
         public delegate void delSendSMS(string strMessage, string strMobileNumber);
         public delegate void delSendEmail(string strToEmailAddress, string strMembershipNo, string strRecieptNo, string strAmountPaid, string strRegistrationDate, string strMembershipFee, Utility.CustomerType type);
@@ -90,7 +92,7 @@ namespace LibraryDesign_frontEndUI
                     #region [Calculate Max Limit]
 
                     float maxLimit = Program.MainObj.GetMaxLimit(strMemberShipType, float.Parse(txtDepositAmount.Text));
-                    
+
 
                     #endregion
 
@@ -102,7 +104,7 @@ namespace LibraryDesign_frontEndUI
                     if (string.IsNullOrWhiteSpace(txtCustImagePath.Text) != true)
                     {
                         //Copy customer image to destination folder
-                        strDestinationPath = Program.MainObj.CopyCustomerImage(txtCustImagePath.Text, Path.GetExtension(txtCustImagePath.Text.Trim()), strCustomerID);                       
+                        strDestinationPath = Program.MainObj.CopyCustomerImage(txtCustImagePath.Text, Path.GetExtension(txtCustImagePath.Text.Trim()), strCustomerID);
                     }
 
                     #region [Construct Customer Table]
@@ -175,12 +177,12 @@ namespace LibraryDesign_frontEndUI
 
                         //if (chkExisting.Checked)
                         //{
-                            //frmStudentRegister2 frmAddBooks = new frmStudentRegister2(row.CustName, row.Student_Mobile, row.AdvanceAmount, row.BalanceAmount);
-                            //frmAddBooks._intCustomerId = row.CustomerID;
-                            //frmAddBooks._strMemberShipType = row.MembershipType;
-                            //frmAddBooks._intMemberShipPeriod = int.Parse(row.MembershipPeriod);
-                            //frmAddBooks.ShowDialog();
-                            //Close();
+                        //frmStudentRegister2 frmAddBooks = new frmStudentRegister2(row.CustName, row.Student_Mobile, row.AdvanceAmount, row.BalanceAmount);
+                        //frmAddBooks._intCustomerId = row.CustomerID;
+                        //frmAddBooks._strMemberShipType = row.MembershipType;
+                        //frmAddBooks._intMemberShipPeriod = int.Parse(row.MembershipPeriod);
+                        //frmAddBooks.ShowDialog();
+                        //Close();
                         //}
                         //else
                         //{
@@ -220,7 +222,7 @@ namespace LibraryDesign_frontEndUI
                             txtNumber.Focus();
                         }
 
-                       // Program.MainObj._DbBack.TakeDifferentialBackUp();
+                        // Program.MainObj._DbBack.TakeDifferentialBackUp();
 
                         //Close();
                         ResetAllFields();
@@ -529,7 +531,7 @@ namespace LibraryDesign_frontEndUI
                 chkSendEmail.Checked = true;
                 chkSendSMS.Checked = true;
             }
-            dtpDob.ResetText();            
+            dtpDob.ResetText();
             txtMembershipType.SelectedIndex = 0;
             txtCustImagePath.Text = "";
         }
@@ -604,7 +606,7 @@ namespace LibraryDesign_frontEndUI
             txtBalanceamount.Text = "0";
             txtReciptNo.Text = "";
             txtMemberShipPeriod.Text = "0";
-            
+
             if (txtMembershipType.Text == "Rental")
             {
                 txtAdvanceAmount.Visible = true;
@@ -674,7 +676,7 @@ namespace LibraryDesign_frontEndUI
             {
                 if (txtNumber.ReadOnly)
                 {
-                txtNumber.ReadOnly = false;
+                    txtNumber.ReadOnly = false;
                 }
                 txtNumber.BackColor = System.Drawing.Color.White;
                 dtpDOR.Visible = true;
@@ -733,7 +735,7 @@ namespace LibraryDesign_frontEndUI
             {
                 txtNumber.BackColor = System.Drawing.Color.White;
             }
-            
+
             Program.MainObj.ActivateOrDeAcivateTextBox(sender, true);
             Program.MainObj.SpeakText("Customer name");
         }
@@ -910,7 +912,7 @@ namespace LibraryDesign_frontEndUI
 
         }
 
-        #endregion    
+        #endregion
 
         private void txStudenttMobile_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -919,13 +921,13 @@ namespace LibraryDesign_frontEndUI
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
-           Char pressedKey = e.KeyChar;
+            Char pressedKey = e.KeyChar;
             Program.MainObj.Name_Validation(sender, e);
-             if ((int)pressedKey == 27)//Keypressed is Escape.
+            if ((int)pressedKey == 27)//Keypressed is Escape.
             {
                 txtName.Focus();
                 lbxNameContainer.Visible = false;
-        }
+            }
             else if ((int)pressedKey == 50)
             {
                 if (lbxNameContainer.Visible && lbxNameContainer.SelectedIndex + 1 < lbxNameContainer.Items.Count)
@@ -935,7 +937,7 @@ namespace LibraryDesign_frontEndUI
             }
             else if ((int)pressedKey == 56)
             {
-                if (lbxNameContainer.Visible && lbxNameContainer.SelectedIndex - 1 != -1 )
+                if (lbxNameContainer.Visible && lbxNameContainer.SelectedIndex - 1 != -1)
                 {
                     lbxNameContainer.SelectedIndex = lbxNameContainer.SelectedIndex - 1;
                 }
@@ -959,7 +961,7 @@ namespace LibraryDesign_frontEndUI
             {
                 txtFatherName.Focus();
                 lbxFatherNameContainer.Visible = false;
-        }
+            }
             else if ((int)pressedKey == 50)
             {
                 if (lbxFatherNameContainer.Visible && lbxFatherNameContainer.SelectedIndex + 1 < lbxFatherNameContainer.Items.Count)
@@ -1032,7 +1034,7 @@ namespace LibraryDesign_frontEndUI
         private void txtCourse_KeyPress(object sender, KeyPressEventArgs e)
         {
             Program.MainObj.Name_Validation(sender, e);
-            
+
         }
 
         private void txtCourseDuration_KeyPress(object sender, KeyPressEventArgs e)
@@ -1102,8 +1104,8 @@ namespace LibraryDesign_frontEndUI
             if (string.IsNullOrWhiteSpace(txtCollegeName.Text)) return;
             if (e.KeyValue != 27 && e.KeyValue != 13 && e.KeyValue != 98 && e.KeyValue != 104)
             {
-            GetAutoCompletionList(lbxCollegeContainer, "CollegeName", txtCollegeName.Text.Trim());
-        }
+                GetAutoCompletionList(lbxCollegeContainer, "CollegeName", txtCollegeName.Text.Trim());
+            }
         }
 
         private void lbxCollegeContainer_Click(object sender, EventArgs e)
@@ -1125,8 +1127,8 @@ namespace LibraryDesign_frontEndUI
 
             if (e.KeyValue != 27 && e.KeyValue != 13 && e.KeyValue != 98 && e.KeyValue != 104)
             {
-            GetAutoCompletionList(lbxNameContainer, "Name", txtName.Text.Trim());
-        }
+                GetAutoCompletionList(lbxNameContainer, "Name", txtName.Text.Trim());
+            }
 
         }
 
@@ -1173,9 +1175,9 @@ namespace LibraryDesign_frontEndUI
 
         private void lbxAddressContainer_Click(object sender, EventArgs e)
         {
-            
+
         }
-       
+
         private void GetAutoCompletionList(ListBox lbx, string strFilterName, string strFilterValue)
         {
             try
@@ -1198,28 +1200,18 @@ namespace LibraryDesign_frontEndUI
             catch (Exception ex)
             {
                 //log exception
-                Utility.WriteToFile(ex, "Error occured while retrieving customer records.");               
+                Utility.WriteToFile(ex, "Error occured while retrieving customer records.");
             }
         }
 
 
-        #endregion         
-                       
+        #endregion
+
         private void txtCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
             int Duration = Program.MainObj.dictCourseDuration[txtCourse.Text];
             txtMemberShipPeriod.Text = txtCourseDuration.Text = Duration.ToString();
-            
-        }
 
-        private void dtpDob_Enter(object sender, EventArgs e)
-        {
-            Program.MainObj.SpeakText("Birth date");
-        }
-
-        private void dtpDOR_Enter(object sender, EventArgs e)
-        {
-            Program.MainObj.SpeakText("Registration date");
         }
 
         private void label11_Enter(object sender, EventArgs e)
@@ -1241,7 +1233,68 @@ namespace LibraryDesign_frontEndUI
         {
             Program.MainObj.SpeakText("Press enter to save the details.");
         }
-                       
+
+        private void dtpDob_Enter(object sender, EventArgs e)
+        {
+            Program.MainObj.SpeakText("Birth date");
+            if (_intDOBCounter > 1)
+            {
+                int intPOS = _intDOBCounter - 1;
+                string strCommand = "{LEFT " + intPOS + "}";
+                SendKeys.Send(strCommand);
+            }
+        }
+
+        private void dtpDob_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+            {
+                if (_intDOBCounter < 3)
+                {
+                    _intDOBCounter++;
+                }
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                if (_intDOBCounter > 1)
+                {
+                    _intDOBCounter--;
+                }
+
+            }
+
+        }
+
+        private void dtpDOR_Enter(object sender, EventArgs e)
+        {
+            Program.MainObj.SpeakText("Registration date");
+            if (_intDORCounter > 1)
+            {
+                int intPOS = _intDORCounter - 1;
+                string strCommand = "{LEFT " + intPOS + "}";
+                SendKeys.Send(strCommand);
+            }
+        }
+
+        private void dtpDOR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+            {
+                if (_intDORCounter < 3)
+                {
+                    _intDORCounter++;
+                }
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                if (_intDORCounter > 1)
+                {
+                    _intDORCounter--;
+                }
+
+            }
+        }
+
     }
 }
 
