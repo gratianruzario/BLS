@@ -940,7 +940,7 @@ namespace LibraryDesign_frontEndUI
 
         internal bool PerformReturnProcessForRental(string strCustomerID, string strtitle, string strAuthor, 
             string strEdition, string strPublisher,float fltPrice, string strHistoryUID, int intBookCount,
-            float fltAdvanceAmount,float fltBalanceAmount)
+            float fltAdvanceAmount,float fltBalanceAmount,float fltRefundAmount)
         {
             try
             {
@@ -957,6 +957,7 @@ namespace LibraryDesign_frontEndUI
                 cmd.Parameters.Add("@BookCount", SqlDbType.Int).Value = intBookCount;
                 cmd.Parameters.Add("@AdvanceAmount", SqlDbType.Float).Value = fltAdvanceAmount;
                 cmd.Parameters.Add("@BalanceAmount", SqlDbType.Float).Value = fltBalanceAmount;
+                cmd.Parameters.Add("@RefundAmount", SqlDbType.Float).Value = fltRefundAmount;
                 SqlParameter outputIdParam = new SqlParameter("@Status", SqlDbType.Bit)
                 {
                     Direction = ParameterDirection.Output

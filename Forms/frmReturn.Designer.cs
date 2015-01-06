@@ -234,7 +234,7 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
+            //this.btnReturn.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
             this.btnReturn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReturn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(3, 33);
@@ -705,7 +705,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
+            //this.btnAdd.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
             this.btnAdd.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(46, 278);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

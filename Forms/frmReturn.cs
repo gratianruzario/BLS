@@ -652,9 +652,15 @@ namespace LibraryDesign_frontEndUI
                     strPublisher = _dtSelectedReturnBooks[intI]["Publisher"].ToString();
                     fltPrice = float.Parse(_dtSelectedReturnBooks[intI]["BookPrice"].ToString());
                     strUID = _dtSelectedReturnBooks[intI]["HistoryUID"].ToString();
-                    
+                    float fltRefundAmt = 0;
+                    DataRow[] dt = _dtTemp.Select("ID = '" + strUID + "'");
+                    if (dt != null)
+                    {
+                        fltRefundAmt = float.Parse(dt[0]["RefundAmount"].ToString());                        
+                    }        
+
                     if (BL.PerformReturnProcessForRental(_strCustomerID, strTitle, strAuthor, strEdition,
-                            strPublisher, fltPrice, strUID, 1, fltadvance, fltBalance))
+                            strPublisher, fltPrice, strUID, 1, fltadvance, fltBalance, fltRefundAmt))
                     {                      
                         blnReturnstatus = true;                         
                     }
