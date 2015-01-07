@@ -11,7 +11,6 @@ namespace LibraryDesign_frontEndUI
 {
     public partial class frmMultiIssue : Form
     {
-        BLSSchema.ctStockDataTable _dtNewIssue = new BLSSchema.ctStockDataTable();
         internal int _intCustomerID = 2013140002;
         internal string _strMemberShipType = string.Empty;
         internal float _fltCurrentBookAmount = 0;
@@ -34,8 +33,10 @@ namespace LibraryDesign_frontEndUI
 
             if (dgvStudentBooks.Columns[e.ColumnIndex].HeaderText == "Remove")
             {
-                _dtNewIssue.Rows.RemoveAt(e.RowIndex);
-                dgvStudentBooks.DataSource = _dtNewIssue;
+                BLSSchema.ctStockSearchDataTable ctSelectedStockItems = ((BLSSchema.ctStockSearchDataTable)(dgvStudentBooks.DataSource));
+
+                ctSelectedStockItems.Rows.RemoveAt(e.RowIndex);
+                dgvStudentBooks.DataSource = ctSelectedStockItems;
             }
             else
             {
