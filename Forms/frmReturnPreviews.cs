@@ -13,7 +13,13 @@ namespace LibraryDesign_frontEndUI.Forms
     public partial class frmReturnPreviews : Form
     {
         bool _blnKeyOk = false;
-        
+
+        internal string _strCheckNumber = string.Empty;
+
+        internal string _strCheckClearnaceDate = string.Empty;
+
+        internal string _strCheckAmount = string.Empty;
+
         internal float fltCustomerPaidAmount = 0;
 
         internal bool blnCustomerCanceled = false;
@@ -36,6 +42,8 @@ namespace LibraryDesign_frontEndUI.Forms
 
         internal string _strPreviousBalance = string.Empty;
 
+        internal string _strName = string.Empty;
+
         internal int _intBookCount = 0;
         
         public frmReturnPreviews(frmReturn refToParent)
@@ -43,36 +51,7 @@ namespace LibraryDesign_frontEndUI.Forms
             InitializeComponent();
             _frmRefToParent = refToParent;                               
            
-        }
-
-        //private void CalculateTotalAmountPayable()
-        //{
-        //    bool blnTotalAmountSet = false;
-        //    if (float.Parse(_strPreviousAdvance) > 0)
-        //    {
-        //        _fltTotalAmtPayable = fltAmountPayable + float.Parse(_strPreviousAdvance);
-        //        blnTotalAmountSet = true;
-        //    }
-
-        //    if (float.Parse(_strPreviousBalance) > 0)
-        //    {
-        //        if (float.Parse(_strPreviousBalance) >= fltAmountPayable)
-        //        {
-        //            _fltBalance = float.Parse(_strPreviousBalance) - _fltTotalAmtPayable;
-        //            _fltTotalAmtPayable = 0;
-        //        }
-        //        else
-        //        {
-        //            _fltTotalAmtPayable = fltAmountPayable - float.Parse(_strPreviousBalance);
-        //        }
-        //        blnTotalAmountSet = true;
-        //    }
-
-        //    if (!blnTotalAmountSet)
-        //    {
-        //        _fltTotalAmtPayable = fltAmountPayable;
-        //    }
-        //}
+        }       
 
         private int GetExtraDays(string strReturndate)
         {
@@ -107,6 +86,10 @@ namespace LibraryDesign_frontEndUI.Forms
             if (float.Parse(txtTotalAmountPayable.Text) > 0)
             {
                 frmAmount frmAmt = new frmAmount(this,"Return");
+                frmAmt.lblName.Text = txtCustName.Text;
+                frmAmt.lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                frmAmt.txtAmount.Text = txtTotalAmountPayable.Text;
+                frmAmt.lblAmount.Text = Program.MainObj.NumberToWords(int.Parse(txtTotalAmountPayable.Text));
                 frmAmt.ShowDialog();
             }
             
@@ -133,7 +116,9 @@ namespace LibraryDesign_frontEndUI.Forms
                     _fltBalance = 0;
                     _frmRefToParent.lblBalanceAmount.Text = "0";
                 }
-
+                _frmRefToParent._strCheckAmount = _strCheckAmount;
+                _frmRefToParent._strCheckClearnaceDate = _strCheckClearnaceDate;
+                _frmRefToParent._strCheckNumber = _strCheckNumber;
                 Close();
             }
         }

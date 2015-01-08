@@ -17,6 +17,9 @@ namespace LibraryDesign_frontEndUI
         int _intColumnIndex = -1;
         internal int _intCurrentSelectedCount = 0;
         bool _blnIsChecked = false;
+        internal string _strCheckNumber = string.Empty;
+        internal string _strCheckClearnaceDate = string.Empty;
+        internal string _strCheckAmount = string.Empty;
 
         internal bool _blnCancelledFromPreview = false;
 
@@ -144,85 +147,9 @@ namespace LibraryDesign_frontEndUI
 
                     if (_strMemberShipType == "Non-Rental")
                     {
-                        if (MessageBox.Show("Are you sure.you want to return this book?", "Return Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-
-                            /**********************************************************************************
-                             * Modified By : Shankar
-                             * Changed int CustomerID to string CustomerID
-                            **********************************************************************************/
-                            if(BL.PerformReturnProcess(_strCustomerID,strTitle, strAuthor, strEdition,
-                                strPublisher,fltPrice, strUID, intBookCount))
-                            {
-                                Search();
-
-                                _frmParentref.Search(_frmParentref._strLastQuery);
-
-                                MessageBox.Show("Return Process Completed", "Success");
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("Issue details not found", "Error");
-                            }
-                        }
+                        
                     }
-                    #endregion
-
-                    #region [Perform Rental Return]
-                    else if (_strMemberShipType == "Rental" || _strMemberShipType == "R")
-                    {                                               
-                        if (!_blnCancelledFromPreview)
-                        {                           
-                            /**********************************************************************************
-                             * Modified By : Shankar
-                             * Changed int CustomerID to string CustomerID
-                            **********************************************************************************/
-                            //if (BL.PerformReturnProcessForRental(_strCustomerID, strTitle, strAuthor, strEdition,
-                            //    strPublisher,fltPrice,strUID, intBookCount,float.Parse(lblAdvance.Text),
-                            //    float.Parse(lblBalanceAmount.Text)))
-                            //{
-                            //    Search();
-
-                            //    _frmParentref.Search(_frmParentref._strLastQuery);
-
-                            //    MessageBox.Show("Return Process Completed", "Success");
-                               
-                            //}
-                            //else
-                            //{
-                            //    MessageBox.Show("Issue details not found", "Error");
-                            //}''
-
-                            //dgvCustDetails row = dgvCustDetails.Rows[e.RowIndex];
-                            //int CustomerId = int.parse(row.Cells[0].Text);// to get the column value
-                            //CheckBox checkbox1 = (CheckBox)dgvCustDetails.Rows[e.RowIndex].;                           
-                            
-                            //if (dgvCustDetails.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Select")
-                            //{
-                            //    dgvCustDetails.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "Deselect";
-                            //    dgvCustDetails.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Lime;
-                            //}
-                            //else
-                            //{
-                            //    dgvCustDetails.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "Select";
-                            //    dgvCustDetails.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.SeaGreen;
-                            //}
-                            
-                            //if (dgvCustDetails.Rows[e.RowIndex].DefaultCellStyle.BackColor == System.Drawing.Color.Lime)
-                            //{
-                            //    dgvCustDetails.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.SeaGreen;
-                            //}
-                            //else
-                            //{
-                            //    dgvCustDetails.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Lime;                                
-                            //}
-                             
-
-                        }
-
-                    }
-                    #endregion
+                    #endregion                    
 
                     #region [Perform Other Return]
                     else //Type is other.
@@ -382,10 +309,7 @@ namespace LibraryDesign_frontEndUI
             }
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {            
-        }        
+              
 
         /// <summary>
         /// Select the rows and set background color when checkbox is checked
@@ -446,16 +370,7 @@ namespace LibraryDesign_frontEndUI
             float PercntAmt = (fltPrice / 100) * fltPercntDeduction;
             RefundAmount = fltPrice - PercntAmt;
             return RefundAmount;
-        }
-
-        private void dgvCustDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {            
-            if (dgvCustDetails.Columns[e.ColumnIndex].HeaderText == "Select" && (_strMemberShipType == "Rental" || _strMemberShipType == "R"))
-            {
-                CalculateDueAndDisplayInfo(dgvCustDetails, e.RowIndex, e.ColumnIndex,true);
-            }
-        
-        }
+        }     
 
         private void dgvCustDetails_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -601,19 +516,35 @@ namespace LibraryDesign_frontEndUI
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
-        {
-            if (_dtSelectedReturnBooks.Rows.Count > 0)
+        {            
+            if (_dtSelectedReturnBooks.Rows.Count > 0 )
             {
-                frmReturnPreviews frmRtnPrv = new frmReturnPreviews(this);
-                frmRtnPrv.txtPreviousAdvance.Text = lblAdvance.Text;
-                frmRtnPrv.txtPreviousBalance.Text = lblBalanceAmount.Text;
-                frmRtnPrv.txtCustName.Text = lblCustomerName.Text;
-                frmRtnPrv.BookCount.Text = lblBookCount.Text;
-                frmRtnPrv.txtAmountPayable.Text = lblAmountPayable.Text;
-                frmRtnPrv.ShowDialog();
-                if (!_blnCancelledFromPreview)
+                if (_strMemberShipType == "R" || _strMemberShipType == "Rental")
                 {
-                    ReturnRentalBooks();
+                    if (MessageBox.Show("Are you sure.you want to return this book(s)?",
+                        "Return Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        frmReturnPreviews frmRtnPrv = new frmReturnPreviews(this);
+                        frmRtnPrv.txtPreviousAdvance.Text = lblAdvance.Text;
+                        frmRtnPrv.txtPreviousBalance.Text = lblBalanceAmount.Text;
+                        frmRtnPrv.txtCustName.Text = lblCustomerName.Text;
+                        frmRtnPrv.BookCount.Text = lblBookCount.Text;
+                        frmRtnPrv.txtAmountPayable.Text = lblAmountPayable.Text;
+                        frmRtnPrv._strName = lblCustomerName.Text;
+                        frmRtnPrv.ShowDialog();
+                        if (!_blnCancelledFromPreview)
+                        {
+                            ReturnRentalBooks();
+                        }
+                    }
+                }
+                else if (_strMemberShipType == "N" || _strMemberShipType == "Non-Rental")
+                {
+                    if (MessageBox.Show("Are you sure.you want to return this book(s)?",
+                        "Return Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ReturnNonRentalBooks();
+                    }
                 }
              
             }
@@ -669,7 +600,9 @@ namespace LibraryDesign_frontEndUI
 
                 if (blnReturnstatus)
                 {
-                    _dtSelectedReturnBooks.Rows.Clear();                    
+                    BL.AddCheckDetails(lblCustID.Text, _strCheckNumber, _strCheckAmount, _strCheckClearnaceDate);
+
+                    _dtSelectedReturnBooks.Rows.Clear(); 
                     
                     Search(); 
 
@@ -683,6 +616,68 @@ namespace LibraryDesign_frontEndUI
                 }
             
             
+
+        }
+
+        private void ReturnNonRentalBooks()
+        {
+            BusinessLogic BL = new BusinessLogic();            
+            string strTitle = string.Empty;
+            string strAuthor = string.Empty;
+            string strEdition = string.Empty;
+            string strPublisher = string.Empty;
+            float fltPrice = 0;
+            string strUID = string.Empty;
+            bool blnReturnstatus = false;
+            int intRowCount = _dtSelectedReturnBooks.Rows.Count;
+            for (int intI = 0; intI < intRowCount; intI++)
+            {   
+                strTitle = _dtSelectedReturnBooks[intI]["Title"].ToString();
+                strAuthor = _dtSelectedReturnBooks[intI]["Author"].ToString();
+                strEdition = _dtSelectedReturnBooks[intI]["Edition"].ToString();
+                strPublisher = _dtSelectedReturnBooks[intI]["Publisher"].ToString();
+                fltPrice = float.Parse(_dtSelectedReturnBooks[intI]["BookPrice"].ToString());
+                strUID = _dtSelectedReturnBooks[intI]["HistoryUID"].ToString();                
+                if (BL.PerformReturnProcess(_strCustomerID, strTitle, strAuthor, strEdition,
+                            strPublisher, fltPrice, strUID, 1))
+                {
+                    blnReturnstatus = true;
+                }
+            }
+
+            if (blnReturnstatus)
+            { 
+                _dtSelectedReturnBooks.Rows.Clear();
+
+                Search();
+
+                _frmParentref.Search(_frmParentref._strLastQuery);
+
+                MessageBox.Show("Return Process Completed", "Success");
+            }
+            else
+            {
+                MessageBox.Show("Error while returning one or more books.\nPlease repeat the return process", "Success");
+            }
+
+
+
+        }
+
+        private void dgvCustDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCustDetails.Columns[e.ColumnIndex].HeaderText == "Select")
+            {
+                if ((_strMemberShipType == "Rental" || _strMemberShipType == "R"))
+                {
+                    CalculateDueAndDisplayInfo(dgvCustDetails, e.RowIndex, e.ColumnIndex, true);
+                }
+                else if (_strMemberShipType == "Non-Rental" || _strMemberShipType == "N")
+                {
+                    
+                }
+            }
+
 
         }
         

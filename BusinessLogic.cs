@@ -1235,5 +1235,33 @@ namespace LibraryDesign_frontEndUI
         }
 
         #endregion
+
+
+        internal void AddCheckDetails(string strCustomerID,string strCheckNumber,
+            string strCheckAmount, string strCheckClearanceDate)
+        {
+            try
+            {
+                _sqlConnection.Open();
+                SqlCommand cmd = new SqlCommand("up_usr_Execute_Insert_Check_Details", _sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@CustomerID", SqlDbType.VarChar).Value = strCustomerID;
+                cmd.Parameters.Add("@CheckNumber", SqlDbType.VarChar).Value = strCheckNumber;
+                cmd.Parameters.Add("@CheckAmount", SqlDbType.Float).Value = float.Parse(strCheckAmount);
+                cmd.Parameters.Add("@ClearanceDate", SqlDbType.Date).Value = DateTime.Parse(strCheckClearanceDate);
+                cmd.Parameters.Add("@CheckIssueDate", SqlDbType.Date).Value = DateTime.Now;
+                cmd.Parameters.Add("@CheckStatus", SqlDbType.VarChar).Value = "PNDNG";           
+                cmd.ExecuteNonQuery();                
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException(ex.ToString());
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
+           
+        }
     }
 }
