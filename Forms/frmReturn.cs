@@ -47,6 +47,7 @@ namespace LibraryDesign_frontEndUI
             _strMemberShipType = strelements[4];
             lblCustomerName.Text = strelements[5];
             lblCustomerType.Text = Program.MainObj.GetDetailedCustomerType(strelements[4]);
+            btnAdd.Enabled = (strelements[4]=="R")?true:false;
             lblAdvance.Text = strelements[6];
             lblBalanceAmount.Text = strelements[7];            
             lblAmountPayable.Text = "0";
@@ -148,6 +149,10 @@ namespace LibraryDesign_frontEndUI
                     if (_strMemberShipType == "Non-Rental")
                     {
                         
+                    }
+                    else if (_strMemberShipType == "R")
+                    {
+
                     }
                     #endregion                    
 
