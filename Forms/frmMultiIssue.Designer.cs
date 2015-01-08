@@ -933,7 +933,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dgvStudentBooks;
+        internal System.Windows.Forms.DataGridView dgvStudentBooks;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnIssue;
         private System.Windows.Forms.Button btnAdd;

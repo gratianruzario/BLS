@@ -25,6 +25,7 @@ namespace LibraryDesign_frontEndUI
         string _strAuthor = string.Empty;
         string _strYear = string.Empty;
         internal BLSSchema _BSchema = new BLSSchema();
+      
         string _strColumns = "[ISBN],[Title],[Author],[Year],[Edition],[Publisher],[Count],[OriginalPrice],[Discount],[PurchasePrice],[PriceChangable],[OutCount]";
 
         #endregion
@@ -33,6 +34,9 @@ namespace LibraryDesign_frontEndUI
         {
             InitializeComponent();
             _frmParentRef = frmRef;
+
+            _BSchema.ctStockSearch.Clear();
+            SearchButtonClick();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -64,7 +68,7 @@ namespace LibraryDesign_frontEndUI
                 _BSchema.ctStockSearch.Clear();
                 BLgc.GetStock(_BSchema, strQuery);
                 dgvStockSearchResult.DataSource = _BSchema.ctStockSearch;
-              
+
                 /*
                  * if (_frmParentRef == null && _frmPlaceOrderRef == null && _frmAddStockRef == null)
                 {
@@ -258,6 +262,8 @@ namespace LibraryDesign_frontEndUI
 
         private void dgvStockSearchResult_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            BLSSchema.ctStockSearchDataTable _ctSelectedStockItems = new BLSSchema.ctStockSearchDataTable();
+
             if (e.RowIndex != -1)
             {
                 _intRowIndex = e.RowIndex;
@@ -265,20 +271,60 @@ namespace LibraryDesign_frontEndUI
 
                 try
                 {
-                    
+
                     if (e.ColumnIndex == dgvStockSearchResult.ColumnCount - 1 && _frmParentRef != null)
                     {
-                        //_frmParentRef.txtSelectedISBN.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();                        
-                        //_frmParentRef.txtSelectedTitle.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Title"].Value.ToString();
-                        //_frmParentRef.txtSelectedPublisher.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Publisher"].Value.ToString();
-                        //_frmParentRef.txtSelectedAuthor.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Author"].Value.ToString();
-                        //_frmParentRef.txtSelectedEdition.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
-                        //_frmParentRef.txtSelectedYear.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Year"].Value.ToString();
-                        //_frmParentRef.txtBookPrice.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["OriginalPrice"].Value.ToString();
-                        //_frmParentRef.txtPurchasedPrice.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["PurchasePrice"].Value.ToString();
-                        //_frmParentRef._intMaxAvailableCount = int.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["Count"].Value.ToString());
+                        BLSSchema.ctStockSearchDataTable ctStockSearch = ((BLSSchema.ctStockSearchDataTable)(dgvStockSearchResult.DataSource));
+                        
+                        BLSSchema.ctStockSearchRow stockSearchRow = _ctSelectedStockItems.NewctStockSearchRow();
 
-                      //  _frmParentRef.d
+                        stockSearchRow.ISBN = dgvStockSearchResult.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();
+                        stockSearchRow.Title = dgvStockSearchResult.Rows[e.RowIndex].Cells["Title"].Value.ToString();
+                        stockSearchRow.Author = dgvStockSearchResult.Rows[e.RowIndex].Cells["Author"].Value.ToString();
+                        stockSearchRow.Year = dgvStockSearchResult.Rows[e.RowIndex].Cells["Year"].Value.ToString();
+                        stockSearchRow.Edition = dgvStockSearchResult.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
+                        stockSearchRow.Publisher = dgvStockSearchResult.Rows[e.RowIndex].Cells["Publisher"].Value.ToString();
+                        stockSearchRow.Count = int.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["Count"].Value.ToString());
+
+                        stockSearchRow.OriginalPrice = dgvStockSearchResult.Rows[e.RowIndex].Cells["OriginalPrice"].Value.ToString();
+                        stockSearchRow.PurchasePrice = dgvStockSearchResult.Rows[e.RowIndex].Cells["PurchasePrice"].Value.ToString();
+
+
+                        stockSearchRow.PriceChangable = bool.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["PriceChangable"].Value.ToString());
+                        stockSearchRow.Discount = double.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["Discount"].Value.ToString());
+                        stockSearchRow.OutCount = int.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["OutCount"].Value.ToString());
+
+                        if (_frmParentRef.dgvStudentBooks.Rows.Count > 0)
+                        {
+                            _ctSelectedStockItems = ((BLSSchema.ctStockSearchDataTable)(_frmParentRef.dgvStudentBooks.DataSource));
+                        }
+
+
+                        //Check if the book is already selected
+                        bool blnIsAlreadySelected = false;
+                        foreach (DataRow dr in _ctSelectedStockItems.Rows)
+                        {
+                            var array1 = stockSearchRow.ItemArray;
+                            var array2 = dr.ItemArray;
+
+                            if (array1.SequenceEqual(array2))
+                            {
+                                blnIsAlreadySelected = true;
+                                break;
+                            }                          
+                        }
+                        if (blnIsAlreadySelected)
+                        {
+                            MessageBox.Show("This book is already selected.", "Error");
+                            return;
+                        }
+                        
+                        //Add the selected row to the parent gridview for issuing
+                        if (_ctSelectedStockItems.Rows.Count == 0 || !blnIsAlreadySelected)
+                        {
+                            _ctSelectedStockItems.Rows.Add(stockSearchRow.ItemArray);
+                        }
+                        _frmParentRef.dgvStudentBooks.DataSource = _ctSelectedStockItems;
 
                         Close();
                     }
@@ -312,7 +358,7 @@ namespace LibraryDesign_frontEndUI
         }
 
         private void frmCustomerSearch1_Activated(object sender, EventArgs e)
-        {          
+        {
             SearchButtonClick();
         }
 
@@ -325,7 +371,7 @@ namespace LibraryDesign_frontEndUI
                 SearchButtonClick();
             }
         }
-              
+
         private void txtTitle_TextChanged(object sender, EventArgs e)
         {
             _BSchema.ctStockSearch.Clear();
