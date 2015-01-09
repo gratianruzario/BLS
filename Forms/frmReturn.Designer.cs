@@ -29,17 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReturn));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCustDetails = new System.Windows.Forms.DataGridView();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookPublisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecieptNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.earlyIssueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ctIssueDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctIssueDataTableBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.ctIssueBookListDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctReturnDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ctCustomerDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pbCustImage = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReturn = new System.Windows.Forms.Button();
             this.lblBalanceAmount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,9 +73,8 @@
             this.bLSSchema = new LibraryDesign_frontEndUI.BLSSchema();
             this.ctCustomerBookDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ctIssueBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblAmountPayable = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotAmtDisplay = new System.Windows.Forms.Label();
+            this.lblBookCountDisplay = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvSelectedBooks = new System.Windows.Forms.DataGridView();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,24 +111,9 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblBookCount = new System.Windows.Forms.Label();
-            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookPublisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecieptNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.earlyIssueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblAmountPayable = new System.Windows.Forms.Label();
+            this.lblBooksCount = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.pbCustImage = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource)).BeginInit();
@@ -122,6 +122,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctReturnDataTableBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctCustomerDataTableBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).BeginInit();
+            this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctStockSearchDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctReturnDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource1)).BeginInit();
@@ -138,8 +140,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -148,7 +148,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(908, 185);
+            this.groupBox2.Size = new System.Drawing.Size(908, 170);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             // 
@@ -174,24 +174,115 @@
             this.earlyIssueDataGridViewCheckBoxColumn,
             this.Select});
             this.dgvCustDetails.DataSource = this.ctIssueDataTableBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCustDetails.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCustDetails.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCustDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustDetails.Location = new System.Drawing.Point(3, 16);
             this.dgvCustDetails.Name = "dgvCustDetails";
-            this.dgvCustDetails.Size = new System.Drawing.Size(902, 166);
+            this.dgvCustDetails.Size = new System.Drawing.Size(902, 151);
             this.dgvCustDetails.TabIndex = 11;
             this.dgvCustDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustDetails_CellClick);
             this.dgvCustDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustDetails_CellContentClick);
             this.dgvCustDetails.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvCustDetails_CellFormatting);
             this.dgvCustDetails.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCustDetails_CellMouseClick);
             this.dgvCustDetails.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvCustDetails_RowPostPaint);
+            // 
+            // CustomerID
+            // 
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "CustomerID";
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.Visible = false;
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            // 
+            // Author
+            // 
+            this.Author.DataPropertyName = "Author";
+            this.Author.HeaderText = "Author";
+            this.Author.Name = "Author";
+            // 
+            // Edition
+            // 
+            this.Edition.DataPropertyName = "Edition";
+            this.Edition.HeaderText = "Edition";
+            this.Edition.Name = "Edition";
+            // 
+            // BookPublisher
+            // 
+            this.BookPublisher.DataPropertyName = "Publisher";
+            this.BookPublisher.HeaderText = "Publisher";
+            this.BookPublisher.Name = "BookPublisher";
+            // 
+            // IssueDate
+            // 
+            this.IssueDate.DataPropertyName = "IssueDate";
+            this.IssueDate.HeaderText = "IssueDate";
+            this.IssueDate.Name = "IssueDate";
+            // 
+            // BookCount
+            // 
+            this.BookCount.DataPropertyName = "BookCount";
+            this.BookCount.HeaderText = "BookCount";
+            this.BookCount.Name = "BookCount";
+            // 
+            // BookPrice
+            // 
+            this.BookPrice.DataPropertyName = "BookPrice";
+            this.BookPrice.HeaderText = "BookPrice";
+            this.BookPrice.Name = "BookPrice";
+            // 
+            // RecieptNumber
+            // 
+            this.RecieptNumber.DataPropertyName = "RecieptNumber";
+            this.RecieptNumber.HeaderText = "RecieptNumber";
+            this.RecieptNumber.Name = "RecieptNumber";
+            this.RecieptNumber.Visible = false;
+            // 
+            // HistoryUID
+            // 
+            this.HistoryUID.DataPropertyName = "HistoryUID";
+            this.HistoryUID.HeaderText = "HistoryUID";
+            this.HistoryUID.Name = "HistoryUID";
+            this.HistoryUID.Visible = false;
+            // 
+            // IssueType
+            // 
+            this.IssueType.DataPropertyName = "IssueType";
+            this.IssueType.HeaderText = "IssueType";
+            this.IssueType.Name = "IssueType";
+            // 
+            // Returndate
+            // 
+            this.Returndate.DataPropertyName = "Returndate";
+            this.Returndate.HeaderText = "Returndate";
+            this.Returndate.Name = "Returndate";
+            // 
+            // earlyIssueDataGridViewCheckBoxColumn
+            // 
+            this.earlyIssueDataGridViewCheckBoxColumn.DataPropertyName = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn.HeaderText = "EarlyIssue";
+            this.earlyIssueDataGridViewCheckBoxColumn.Name = "earlyIssueDataGridViewCheckBoxColumn";
+            this.earlyIssueDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // Select
+            // 
+            this.Select.DataPropertyName = "Select";
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Select.Text = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
             // 
             // ctIssueDataTableBindingSource
             // 
@@ -215,7 +306,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel6);
             this.groupBox1.Controls.Add(this.lblBalanceAmount);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblCustID);
@@ -226,20 +317,48 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblCustomerName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1133, 135);
+            this.groupBox1.Size = new System.Drawing.Size(973, 94);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             // 
+            // pbCustImage
+            // 
+            this.pbCustImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbCustImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbCustImage.ErrorImage")));
+            this.pbCustImage.Image = ((System.Drawing.Image)(resources.GetObject("pbCustImage.Image")));
+            this.pbCustImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbCustImage.InitialImage")));
+            this.pbCustImage.Location = new System.Drawing.Point(982, 3);
+            this.pbCustImage.Name = "pbCustImage";
+            this.pbCustImage.Size = new System.Drawing.Size(148, 94);
+            this.pbCustImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCustImage.TabIndex = 39;
+            this.pbCustImage.TabStop = false;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.btnReturn, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(840, 16);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.375F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.625F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(130, 75);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
             // btnReturn
             // 
-            //this.btnReturn.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
+            this.btnReturn.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources._009___Copy2;
             this.btnReturn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReturn.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(3, 33);
+            this.btnReturn.Location = new System.Drawing.Point(3, 21);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(124, 53);
+            this.btnReturn.Size = new System.Drawing.Size(124, 30);
             this.btnReturn.TabIndex = 18;
             this.btnReturn.Text = "RETURN";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -250,7 +369,7 @@
             this.lblBalanceAmount.AutoSize = true;
             this.lblBalanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalanceAmount.ForeColor = System.Drawing.Color.White;
-            this.lblBalanceAmount.Location = new System.Drawing.Point(326, 78);
+            this.lblBalanceAmount.Location = new System.Drawing.Point(326, 62);
             this.lblBalanceAmount.Name = "lblBalanceAmount";
             this.lblBalanceAmount.Size = new System.Drawing.Size(110, 16);
             this.lblBalanceAmount.TabIndex = 17;
@@ -261,7 +380,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(268, 78);
+            this.label5.Location = new System.Drawing.Point(268, 62);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 16;
@@ -272,7 +391,7 @@
             this.lblCustID.AutoSize = true;
             this.lblCustID.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustID.ForeColor = System.Drawing.Color.White;
-            this.lblCustID.Location = new System.Drawing.Point(95, 78);
+            this.lblCustID.Location = new System.Drawing.Point(95, 62);
             this.lblCustID.Name = "lblCustID";
             this.lblCustID.Size = new System.Drawing.Size(89, 16);
             this.lblCustID.TabIndex = 17;
@@ -283,7 +402,7 @@
             this.lblCustomerType.AutoSize = true;
             this.lblCustomerType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerType.ForeColor = System.Drawing.Color.White;
-            this.lblCustomerType.Location = new System.Drawing.Point(581, 22);
+            this.lblCustomerType.Location = new System.Drawing.Point(573, 22);
             this.lblCustomerType.Name = "lblCustomerType";
             this.lblCustomerType.Size = new System.Drawing.Size(105, 16);
             this.lblCustomerType.TabIndex = 17;
@@ -294,7 +413,7 @@
             this.lblAdvance.AutoSize = true;
             this.lblAdvance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdvance.ForeColor = System.Drawing.Color.White;
-            this.lblAdvance.Location = new System.Drawing.Point(349, 22);
+            this.lblAdvance.Location = new System.Drawing.Point(327, 22);
             this.lblAdvance.Name = "lblAdvance";
             this.lblAdvance.Size = new System.Drawing.Size(114, 16);
             this.lblAdvance.TabIndex = 15;
@@ -305,7 +424,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(60, 78);
+            this.label2.Location = new System.Drawing.Point(60, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 16;
@@ -338,7 +457,7 @@
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerName.ForeColor = System.Drawing.Color.White;
-            this.lblCustomerName.Location = new System.Drawing.Point(111, 22);
+            this.lblCustomerName.Location = new System.Drawing.Point(95, 22);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(110, 16);
             this.lblCustomerName.TabIndex = 15;
@@ -382,46 +501,35 @@
             this.ctIssueBindingSource.DataMember = "ctIssue";
             this.ctIssueBindingSource.DataSource = this.bLSSchema;
             // 
-            // label7
+            // lblTotAmtDisplay
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 34);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Total Amount Payable :";
+            this.lblTotAmtDisplay.AutoSize = true;
+            this.lblTotAmtDisplay.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotAmtDisplay.ForeColor = System.Drawing.Color.White;
+            this.lblTotAmtDisplay.Location = new System.Drawing.Point(3, 17);
+            this.lblTotAmtDisplay.Name = "lblTotAmtDisplay";
+            this.lblTotAmtDisplay.Size = new System.Drawing.Size(68, 17);
+            this.lblTotAmtDisplay.TabIndex = 17;
+            this.lblTotAmtDisplay.Text = "Total Amount Payable :";
             // 
-            // lblAmountPayable
+            // lblBookCountDisplay
             // 
-            this.lblAmountPayable.AutoSize = true;
-            this.lblAmountPayable.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmountPayable.ForeColor = System.Drawing.Color.White;
-            this.lblAmountPayable.Location = new System.Drawing.Point(97, 33);
-            this.lblAmountPayable.Name = "lblAmountPayable";
-            this.lblAmountPayable.Size = new System.Drawing.Size(16, 16);
-            this.lblAmountPayable.TabIndex = 16;
-            this.lblAmountPayable.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 16);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Book Count:";
+            this.lblBookCountDisplay.AutoSize = true;
+            this.lblBookCountDisplay.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookCountDisplay.ForeColor = System.Drawing.Color.White;
+            this.lblBookCountDisplay.Location = new System.Drawing.Point(3, 0);
+            this.lblBookCountDisplay.Name = "lblBookCountDisplay";
+            this.lblBookCountDisplay.Size = new System.Drawing.Size(86, 16);
+            this.lblBookCountDisplay.TabIndex = 17;
+            this.lblBookCountDisplay.Text = "Book Count:";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgvSelectedBooks);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 194);
+            this.groupBox3.Location = new System.Drawing.Point(3, 179);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(908, 201);
+            this.groupBox3.Size = new System.Drawing.Size(908, 186);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             // 
@@ -445,18 +553,18 @@
             this.earlyIssueDataGridViewCheckBoxColumn1,
             this.Remove});
             this.dgvSelectedBooks.DataSource = this.ctIssueBookListDataTableBindingSource1;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSelectedBooks.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSelectedBooks.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSelectedBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSelectedBooks.Location = new System.Drawing.Point(3, 16);
             this.dgvSelectedBooks.Name = "dgvSelectedBooks";
-            this.dgvSelectedBooks.Size = new System.Drawing.Size(902, 182);
+            this.dgvSelectedBooks.Size = new System.Drawing.Size(902, 167);
             this.dgvSelectedBooks.TabIndex = 11;
             this.dgvSelectedBooks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectedBooks_CellClick);
             this.dgvSelectedBooks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSelectedBooks_CellFormatting);
@@ -567,14 +675,14 @@
             this.grbInfoDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbInfoDisplay.Location = new System.Drawing.Point(3, 3);
             this.grbInfoDisplay.Name = "grbInfoDisplay";
-            this.grbInfoDisplay.Size = new System.Drawing.Size(201, 316);
+            this.grbInfoDisplay.Size = new System.Drawing.Size(201, 322);
             this.grbInfoDisplay.TabIndex = 33;
             this.grbInfoDisplay.TabStop = false;
             // 
             // txtRefundAmt
             // 
             this.txtRefundAmt.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtRefundAmt.Location = new System.Drawing.Point(102, 240);
+            this.txtRefundAmt.Location = new System.Drawing.Point(102, 232);
             this.txtRefundAmt.Name = "txtRefundAmt";
             this.txtRefundAmt.ReadOnly = true;
             this.txtRefundAmt.Size = new System.Drawing.Size(88, 20);
@@ -582,7 +690,7 @@
             // 
             // txtPercentDeduction
             // 
-            this.txtPercentDeduction.Location = new System.Drawing.Point(102, 205);
+            this.txtPercentDeduction.Location = new System.Drawing.Point(102, 197);
             this.txtPercentDeduction.Name = "txtPercentDeduction";
             this.txtPercentDeduction.Size = new System.Drawing.Size(88, 20);
             this.txtPercentDeduction.TabIndex = 35;
@@ -593,7 +701,7 @@
             // txtBookCount
             // 
             this.txtBookCount.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtBookCount.Location = new System.Drawing.Point(102, 167);
+            this.txtBookCount.Location = new System.Drawing.Point(102, 159);
             this.txtBookCount.Name = "txtBookCount";
             this.txtBookCount.ReadOnly = true;
             this.txtBookCount.Size = new System.Drawing.Size(88, 20);
@@ -603,7 +711,7 @@
             // txtBookPrice
             // 
             this.txtBookPrice.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtBookPrice.Location = new System.Drawing.Point(103, 132);
+            this.txtBookPrice.Location = new System.Drawing.Point(103, 124);
             this.txtBookPrice.Name = "txtBookPrice";
             this.txtBookPrice.ReadOnly = true;
             this.txtBookPrice.Size = new System.Drawing.Size(87, 20);
@@ -612,7 +720,7 @@
             // txtReturnDate
             // 
             this.txtReturnDate.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtReturnDate.Location = new System.Drawing.Point(102, 61);
+            this.txtReturnDate.Location = new System.Drawing.Point(102, 53);
             this.txtReturnDate.Name = "txtReturnDate";
             this.txtReturnDate.ReadOnly = true;
             this.txtReturnDate.Size = new System.Drawing.Size(88, 20);
@@ -621,7 +729,7 @@
             // txtExtraDays
             // 
             this.txtExtraDays.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtExtraDays.Location = new System.Drawing.Point(103, 98);
+            this.txtExtraDays.Location = new System.Drawing.Point(103, 90);
             this.txtExtraDays.Name = "txtExtraDays";
             this.txtExtraDays.ReadOnly = true;
             this.txtExtraDays.Size = new System.Drawing.Size(87, 20);
@@ -631,7 +739,7 @@
             // txtIssueDate
             // 
             this.txtIssueDate.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtIssueDate.Location = new System.Drawing.Point(103, 27);
+            this.txtIssueDate.Location = new System.Drawing.Point(103, 19);
             this.txtIssueDate.Name = "txtIssueDate";
             this.txtIssueDate.ReadOnly = true;
             this.txtIssueDate.Size = new System.Drawing.Size(87, 20);
@@ -642,7 +750,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(22, 241);
+            this.label15.Location = new System.Drawing.Point(22, 233);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(77, 16);
             this.label15.TabIndex = 31;
@@ -653,7 +761,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(21, 132);
+            this.label14.Location = new System.Drawing.Point(21, 124);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(76, 16);
             this.label14.TabIndex = 30;
@@ -664,7 +772,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(9, 205);
+            this.label13.Location = new System.Drawing.Point(9, 197);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 16);
             this.label13.TabIndex = 29;
@@ -675,7 +783,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(17, 167);
+            this.label12.Location = new System.Drawing.Point(17, 159);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 16);
             this.label12.TabIndex = 28;
@@ -686,7 +794,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(20, 99);
+            this.label11.Location = new System.Drawing.Point(20, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 16);
             this.label11.TabIndex = 27;
@@ -697,7 +805,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(26, 61);
+            this.label10.Location = new System.Drawing.Point(26, 53);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(69, 16);
             this.label10.TabIndex = 26;
@@ -705,9 +813,9 @@
             // 
             // btnAdd
             // 
-            //this.btnAdd.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources.glass_01;
+            this.btnAdd.BackgroundImage = global::LibraryDesign_frontEndUI.Properties.Resources._009___Copy2;
             this.btnAdd.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(46, 278);
+            this.btnAdd.Location = new System.Drawing.Point(43, 265);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 32);
@@ -721,7 +829,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(20, 27);
+            this.label9.Location = new System.Drawing.Point(20, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 16);
             this.label9.TabIndex = 15;
@@ -735,11 +843,11 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 141);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 111);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1133, 404);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1133, 374);
             this.tableLayoutPanel3.TabIndex = 34;
             // 
             // tableLayoutPanel4
@@ -754,7 +862,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.0315F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.9685F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(914, 398);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(914, 368);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -767,9 +875,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(923, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.15578F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.84422F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(207, 398);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.19598F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.80402F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(207, 368);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -777,170 +885,63 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.78899F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.21101F));
-            this.tableLayoutPanel5.Controls.Add(this.label7, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lblBookCount, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lblTotAmtDisplay, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.lblBookCountDisplay, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lblBooksCount, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.lblAmountPayable, 1, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 325);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 331);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(201, 67);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(201, 34);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // lblBookCount
+            // lblAmountPayable
             // 
-            this.lblBookCount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookCount.ForeColor = System.Drawing.Color.White;
-            this.lblBookCount.Location = new System.Drawing.Point(97, 0);
-            this.lblBookCount.Name = "lblBookCount";
-            this.lblBookCount.Size = new System.Drawing.Size(16, 16);
-            this.lblBookCount.TabIndex = 16;
-            this.lblBookCount.Text = "0";
+            this.lblAmountPayable.AutoSize = true;
+            this.lblAmountPayable.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountPayable.ForeColor = System.Drawing.Color.White;
+            this.lblAmountPayable.Location = new System.Drawing.Point(97, 17);
+            this.lblAmountPayable.Name = "lblAmountPayable";
+            this.lblAmountPayable.Size = new System.Drawing.Size(16, 16);
+            this.lblAmountPayable.TabIndex = 16;
+            this.lblAmountPayable.Text = "0";
             // 
-            // CustomerID
+            // lblBooksCount
             // 
-            this.CustomerID.DataPropertyName = "CustomerID";
-            this.CustomerID.HeaderText = "CustomerID";
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.Visible = false;
-            // 
-            // Title
-            // 
-            this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            // 
-            // Author
-            // 
-            this.Author.DataPropertyName = "Author";
-            this.Author.HeaderText = "Author";
-            this.Author.Name = "Author";
-            // 
-            // Edition
-            // 
-            this.Edition.DataPropertyName = "Edition";
-            this.Edition.HeaderText = "Edition";
-            this.Edition.Name = "Edition";
-            // 
-            // BookPublisher
-            // 
-            this.BookPublisher.DataPropertyName = "Publisher";
-            this.BookPublisher.HeaderText = "Publisher";
-            this.BookPublisher.Name = "BookPublisher";
-            // 
-            // IssueDate
-            // 
-            this.IssueDate.DataPropertyName = "IssueDate";
-            this.IssueDate.HeaderText = "IssueDate";
-            this.IssueDate.Name = "IssueDate";
-            // 
-            // BookCount
-            // 
-            this.BookCount.DataPropertyName = "BookCount";
-            this.BookCount.HeaderText = "BookCount";
-            this.BookCount.Name = "BookCount";
-            // 
-            // BookPrice
-            // 
-            this.BookPrice.DataPropertyName = "BookPrice";
-            this.BookPrice.HeaderText = "BookPrice";
-            this.BookPrice.Name = "BookPrice";
-            // 
-            // RecieptNumber
-            // 
-            this.RecieptNumber.DataPropertyName = "RecieptNumber";
-            this.RecieptNumber.HeaderText = "RecieptNumber";
-            this.RecieptNumber.Name = "RecieptNumber";
-            this.RecieptNumber.Visible = false;
-            // 
-            // HistoryUID
-            // 
-            this.HistoryUID.DataPropertyName = "HistoryUID";
-            this.HistoryUID.HeaderText = "HistoryUID";
-            this.HistoryUID.Name = "HistoryUID";
-            this.HistoryUID.Visible = false;
-            // 
-            // IssueType
-            // 
-            this.IssueType.DataPropertyName = "IssueType";
-            this.IssueType.HeaderText = "IssueType";
-            this.IssueType.Name = "IssueType";
-            // 
-            // Returndate
-            // 
-            this.Returndate.DataPropertyName = "Returndate";
-            this.Returndate.HeaderText = "Returndate";
-            this.Returndate.Name = "Returndate";
-            // 
-            // earlyIssueDataGridViewCheckBoxColumn
-            // 
-            this.earlyIssueDataGridViewCheckBoxColumn.DataPropertyName = "EarlyIssue";
-            this.earlyIssueDataGridViewCheckBoxColumn.HeaderText = "EarlyIssue";
-            this.earlyIssueDataGridViewCheckBoxColumn.Name = "earlyIssueDataGridViewCheckBoxColumn";
-            this.earlyIssueDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // Select
-            // 
-            this.Select.DataPropertyName = "Select";
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Select.Text = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
+            this.lblBooksCount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblBooksCount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBooksCount.ForeColor = System.Drawing.Color.White;
+            this.lblBooksCount.Location = new System.Drawing.Point(97, 0);
+            this.lblBooksCount.Name = "lblBooksCount";
+            this.lblBooksCount.Size = new System.Drawing.Size(93, 17);
+            this.lblBooksCount.TabIndex = 16;
+            this.lblBooksCount.Text = "0";
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.pbCustImage, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(858, 16);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.43006F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.56994F));
+            this.tableLayoutPanel2.Controls.Add(this.pbCustImage, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(272, 116);
-            this.tableLayoutPanel2.TabIndex = 19;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.btnReturn, 0, 1);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(139, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.375F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.625F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(130, 110);
-            this.tableLayoutPanel6.TabIndex = 0;
-            // 
-            // pbCustImage
-            // 
-            this.pbCustImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbCustImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbCustImage.ErrorImage")));
-            this.pbCustImage.Image = ((System.Drawing.Image)(resources.GetObject("pbCustImage.Image")));
-            this.pbCustImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbCustImage.InitialImage")));
-            this.pbCustImage.Location = new System.Drawing.Point(3, 3);
-            this.pbCustImage.Name = "pbCustImage";
-            this.pbCustImage.Size = new System.Drawing.Size(130, 110);
-            this.pbCustImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCustImage.TabIndex = 39;
-            this.pbCustImage.TabStop = false;
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1133, 100);
+            this.tableLayoutPanel2.TabIndex = 40;
             // 
             // frmReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1133, 545);
+            this.ClientSize = new System.Drawing.Size(1133, 485);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel3);
-            this.Controls.Add(this.groupBox1);
             this.Name = "frmReturn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return";
@@ -953,6 +954,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctCustomerDataTableBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).EndInit();
+            this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ctStockSearchDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctReturnDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctIssueDataTableBindingSource1)).EndInit();
@@ -971,8 +974,6 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1003,9 +1004,8 @@
         private System.Windows.Forms.Label lblCustID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource ctIssueDataTableBindingSource2;
-        private System.Windows.Forms.Label lblAmountPayable;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTotAmtDisplay;
+        private System.Windows.Forms.Label lblBookCountDisplay;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvSelectedBooks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
@@ -1031,7 +1031,6 @@
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label lblBookCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedTitle;
@@ -1060,8 +1059,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Returndate;
         private System.Windows.Forms.DataGridViewCheckBoxColumn earlyIssueDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.PictureBox pbCustImage;
+        private System.Windows.Forms.Label lblBooksCount;
+        private System.Windows.Forms.Label lblAmountPayable;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

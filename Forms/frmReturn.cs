@@ -47,15 +47,26 @@ namespace LibraryDesign_frontEndUI
             _strMemberShipType = strelements[4];
             lblCustomerName.Text = strelements[5];
             lblCustomerType.Text = Program.MainObj.GetDetailedCustomerType(strelements[4]);
-            btnAdd.Enabled = (strelements[4]=="R")?true:false;
+            btnAdd.Visible = (strelements[4]=="R")?true:false;
             lblAdvance.Text = strelements[6];
-            lblBalanceAmount.Text = strelements[7];            
-            lblAmountPayable.Text = "0";
-            lblBookCount.Text = "";
-            lblBookCount.Text = "0";
+            lblBalanceAmount.Text = strelements[7];                     
             pbCustImage.ImageLocation = strelements[8];
+            lblBooksCount.Text = "";
+            lblAmountPayable.Text = "";
             _frmParentref = frmRef;
             _Bschema.ctTemp.Clear();
+            if (strelements[4] == "N")
+            {
+                lblBookCountDisplay.Text = "Max Limit";
+                lblTotAmtDisplay.Text = "Used Limit";               
+                lblBooksCount.Text = strelements[9];
+                lblAmountPayable.Text = strelements[10];
+            }
+            else
+            {
+                lblBooksCount.Text = "0";
+                lblAmountPayable.Text = "0";
+            }
             Search();
         }
 
@@ -120,128 +131,128 @@ namespace LibraryDesign_frontEndUI
 
         private void dgvCustDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            BusinessLogic BL = new BusinessLogic();
-            if (e.RowIndex != -1&&e.ColumnIndex!=-1)
-            {
+            //BusinessLogic BL = new BusinessLogic();
+            //if (e.RowIndex != -1&&e.ColumnIndex!=-1)
+            //{
 
-                #region[Save grid values to variables]
+            //    #region[Save grid values to variables]
 
-                string strTitle = dgvCustDetails.Rows[e.RowIndex].Cells["Title"].Value.ToString();
+            //    string strTitle = dgvCustDetails.Rows[e.RowIndex].Cells["Title"].Value.ToString();
 
-                string strAuthor = dgvCustDetails.Rows[e.RowIndex].Cells["Author"].Value.ToString();
+            //    string strAuthor = dgvCustDetails.Rows[e.RowIndex].Cells["Author"].Value.ToString();
 
-                string strEdition = dgvCustDetails.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
+            //    string strEdition = dgvCustDetails.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
 
-                string strPublisher = dgvCustDetails.Rows[e.RowIndex].Cells["BookPublisher"].Value.ToString();
+            //    string strPublisher = dgvCustDetails.Rows[e.RowIndex].Cells["BookPublisher"].Value.ToString();
 
-                float fltPrice = float.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["BookPrice"].Value.ToString());
+            //    float fltPrice = float.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["BookPrice"].Value.ToString());
 
-                string strUID = dgvCustDetails.Rows[e.RowIndex].Cells["HistoryUID"].Value.ToString();
+            //    string strUID = dgvCustDetails.Rows[e.RowIndex].Cells["HistoryUID"].Value.ToString();
 
-                int intBookCount = int.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["BookCount"].Value.ToString());
+            //    int intBookCount = int.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["BookCount"].Value.ToString());
 
-                #endregion
+            //    #endregion
 
-                if (dgvCustDetails.Columns[e.ColumnIndex].HeaderText.ToString() == "Select")
-                {
-                    #region [Perform Non Rental Return]
+            //    if (dgvCustDetails.Columns[e.ColumnIndex].HeaderText.ToString() == "Select")
+            //    {
+            //        #region [Perform Non Rental Return]
 
-                    if (_strMemberShipType == "Non-Rental")
-                    {
+            //        if (_strMemberShipType == "N")
+            //        {
                         
-                    }
-                    else if (_strMemberShipType == "R")
-                    {
+            //        }
+            //        else if (_strMemberShipType == "R")
+            //        {
 
-                    }
-                    #endregion                    
+            //        }
+            //        #endregion                    
 
-                    #region [Perform Other Return]
-                    else //Type is other.
-                    {
-                        frmReturnPreviewOther frmRtnPrv = new frmReturnPreviewOther(lblCustomerName.Text, lblAdvance.Text, lblBalanceAmount.Text,
-                            dgvCustDetails.Rows[e.RowIndex],this);
-                        frmRtnPrv.ShowDialog();
-                        if (!_blnCancelledFromPreview)
-                        {
-                            /**********************************************************************************
-                             * Modified By : Shankar
-                             * Changed int CustomerID to string CustomerID
-                            **********************************************************************************/
-                            if (BL.PerformReturnProcessForOther(_strCustomerID, strTitle, strAuthor, strEdition,
-                                strPublisher,fltPrice, strUID, intBookCount, float.Parse(lblAdvance.Text),
-                                float.Parse(lblBalanceAmount.Text)))
-                            {
-                                Search();
+            //        #region [Perform Other Return]
+            //        else //Type is other.
+            //        {
+            //            //frmReturnPreviewOther frmRtnPrv = new frmReturnPreviewOther(lblCustomerName.Text, lblAdvance.Text, lblBalanceAmount.Text,
+            //            //    dgvCustDetails.Rows[e.RowIndex],this);
+            //            //frmRtnPrv.ShowDialog();
+            //            //if (!_blnCancelledFromPreview)
+            //            //{
+            //            //    /**********************************************************************************
+            //            //     * Modified By : Shankar
+            //            //     * Changed int CustomerID to string CustomerID
+            //            //    **********************************************************************************/
+            //            //    if (BL.PerformReturnProcessForOther(_strCustomerID, strTitle, strAuthor, strEdition,
+            //            //        strPublisher,fltPrice, strUID, intBookCount, float.Parse(lblAdvance.Text),
+            //            //        float.Parse(lblBalanceAmount.Text)))
+            //            //    {
+            //            //        Search();
 
-                                _frmParentref.Search(_frmParentref._strLastQuery);
+            //            //        _frmParentref.Search(_frmParentref._strLastQuery);
 
-                                MessageBox.Show("Return Process Completed", "Success");
+            //            //        MessageBox.Show("Return Process Completed", "Success");
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("Issue details not found", "Error");
-                            }
-                        }
+            //            //    }
+            //            //    else
+            //            //    {
+            //            //        MessageBox.Show("Issue details not found", "Error");
+            //            //    }
+            //            //}
 
 
-                    }
-                    #endregion
-                }
-                else if (dgvCustDetails.Columns[e.ColumnIndex].HeaderText.ToString() == "Remove")
-                {
-                    //condition here.
-                    if (MessageBox.Show("Are you sure.you want to delete this record?", "Delete Confirmation?", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        if (_strMemberShipType == "Non-Rental")
-                        {
-                            /**********************************************************************************
-                             * Modified By : Shankar
-                             * Changed int CustomerID to string CustomerID
-                            **********************************************************************************/
-                            if (BL.DeleteIssuedBookEntries_NonRental(_strCustomerID, strTitle, strAuthor, 
-                                strEdition,strPublisher, fltPrice,strUID, intBookCount, 
-                                bool.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["EarlyIssue"].Value.ToString())))
-                            {
-                                Search();
+            //        }
+            //        #endregion
+            //    }
+            //    else if (dgvCustDetails.Columns[e.ColumnIndex].HeaderText.ToString() == "Remove")
+            //    {
+            //        //condition here.
+            //        if (MessageBox.Show("Are you sure.you want to delete this record?", "Delete Confirmation?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //        {
+            //            if (_strMemberShipType == "Non-Rental")
+            //            {
+            //                /**********************************************************************************
+            //                 * Modified By : Shankar
+            //                 * Changed int CustomerID to string CustomerID
+            //                **********************************************************************************/
+            //                if (BL.DeleteIssuedBookEntries_NonRental(_strCustomerID, strTitle, strAuthor, 
+            //                    strEdition,strPublisher, fltPrice,strUID, intBookCount, 
+            //                    bool.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["EarlyIssue"].Value.ToString())))
+            //                {
+            //                    Search();
 
-                                _frmParentref.Search(_frmParentref._strLastQuery);
+            //                    _frmParentref.Search(_frmParentref._strLastQuery);
 
-                                MessageBox.Show("Book entry has been removed", "Success");
+            //                    MessageBox.Show("Book entry has been removed", "Success");
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("Some error occured while removing book entry.\n Please try after some time.", "Error");
-                            }
-                        }
-                        else
-                        {
-                            /**********************************************************************************
-                             * Modified By : Shankar
-                             * Changed int CustomerID to string CustomerID
-                            **********************************************************************************/
-                            if (BL.DeleteIssuedBookEntries_Rental(_strCustomerID, strTitle, strAuthor,
-                                strEdition, strPublisher,fltPrice,strUID, intBookCount, 
-                                bool.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["EarlyIssue"].Value.ToString())))
-                            {                               
-                                MessageBox.Show("Book entry has been removed", "Success");
-                                Search();
-                                _frmParentref.Search(_frmParentref._strLastQuery);
+            //                }
+            //                else
+            //                {
+            //                    MessageBox.Show("Some error occured while removing book entry.\n Please try after some time.", "Error");
+            //                }
+            //            }
+            //            else
+            //            {
+            //                /**********************************************************************************
+            //                 * Modified By : Shankar
+            //                 * Changed int CustomerID to string CustomerID
+            //                **********************************************************************************/
+            //                if (BL.DeleteIssuedBookEntries_Rental(_strCustomerID, strTitle, strAuthor,
+            //                    strEdition, strPublisher,fltPrice,strUID, intBookCount, 
+            //                    bool.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["EarlyIssue"].Value.ToString())))
+            //                {                               
+            //                    MessageBox.Show("Book entry has been removed", "Success");
+            //                    Search();
+            //                    _frmParentref.Search(_frmParentref._strLastQuery);
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("Some error occured while removing book entry.\n Please try after some time.", "Error");
-                            }
+            //                }
+            //                else
+            //                {
+            //                    MessageBox.Show("Some error occured while removing book entry.\n Please try after some time.", "Error");
+            //                }
 
-                        }
-                    }
+            //            }
+            //        }
 
-                }
+            //    }
                  
-            }
+            //}
 
         }
 
@@ -258,24 +269,43 @@ namespace LibraryDesign_frontEndUI
             _blnCancelledFromPreview = false;
         }
 
-        private void UpdateAmounts(bool blnAdd,float fltRfAmount)
+        private void UpdateAmounts(bool blnAdd,float fltRfAmount,string strType)
         {            
             try
             {
                 float fltCurrentPayableAmount = 0;
                 int inttotalBookCount = 0;
-                if (blnAdd)
-                {
-                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) + float.Parse(txtRefundAmt.Text);
-                    inttotalBookCount = int.Parse(lblBookCount.Text) + int.Parse(txtBookCount.Text);                   
+                if (strType == "R")
+                {                   
+                    if (blnAdd)
+                    {
+                        fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) + float.Parse(txtRefundAmt.Text);
+                        inttotalBookCount = int.Parse(lblBooksCount.Text) + 1;
+                    }
+                    else
+                    {
+                        fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) - fltRfAmount;
+                        inttotalBookCount = int.Parse(lblBooksCount.Text) - 1;
+                    }
+                    
                 }
-                else
-                {                       
-                    fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) - fltRfAmount;
-                    inttotalBookCount = int.Parse(lblBookCount.Text)-1;  
+                else if (strType == "N")
+                {
+                    if (blnAdd)
+                    {
+                        fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) - fltRfAmount;
+                        //inttotalBookCount = int.Parse(lblBookCount.Text) + 1;
+                    }
+                    else
+                    {
+                        fltCurrentPayableAmount = float.Parse(lblAmountPayable.Text) + fltRfAmount;
+                        //inttotalBookCount = int.Parse(lblBookCount.Text) - 1;
+                    }
+
+
                 }
                 lblAmountPayable.Text = fltCurrentPayableAmount.ToString();
-                lblBookCount.Text = inttotalBookCount.ToString();
+                //lblBookCount.Text = inttotalBookCount.ToString();
             }
             catch (Exception ex)
             {
@@ -344,7 +374,7 @@ namespace LibraryDesign_frontEndUI
             _intRowIndex = intRowIndex;
             DataGridViewRow dgvrow = dgvCustDetails.Rows[intRowIndex];
 
-            _blnIsChecked = false;
+            _blnIsChecked = false; 
 
             txtIssueDate.Text = dgvCustDetails.Rows[intRowIndex].Cells["IssueDate"].Value.ToString().Substring(0, 10);
             txtReturnDate.Text = dgvCustDetails.Rows[intRowIndex].Cells["Returndate"].Value.ToString().Substring(0, 10);
@@ -396,13 +426,18 @@ namespace LibraryDesign_frontEndUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            AddSelectedToGrid(0,"R");
+        }
+
+        private void AddSelectedToGrid(float fltRefundAmount,string strType)
+        {
             bool blnAddedTotemp = false;
-            string strID = string.Empty; 
+            string strID = string.Empty;
             try
             {
                 if (_blnIsChecked)
                 {
-                    UpdateAmounts(true,0);
+                    UpdateAmounts(true, fltRefundAmount, strType);
                     BLSSchema.ctIssueBookListRow row = _dtSelectedReturnBooks.NewctIssueBookListRow();
                     BLSSchema.ctTempRow Temprow = _dtTemp.NewctTempRow();
                     row.CustomerID = dgvCustDetails.Rows[_intRowIndex].Cells["CustomerID"].Value.ToString();
@@ -419,23 +454,23 @@ namespace LibraryDesign_frontEndUI
                     row.IssueType = dgvCustDetails.Rows[_intRowIndex].Cells["IssueType"].Value.ToString();
                     //row.EarlyIssue = bool.Parse(dgvCustDetails.Rows[intRowIndex].Cells["EarlyIssue"].Value.ToString());
                     strID = Temprow.ID = dgvCustDetails.Rows[_intRowIndex].Cells["HistoryUID"].Value.ToString();
-                    Temprow.RefundAmount = txtRefundAmt.Text;
+                    Temprow.RefundAmount = (strType == "R") ? txtRefundAmt.Text : dgvCustDetails.Rows[_intRowIndex].Cells["BookPrice"].Value.ToString();
                     _dtSelectedReturnBooks.Rows.Add(row);
                     _dtTemp.Rows.Add(Temprow);
                     blnAddedTotemp = true;
                     dgvSelectedBooks.DataSource = _dtSelectedReturnBooks;
                     _Bschema.ctIssueBookList.RemovectIssueBookListRow(_Bschema.ctIssueBookList[_intRowIndex]);
-                     ClearTexts();
+                    ClearTexts();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 if (blnAddedTotemp)
                 {
                     DataRow[] dt = _dtTemp.Select("ID = '" + strID + "'");
-                    if(dt != null)
+                    if (dt != null)
                     {
-                    _dtTemp.RemovectTempRow((BLSSchema.ctTempRow)dt[0]);
+                        _dtTemp.RemovectTempRow((BLSSchema.ctTempRow)dt[0]);
                     }
                     DataRow[] dtSelectedBooks = _dtSelectedReturnBooks.Select("HistoryUID = '" + strID + "'");
                     if (dtSelectedBooks != null)
@@ -443,10 +478,9 @@ namespace LibraryDesign_frontEndUI
                         _dtSelectedReturnBooks.RemovectIssueBookListRow((BLSSchema.ctIssueBookListRow)dt[0]);
                     }
                 }
-                MessageBox.Show("Error occured while selecting record to return","Error");
+                MessageBox.Show("Error occured while selecting record to return", "Error");
             }
-
-        }        
+        }
 
         private void ClearTexts()
         {
@@ -511,7 +545,7 @@ namespace LibraryDesign_frontEndUI
                     //VerifyCheckedOrNot(dgvSelectedBooks, e.RowIndex, e.ColumnIndex, false);
                     DataRow[] dt = _dtTemp.Select("ID = '" + dgvSelectedBooks.Rows[e.RowIndex].Cells["SelectedHistoryUID"].Value.ToString() + "'");
                     float fltAmount = float.Parse(dt[0]["RefundAmount"].ToString());
-                    UpdateAmounts(false,fltAmount);                   
+                    UpdateAmounts(false,fltAmount,_strMemberShipType);                   
                     _Bschema.ctIssueBookList.ImportRow(_dtSelectedReturnBooks[e.RowIndex]);
                     _dtSelectedReturnBooks.RemovectIssueBookListRow(_dtSelectedReturnBooks[e.RowIndex]);
                     _dtTemp.RemovectTempRow((BLSSchema.ctTempRow)dt[0]);
@@ -533,7 +567,7 @@ namespace LibraryDesign_frontEndUI
                         frmRtnPrv.txtPreviousAdvance.Text = lblAdvance.Text;
                         frmRtnPrv.txtPreviousBalance.Text = lblBalanceAmount.Text;
                         frmRtnPrv.txtCustName.Text = lblCustomerName.Text;
-                        frmRtnPrv.BookCount.Text = lblBookCount.Text;
+                        frmRtnPrv.BookCount.Text = lblBooksCount.Text;
                         frmRtnPrv.txtAmountPayable.Text = lblAmountPayable.Text;
                         frmRtnPrv._strName = lblCustomerName.Text;
                         frmRtnPrv.ShowDialog();
@@ -596,7 +630,7 @@ namespace LibraryDesign_frontEndUI
                     }        
 
                     if (BL.PerformReturnProcessForRental(_strCustomerID, strTitle, strAuthor, strEdition,
-                            strPublisher, fltPrice, strUID, 1, fltadvance, fltBalance, fltRefundAmt))
+                            strPublisher, fltPrice, strUID, 1, fltadvance, fltBalance, fltRefundAmt,_strCheckNumber))
                     {                      
                         blnReturnstatus = true;                         
                     }
@@ -679,7 +713,8 @@ namespace LibraryDesign_frontEndUI
                 }
                 else if (_strMemberShipType == "Non-Rental" || _strMemberShipType == "N")
                 {
-                    
+                    _blnIsChecked = true;
+                    AddSelectedToGrid(float.Parse(dgvCustDetails.Rows[e.RowIndex].Cells["BookPrice"].Value.ToString()),"N");
                 }
             }
 

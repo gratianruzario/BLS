@@ -402,7 +402,7 @@
     <Content Include="BLSFullPackage\BLS-Release\LibraryDesign_frontEndUI.vshost.exe" />
     <Content Include="BLSFullPackage\BLS-Release\SmsClient.dll" />
     <Content Include="BLSFullPackage\DBScript\BLSFullScript.sql" />
-    <Content Include="DBScripts\BLSFullOnJan06Of2015.sql" />
+    <Content Include="DBScripts\BLSFullScript_Jan082015.sql" />
     <Content Include="DLLs\ASPSnippets.SmsAPI.dll" />
     <Content Include="DLLs\Microsoft.SqlServer.ConnectionInfo.dll" />
     <Content Include="DLLs\Microsoft.SqlServer.Management.Sdk.Sfc.dll" />

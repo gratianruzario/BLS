@@ -583,7 +583,7 @@ namespace LibraryDesign_frontEndUI
                     BLSSchema.ctCustomerRow foundRow = (BLSSchema.ctCustomerRow)_Bschema.ctCustomer.Rows.Find(strCustomerID);
                     if (int.Parse(foundRow.BookCount) > 0)
                     {
-                        string[] strCustElements = new string[9];
+                        string[] strCustElements = new string[11];
                         strCustElements[0] = foundRow.CustomerID.ToString();
                         strCustElements[1] = foundRow.Student_Mobile;
                         strCustElements[2] = foundRow.AdvanceAmount;
@@ -593,6 +593,8 @@ namespace LibraryDesign_frontEndUI
                         strCustElements[6] = foundRow.AdvanceAmount;
                         strCustElements[7] = foundRow.BalanceAmount;
                         strCustElements[8] = foundRow.ImagePath;
+                        strCustElements[9] = foundRow.MaxLimit;
+                        strCustElements[10] = foundRow.UsedLimit;
 
                         frmReturn frmReturnBook = new frmReturn(strCustElements, this);
                         frmReturnBook.MdiParent = this.MdiParent;

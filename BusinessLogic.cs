@@ -917,30 +917,48 @@ namespace LibraryDesign_frontEndUI
         internal bool PerformReturnProcess(string strCustomerID, string strtitle, string strAuthor, string strEdition,
            string strPublisher, float fltPrice, string strHistoryUID, int intBookCount)
         {
-            _sqlConnection.Open();
-            SqlCommand cmd = new SqlCommand("up_usr_Execute_Return", _sqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@CustomerID", SqlDbType.VarChar).Value = strCustomerID;
-            cmd.Parameters.Add("@Title", SqlDbType.VarChar).Value = strtitle;
-            cmd.Parameters.Add("@Author", SqlDbType.VarChar).Value = strAuthor;
-            cmd.Parameters.Add("@Edition", SqlDbType.VarChar).Value = strEdition;
-            cmd.Parameters.Add("@Publisher", SqlDbType.VarChar).Value = strPublisher;
-            cmd.Parameters.Add("@price", SqlDbType.Float).Value = fltPrice;
-            cmd.Parameters.Add("@HistoryUID", SqlDbType.VarChar).Value = strHistoryUID;
-            cmd.Parameters.Add("@BookCount", SqlDbType.Int).Value = intBookCount;
-           
-            SqlParameter outputIdParam = new SqlParameter("@Status", SqlDbType.Bit)
+            if (_sqlConnection.State != ConnectionState.Open)
             {
-                Direction = ParameterDirection.Output
-            };
-            cmd.Parameters.Add(outputIdParam);
-            cmd.ExecuteNonQuery();
-            return (bool.Parse(outputIdParam.Value.ToString()));
+                _sqlConnection.Open();
+            }
+            try
+            {
+                SqlCommand cmd = new SqlCommand("up_usr_Execute_Return", _sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@CustomerID", SqlDbType.VarChar).Value = strCustomerID;
+                cmd.Parameters.Add("@Title", SqlDbType.VarChar).Value = strtitle;
+                cmd.Parameters.Add("@Author", SqlDbType.VarChar).Value = strAuthor;
+                cmd.Parameters.Add("@Edition", SqlDbType.VarChar).Value = strEdition;
+                cmd.Parameters.Add("@Publisher", SqlDbType.VarChar).Value = strPublisher;
+                cmd.Parameters.Add("@price", SqlDbType.Float).Value = fltPrice;
+                cmd.Parameters.Add("@HistoryUID", SqlDbType.VarChar).Value = strHistoryUID;
+                cmd.Parameters.Add("@BookCount", SqlDbType.Int).Value = intBookCount;
+                cmd.Parameters.Add("@AmountOut", SqlDbType.Float).Value = 0;
+                SqlParameter outputIdParam = new SqlParameter("@Status", SqlDbType.Bit)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(outputIdParam);
+                cmd.ExecuteNonQuery();
+                return (bool.Parse(outputIdParam.Value.ToString()));
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException(ex.ToString());
+            }
+            finally
+            {
+                if (_sqlConnection.State == ConnectionState.Open)
+                {
+                    _sqlConnection.Close();
+                }
+               
+            }
         }
 
         internal bool PerformReturnProcessForRental(string strCustomerID, string strtitle, string strAuthor, 
             string strEdition, string strPublisher,float fltPrice, string strHistoryUID, int intBookCount,
-            float fltAdvanceAmount,float fltBalanceAmount,float fltRefundAmount)
+            float fltAdvanceAmount,float fltBalanceAmount,float fltRefundAmount,string strCheckNumber)
         {
             try
             {
@@ -958,6 +976,7 @@ namespace LibraryDesign_frontEndUI
                 cmd.Parameters.Add("@AdvanceAmount", SqlDbType.Float).Value = fltAdvanceAmount;
                 cmd.Parameters.Add("@BalanceAmount", SqlDbType.Float).Value = fltBalanceAmount;
                 cmd.Parameters.Add("@RefundAmount", SqlDbType.Float).Value = fltRefundAmount;
+                cmd.Parameters.Add("@CheckNumber", SqlDbType.VarChar).Value = strCheckNumber;                
                 SqlParameter outputIdParam = new SqlParameter("@Status", SqlDbType.Bit)
                 {
                     Direction = ParameterDirection.Output
