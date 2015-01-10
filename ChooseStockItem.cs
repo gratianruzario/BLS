@@ -279,15 +279,16 @@ namespace LibraryDesign_frontEndUI
                         BLSSchema.ctStockSearchRow stockSearchRow = _ctSelectedStockItems.NewctStockSearchRow();
 
                         stockSearchRow.ISBN = dgvStockSearchResult.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();
-                        stockSearchRow.Title = dgvStockSearchResult.Rows[e.RowIndex].Cells["Title"].Value.ToString();
-                        stockSearchRow.Author = dgvStockSearchResult.Rows[e.RowIndex].Cells["Author"].Value.ToString();
+                        _frmParentRef.txtTitle.Text =  stockSearchRow.Title = dgvStockSearchResult.Rows[e.RowIndex].Cells["Title"].Value.ToString();
+                        _frmParentRef.txtAuthor.Text = stockSearchRow.Author = dgvStockSearchResult.Rows[e.RowIndex].Cells["Author"].Value.ToString();
                         stockSearchRow.Year = dgvStockSearchResult.Rows[e.RowIndex].Cells["Year"].Value.ToString();
-                        stockSearchRow.Edition = dgvStockSearchResult.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
-                        stockSearchRow.Publisher = dgvStockSearchResult.Rows[e.RowIndex].Cells["Publisher"].Value.ToString();
+                        _frmParentRef.txtEdition.Text = stockSearchRow.Edition = dgvStockSearchResult.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
+                        _frmParentRef.txtPublisher.Text = stockSearchRow.Publisher = dgvStockSearchResult.Rows[e.RowIndex].Cells["Publisher"].Value.ToString();
                         stockSearchRow.Count = int.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["Count"].Value.ToString());
+                        _frmParentRef.txtBookCount.Text = stockSearchRow.Count.ToString();
 
                         stockSearchRow.OriginalPrice = dgvStockSearchResult.Rows[e.RowIndex].Cells["OriginalPrice"].Value.ToString();
-                        stockSearchRow.PurchasePrice = dgvStockSearchResult.Rows[e.RowIndex].Cells["PurchasePrice"].Value.ToString();
+                        _frmParentRef.txtBookPrice.Text = stockSearchRow.PurchasePrice = dgvStockSearchResult.Rows[e.RowIndex].Cells["PurchasePrice"].Value.ToString();
 
 
                         stockSearchRow.PriceChangable = bool.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["PriceChangable"].Value.ToString());

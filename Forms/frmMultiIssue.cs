@@ -52,6 +52,11 @@ namespace LibraryDesign_frontEndUI
             }
         }
 
+        private void btnAddIssueItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
      
     }
 }

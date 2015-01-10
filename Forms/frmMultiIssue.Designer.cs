@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMultiIssue));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvStudentBooks = new System.Windows.Forms.DataGridView();
             this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,21 +50,26 @@
             this.btnRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ctStockDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAdvanceAmount = new System.Windows.Forms.Label();
             this.pnlNonRental = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.lblAdvance = new System.Windows.Forms.Label();
+            this.lblBalanceAmount = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
             this.pbCustImage = new System.Windows.Forms.PictureBox();
-            this.lblBalanceAmount = new System.Windows.Forms.Label();
-            this.lblBalance = new System.Windows.Forms.Label();
             this.lblCustID = new System.Windows.Forms.Label();
             this.lblCustomerType = new System.Windows.Forms.Label();
-            this.lblAdvanceAmount = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
-            this.lblAdvance = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -87,31 +92,29 @@
             this.ctIssueDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grbInfoDisplay = new System.Windows.Forms.GroupBox();
-            this.txtRefundAmt = new System.Windows.Forms.TextBox();
-            this.txtPercentDeduction = new System.Windows.Forms.TextBox();
+            this.txtPublisher = new System.Windows.Forms.TextBox();
+            this.lblPublisher = new System.Windows.Forms.Label();
+            this.txtEdition = new System.Windows.Forms.TextBox();
+            this.lblEdition = new System.Windows.Forms.Label();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.lblAuthor = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.txtBookCount = new System.Windows.Forms.TextBox();
             this.txtBookPrice = new System.Windows.Forms.TextBox();
             this.txtReturnDate = new System.Windows.Forms.TextBox();
-            this.txtExtraDays = new System.Windows.Forms.TextBox();
             this.txtIssueDate = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblBookPrice = new System.Windows.Forms.Label();
+            this.lblBookCount = new System.Windows.Forms.Label();
+            this.lblReturnDate = new System.Windows.Forms.Label();
+            this.btnAddIssueItem = new System.Windows.Forms.Button();
+            this.lblIssueDate = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentBooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctStockDataTableBindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlNonRental.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -124,7 +127,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.grbInfoDisplay.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -159,14 +161,14 @@
             this.outCountDataGridViewTextBoxColumn,
             this.btnRemove});
             this.dgvStudentBooks.DataSource = this.ctStockDataTableBindingSource1;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudentBooks.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudentBooks.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudentBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudentBooks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvStudentBooks.Location = new System.Drawing.Point(3, 16);
@@ -284,6 +286,29 @@
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblAdvanceAmount);
+            this.panel1.Controls.Add(this.pnlNonRental);
+            this.panel1.Controls.Add(this.lblAdvance);
+            this.panel1.Controls.Add(this.lblBalanceAmount);
+            this.panel1.Controls.Add(this.lblBalance);
+            this.panel1.Location = new System.Drawing.Point(25, 59);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(762, 33);
+            this.panel1.TabIndex = 43;
+            // 
+            // lblAdvanceAmount
+            // 
+            this.lblAdvanceAmount.AutoSize = true;
+            this.lblAdvanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdvanceAmount.ForeColor = System.Drawing.Color.White;
+            this.lblAdvanceAmount.Location = new System.Drawing.Point(81, 11);
+            this.lblAdvanceAmount.Name = "lblAdvanceAmount";
+            this.lblAdvanceAmount.Size = new System.Drawing.Size(114, 16);
+            this.lblAdvanceAmount.TabIndex = 20;
+            this.lblAdvanceAmount.Text = "[Advance Amount]";
+            // 
             // pnlNonRental
             // 
             this.pnlNonRental.Controls.Add(this.label4);
@@ -296,6 +321,50 @@
             this.pnlNonRental.Name = "pnlNonRental";
             this.pnlNonRental.Size = new System.Drawing.Size(765, 31);
             this.pnlNonRental.TabIndex = 42;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(471, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 16);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "[Calculated Limit]";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(360, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 16);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "Calculated Limit :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(270, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "[Max Limit]";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(199, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Max Limit :";
             // 
             // label16
             // 
@@ -318,6 +387,39 @@
             this.label17.Size = new System.Drawing.Size(76, 16);
             this.label17.TabIndex = 33;
             this.label17.Text = "Used Limit :";
+            // 
+            // lblAdvance
+            // 
+            this.lblAdvance.AutoSize = true;
+            this.lblAdvance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdvance.ForeColor = System.Drawing.Color.White;
+            this.lblAdvance.Location = new System.Drawing.Point(10, 11);
+            this.lblAdvance.Name = "lblAdvance";
+            this.lblAdvance.Size = new System.Drawing.Size(65, 16);
+            this.lblAdvance.TabIndex = 18;
+            this.lblAdvance.Text = "Advance :";
+            // 
+            // lblBalanceAmount
+            // 
+            this.lblBalanceAmount.AutoSize = true;
+            this.lblBalanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalanceAmount.ForeColor = System.Drawing.Color.White;
+            this.lblBalanceAmount.Location = new System.Drawing.Point(276, 11);
+            this.lblBalanceAmount.Name = "lblBalanceAmount";
+            this.lblBalanceAmount.Size = new System.Drawing.Size(110, 16);
+            this.lblBalanceAmount.TabIndex = 28;
+            this.lblBalanceAmount.Text = "[Balance Amount]";
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.White;
+            this.lblBalance.Location = new System.Drawing.Point(209, 11);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(61, 16);
+            this.lblBalance.TabIndex = 22;
+            this.lblBalance.Text = "Balance :";
             // 
             // tableLayoutPanel4
             // 
@@ -390,28 +492,6 @@
             this.pbCustImage.TabIndex = 38;
             this.pbCustImage.TabStop = false;
             // 
-            // lblBalanceAmount
-            // 
-            this.lblBalanceAmount.AutoSize = true;
-            this.lblBalanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalanceAmount.ForeColor = System.Drawing.Color.White;
-            this.lblBalanceAmount.Location = new System.Drawing.Point(276, 11);
-            this.lblBalanceAmount.Name = "lblBalanceAmount";
-            this.lblBalanceAmount.Size = new System.Drawing.Size(110, 16);
-            this.lblBalanceAmount.TabIndex = 28;
-            this.lblBalanceAmount.Text = "[Balance Amount]";
-            // 
-            // lblBalance
-            // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.ForeColor = System.Drawing.Color.White;
-            this.lblBalance.Location = new System.Drawing.Point(209, 11);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(61, 16);
-            this.lblBalance.TabIndex = 22;
-            this.lblBalance.Text = "Balance :";
-            // 
             // lblCustID
             // 
             this.lblCustID.AutoSize = true;
@@ -434,17 +514,6 @@
             this.lblCustomerType.TabIndex = 27;
             this.lblCustomerType.Text = "[Customer Type]";
             // 
-            // lblAdvanceAmount
-            // 
-            this.lblAdvanceAmount.AutoSize = true;
-            this.lblAdvanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdvanceAmount.ForeColor = System.Drawing.Color.White;
-            this.lblAdvanceAmount.Location = new System.Drawing.Point(81, 11);
-            this.lblAdvanceAmount.Name = "lblAdvanceAmount";
-            this.lblAdvanceAmount.Size = new System.Drawing.Size(114, 16);
-            this.lblAdvanceAmount.TabIndex = 20;
-            this.lblAdvanceAmount.Text = "[Advance Amount]";
-            // 
             // lblType
             // 
             this.lblType.AutoSize = true;
@@ -455,17 +524,6 @@
             this.lblType.Size = new System.Drawing.Size(45, 16);
             this.lblType.TabIndex = 24;
             this.lblType.Text = "Type :";
-            // 
-            // lblAdvance
-            // 
-            this.lblAdvance.AutoSize = true;
-            this.lblAdvance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdvance.ForeColor = System.Drawing.Color.White;
-            this.lblAdvance.Location = new System.Drawing.Point(10, 11);
-            this.lblAdvance.Name = "lblAdvance";
-            this.lblAdvance.Size = new System.Drawing.Size(65, 16);
-            this.lblAdvance.TabIndex = 18;
-            this.lblAdvance.Text = "Advance :";
             // 
             // lblCustomerName
             // 
@@ -521,14 +579,14 @@
             this.Returndate,
             this.EarlyIssue});
             this.dgvStudentIssuedBooks.DataSource = this.ctIssueDataTableBindingSource2;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Goldenrod;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudentIssuedBooks.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Goldenrod;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudentIssuedBooks.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStudentIssuedBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudentIssuedBooks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvStudentIssuedBooks.Location = new System.Drawing.Point(3, 16);
@@ -650,21 +708,23 @@
             // 
             // grbInfoDisplay
             // 
-            this.grbInfoDisplay.Controls.Add(this.txtRefundAmt);
-            this.grbInfoDisplay.Controls.Add(this.txtPercentDeduction);
+            this.grbInfoDisplay.Controls.Add(this.txtPublisher);
+            this.grbInfoDisplay.Controls.Add(this.lblPublisher);
+            this.grbInfoDisplay.Controls.Add(this.txtEdition);
+            this.grbInfoDisplay.Controls.Add(this.lblEdition);
+            this.grbInfoDisplay.Controls.Add(this.txtAuthor);
+            this.grbInfoDisplay.Controls.Add(this.lblAuthor);
+            this.grbInfoDisplay.Controls.Add(this.txtTitle);
+            this.grbInfoDisplay.Controls.Add(this.lblTitle);
             this.grbInfoDisplay.Controls.Add(this.txtBookCount);
             this.grbInfoDisplay.Controls.Add(this.txtBookPrice);
             this.grbInfoDisplay.Controls.Add(this.txtReturnDate);
-            this.grbInfoDisplay.Controls.Add(this.txtExtraDays);
             this.grbInfoDisplay.Controls.Add(this.txtIssueDate);
-            this.grbInfoDisplay.Controls.Add(this.label15);
-            this.grbInfoDisplay.Controls.Add(this.label14);
-            this.grbInfoDisplay.Controls.Add(this.label13);
-            this.grbInfoDisplay.Controls.Add(this.label12);
-            this.grbInfoDisplay.Controls.Add(this.label11);
-            this.grbInfoDisplay.Controls.Add(this.label10);
-            this.grbInfoDisplay.Controls.Add(this.button1);
-            this.grbInfoDisplay.Controls.Add(this.label2);
+            this.grbInfoDisplay.Controls.Add(this.lblBookPrice);
+            this.grbInfoDisplay.Controls.Add(this.lblBookCount);
+            this.grbInfoDisplay.Controls.Add(this.lblReturnDate);
+            this.grbInfoDisplay.Controls.Add(this.btnAddIssueItem);
+            this.grbInfoDisplay.Controls.Add(this.lblIssueDate);
             this.grbInfoDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbInfoDisplay.Location = new System.Drawing.Point(929, 3);
             this.grbInfoDisplay.Name = "grbInfoDisplay";
@@ -672,27 +732,90 @@
             this.grbInfoDisplay.TabIndex = 34;
             this.grbInfoDisplay.TabStop = false;
             // 
-            // txtRefundAmt
+            // txtPublisher
             // 
-            this.txtRefundAmt.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtRefundAmt.Location = new System.Drawing.Point(102, 240);
-            this.txtRefundAmt.Name = "txtRefundAmt";
-            this.txtRefundAmt.ReadOnly = true;
-            this.txtRefundAmt.Size = new System.Drawing.Size(88, 20);
-            this.txtRefundAmt.TabIndex = 36;
+            this.txtPublisher.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtPublisher.Location = new System.Drawing.Point(104, 112);
+            this.txtPublisher.Name = "txtPublisher";
+            this.txtPublisher.ReadOnly = true;
+            this.txtPublisher.Size = new System.Drawing.Size(87, 20);
+            this.txtPublisher.TabIndex = 42;
             // 
-            // txtPercentDeduction
+            // lblPublisher
             // 
-            this.txtPercentDeduction.Location = new System.Drawing.Point(102, 205);
-            this.txtPercentDeduction.Name = "txtPercentDeduction";
-            this.txtPercentDeduction.Size = new System.Drawing.Size(88, 20);
-            this.txtPercentDeduction.TabIndex = 35;
-            this.txtPercentDeduction.Text = "25";
+            this.lblPublisher.AutoSize = true;
+            this.lblPublisher.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPublisher.ForeColor = System.Drawing.Color.White;
+            this.lblPublisher.Location = new System.Drawing.Point(26, 112);
+            this.lblPublisher.Name = "lblPublisher";
+            this.lblPublisher.Size = new System.Drawing.Size(69, 16);
+            this.lblPublisher.TabIndex = 41;
+            this.lblPublisher.Text = "Publisher :";
+            // 
+            // txtEdition
+            // 
+            this.txtEdition.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtEdition.Location = new System.Drawing.Point(105, 81);
+            this.txtEdition.Name = "txtEdition";
+            this.txtEdition.ReadOnly = true;
+            this.txtEdition.Size = new System.Drawing.Size(87, 20);
+            this.txtEdition.TabIndex = 40;
+            // 
+            // lblEdition
+            // 
+            this.lblEdition.AutoSize = true;
+            this.lblEdition.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdition.ForeColor = System.Drawing.Color.White;
+            this.lblEdition.Location = new System.Drawing.Point(40, 81);
+            this.lblEdition.Name = "lblEdition";
+            this.lblEdition.Size = new System.Drawing.Size(55, 16);
+            this.lblEdition.TabIndex = 39;
+            this.lblEdition.Text = "Edition :";
+            // 
+            // txtAuthor
+            // 
+            this.txtAuthor.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtAuthor.Location = new System.Drawing.Point(103, 52);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.ReadOnly = true;
+            this.txtAuthor.Size = new System.Drawing.Size(87, 20);
+            this.txtAuthor.TabIndex = 38;
+            // 
+            // lblAuthor
+            // 
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAuthor.ForeColor = System.Drawing.Color.White;
+            this.lblAuthor.Location = new System.Drawing.Point(41, 52);
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(55, 16);
+            this.lblAuthor.TabIndex = 37;
+            this.lblAuthor.Text = "Author :";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtTitle.Location = new System.Drawing.Point(104, 21);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.ReadOnly = true;
+            this.txtTitle.Size = new System.Drawing.Size(87, 20);
+            this.txtTitle.TabIndex = 36;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(54, 21);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(42, 16);
+            this.lblTitle.TabIndex = 35;
+            this.lblTitle.Text = "Title :";
             // 
             // txtBookCount
             // 
             this.txtBookCount.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtBookCount.Location = new System.Drawing.Point(102, 167);
+            this.txtBookCount.Location = new System.Drawing.Point(102, 251);
             this.txtBookCount.Name = "txtBookCount";
             this.txtBookCount.ReadOnly = true;
             this.txtBookCount.Size = new System.Drawing.Size(88, 20);
@@ -701,7 +824,7 @@
             // txtBookPrice
             // 
             this.txtBookPrice.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtBookPrice.Location = new System.Drawing.Point(103, 132);
+            this.txtBookPrice.Location = new System.Drawing.Point(103, 216);
             this.txtBookPrice.Name = "txtBookPrice";
             this.txtBookPrice.ReadOnly = true;
             this.txtBookPrice.Size = new System.Drawing.Size(87, 20);
@@ -710,119 +833,77 @@
             // txtReturnDate
             // 
             this.txtReturnDate.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtReturnDate.Location = new System.Drawing.Point(102, 61);
+            this.txtReturnDate.Location = new System.Drawing.Point(102, 182);
             this.txtReturnDate.Name = "txtReturnDate";
             this.txtReturnDate.ReadOnly = true;
             this.txtReturnDate.Size = new System.Drawing.Size(88, 20);
             this.txtReturnDate.TabIndex = 32;
             // 
-            // txtExtraDays
-            // 
-            this.txtExtraDays.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtExtraDays.Location = new System.Drawing.Point(103, 98);
-            this.txtExtraDays.Name = "txtExtraDays";
-            this.txtExtraDays.ReadOnly = true;
-            this.txtExtraDays.Size = new System.Drawing.Size(87, 20);
-            this.txtExtraDays.TabIndex = 32;
-            this.txtExtraDays.Text = "0";
-            // 
             // txtIssueDate
             // 
             this.txtIssueDate.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.txtIssueDate.Location = new System.Drawing.Point(103, 27);
+            this.txtIssueDate.Location = new System.Drawing.Point(103, 148);
             this.txtIssueDate.Name = "txtIssueDate";
             this.txtIssueDate.ReadOnly = true;
             this.txtIssueDate.Size = new System.Drawing.Size(87, 20);
             this.txtIssueDate.TabIndex = 32;
             // 
-            // label15
+            // lblBookPrice
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(22, 241);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 16);
-            this.label15.TabIndex = 31;
-            this.label15.Text = "Refnd Amt :";
+            this.lblBookPrice.AutoSize = true;
+            this.lblBookPrice.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookPrice.ForeColor = System.Drawing.Color.White;
+            this.lblBookPrice.Location = new System.Drawing.Point(21, 216);
+            this.lblBookPrice.Name = "lblBookPrice";
+            this.lblBookPrice.Size = new System.Drawing.Size(76, 16);
+            this.lblBookPrice.TabIndex = 30;
+            this.lblBookPrice.Text = "Book Price :";
             // 
-            // label14
+            // lblBookCount
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(21, 132);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(76, 16);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Book Price :";
+            this.lblBookCount.AutoSize = true;
+            this.lblBookCount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBookCount.ForeColor = System.Drawing.Color.White;
+            this.lblBookCount.Location = new System.Drawing.Point(17, 251);
+            this.lblBookCount.Name = "lblBookCount";
+            this.lblBookCount.Size = new System.Drawing.Size(81, 16);
+            this.lblBookCount.TabIndex = 28;
+            this.lblBookCount.Text = "Book Count :";
             // 
-            // label13
+            // lblReturnDate
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(9, 205);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 16);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "% Deduction :";
+            this.lblReturnDate.AutoSize = true;
+            this.lblReturnDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturnDate.ForeColor = System.Drawing.Color.White;
+            this.lblReturnDate.Location = new System.Drawing.Point(13, 182);
+            this.lblReturnDate.Name = "lblReturnDate";
+            this.lblReturnDate.Size = new System.Drawing.Size(85, 16);
+            this.lblReturnDate.TabIndex = 26;
+            this.lblReturnDate.Text = "Return Date :";
             // 
-            // label12
+            // btnAddIssueItem
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(17, 167);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(81, 16);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "Book Count :";
+            this.btnAddIssueItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddIssueItem.BackgroundImage")));
+            this.btnAddIssueItem.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddIssueItem.Location = new System.Drawing.Point(42, 283);
+            this.btnAddIssueItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddIssueItem.Name = "btnAddIssueItem";
+            this.btnAddIssueItem.Size = new System.Drawing.Size(127, 57);
+            this.btnAddIssueItem.TabIndex = 25;
+            this.btnAddIssueItem.Text = "Add";
+            this.btnAddIssueItem.UseVisualStyleBackColor = true;
+            this.btnAddIssueItem.Click += new System.EventHandler(this.btnAddIssueItem_Click);
             // 
-            // label11
+            // lblIssueDate
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(20, 99);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 16);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "Extra Days :";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(26, 61);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 16);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Due Date :";
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Font = new System.Drawing.Font("Tahoma", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(42, 273);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 57);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(20, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Issue Date :";
+            this.lblIssueDate.AutoSize = true;
+            this.lblIssueDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueDate.ForeColor = System.Drawing.Color.White;
+            this.lblIssueDate.Location = new System.Drawing.Point(20, 148);
+            this.lblIssueDate.Name = "lblIssueDate";
+            this.lblIssueDate.Size = new System.Drawing.Size(77, 16);
+            this.lblIssueDate.TabIndex = 15;
+            this.lblIssueDate.Text = "Issue Date :";
             // 
             // tableLayoutPanel2
             // 
@@ -839,62 +920,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(920, 351);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(270, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "[Max Limit]";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(199, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Max Limit :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(471, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 16);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "[Calculated Limit]";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(360, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 16);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Calculated Limit :";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblAdvanceAmount);
-            this.panel1.Controls.Add(this.pnlNonRental);
-            this.panel1.Controls.Add(this.lblAdvance);
-            this.panel1.Controls.Add(this.lblBalanceAmount);
-            this.panel1.Controls.Add(this.lblBalance);
-            this.panel1.Location = new System.Drawing.Point(25, 59);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(762, 33);
-            this.panel1.TabIndex = 43;
-            // 
             // frmMultiIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -910,6 +935,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctStockDataTableBindingSource1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlNonRental.ResumeLayout(false);
             this.pnlNonRental.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -924,8 +951,6 @@
             this.grbInfoDisplay.ResumeLayout(false);
             this.grbInfoDisplay.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -974,21 +999,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox grbInfoDisplay;
-        private System.Windows.Forms.TextBox txtRefundAmt;
-        private System.Windows.Forms.TextBox txtPercentDeduction;
-        private System.Windows.Forms.TextBox txtBookCount;
-        private System.Windows.Forms.TextBox txtBookPrice;
-        private System.Windows.Forms.TextBox txtReturnDate;
-        private System.Windows.Forms.TextBox txtExtraDays;
-        private System.Windows.Forms.TextBox txtIssueDate;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblIssueDate;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label lblCustID;
         private System.Windows.Forms.Label lblCustomerType;
@@ -1009,5 +1020,21 @@
         internal System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.TextBox txtBookCount;
+        internal System.Windows.Forms.TextBox txtBookPrice;
+        internal System.Windows.Forms.TextBox txtReturnDate;
+        internal System.Windows.Forms.TextBox txtIssueDate;
+        private System.Windows.Forms.Label lblBookPrice;
+        private System.Windows.Forms.Label lblBookCount;
+        private System.Windows.Forms.Label lblReturnDate;
+        private System.Windows.Forms.Button btnAddIssueItem;
+        internal System.Windows.Forms.TextBox txtAuthor;
+        private System.Windows.Forms.Label lblAuthor;
+        internal System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.Label lblTitle;
+        internal System.Windows.Forms.TextBox txtPublisher;
+        private System.Windows.Forms.Label lblPublisher;
+        internal System.Windows.Forms.TextBox txtEdition;
+        private System.Windows.Forms.Label lblEdition;
     }
 }
