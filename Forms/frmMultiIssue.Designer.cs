@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMultiIssue));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvStudentBooks = new System.Windows.Forms.DataGridView();
             this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,13 +52,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAdvanceAmount = new System.Windows.Forms.Label();
-            this.pnlNonRental = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.lblAdvance = new System.Windows.Forms.Label();
             this.lblBalanceAmount = new System.Windows.Forms.Label();
             this.lblBalance = new System.Windows.Forms.Label();
@@ -115,7 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctStockDataTableBindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.pnlNonRental.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).BeginInit();
@@ -161,14 +153,14 @@
             this.outCountDataGridViewTextBoxColumn,
             this.btnRemove});
             this.dgvStudentBooks.DataSource = this.ctStockDataTableBindingSource1;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudentBooks.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudentBooks.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvStudentBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudentBooks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvStudentBooks.Location = new System.Drawing.Point(3, 16);
@@ -289,11 +281,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.lblAdvanceAmount);
-            this.panel1.Controls.Add(this.pnlNonRental);
             this.panel1.Controls.Add(this.lblAdvance);
             this.panel1.Controls.Add(this.lblBalanceAmount);
             this.panel1.Controls.Add(this.lblBalance);
-            this.panel1.Location = new System.Drawing.Point(25, 59);
+            this.panel1.Location = new System.Drawing.Point(22, 59);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(762, 33);
             this.panel1.TabIndex = 43;
@@ -303,97 +294,18 @@
             this.lblAdvanceAmount.AutoSize = true;
             this.lblAdvanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdvanceAmount.ForeColor = System.Drawing.Color.White;
-            this.lblAdvanceAmount.Location = new System.Drawing.Point(81, 11);
+            this.lblAdvanceAmount.Location = new System.Drawing.Point(113, 10);
             this.lblAdvanceAmount.Name = "lblAdvanceAmount";
             this.lblAdvanceAmount.Size = new System.Drawing.Size(114, 16);
             this.lblAdvanceAmount.TabIndex = 20;
             this.lblAdvanceAmount.Text = "[Advance Amount]";
-            // 
-            // pnlNonRental
-            // 
-            this.pnlNonRental.Controls.Add(this.label4);
-            this.pnlNonRental.Controls.Add(this.label5);
-            this.pnlNonRental.Controls.Add(this.label1);
-            this.pnlNonRental.Controls.Add(this.label3);
-            this.pnlNonRental.Controls.Add(this.label16);
-            this.pnlNonRental.Controls.Add(this.label17);
-            this.pnlNonRental.Location = new System.Drawing.Point(0, 0);
-            this.pnlNonRental.Name = "pnlNonRental";
-            this.pnlNonRental.Size = new System.Drawing.Size(765, 31);
-            this.pnlNonRental.TabIndex = 42;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(471, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 16);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "[Calculated Limit]";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(360, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 16);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Calculated Limit :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(270, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "[Max Limit]";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(199, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Max Limit :";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(72, 8);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 16);
-            this.label16.TabIndex = 34;
-            this.label16.Text = "[Used Limit]";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(1, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 16);
-            this.label17.TabIndex = 33;
-            this.label17.Text = "Used Limit :";
             // 
             // lblAdvance
             // 
             this.lblAdvance.AutoSize = true;
             this.lblAdvance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdvance.ForeColor = System.Drawing.Color.White;
-            this.lblAdvance.Location = new System.Drawing.Point(10, 11);
+            this.lblAdvance.Location = new System.Drawing.Point(42, 10);
             this.lblAdvance.Name = "lblAdvance";
             this.lblAdvance.Size = new System.Drawing.Size(65, 16);
             this.lblAdvance.TabIndex = 18;
@@ -404,7 +316,7 @@
             this.lblBalanceAmount.AutoSize = true;
             this.lblBalanceAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalanceAmount.ForeColor = System.Drawing.Color.White;
-            this.lblBalanceAmount.Location = new System.Drawing.Point(276, 11);
+            this.lblBalanceAmount.Location = new System.Drawing.Point(371, 8);
             this.lblBalanceAmount.Name = "lblBalanceAmount";
             this.lblBalanceAmount.Size = new System.Drawing.Size(110, 16);
             this.lblBalanceAmount.TabIndex = 28;
@@ -415,7 +327,7 @@
             this.lblBalance.AutoSize = true;
             this.lblBalance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.White;
-            this.lblBalance.Location = new System.Drawing.Point(209, 11);
+            this.lblBalance.Location = new System.Drawing.Point(304, 8);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(61, 16);
             this.lblBalance.TabIndex = 22;
@@ -508,7 +420,7 @@
             this.lblCustomerType.AutoSize = true;
             this.lblCustomerType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerType.ForeColor = System.Drawing.Color.White;
-            this.lblCustomerType.Location = new System.Drawing.Point(693, 19);
+            this.lblCustomerType.Location = new System.Drawing.Point(679, 19);
             this.lblCustomerType.Name = "lblCustomerType";
             this.lblCustomerType.Size = new System.Drawing.Size(105, 16);
             this.lblCustomerType.TabIndex = 27;
@@ -519,7 +431,7 @@
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblType.ForeColor = System.Drawing.Color.White;
-            this.lblType.Location = new System.Drawing.Point(642, 19);
+            this.lblType.Location = new System.Drawing.Point(628, 19);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(45, 16);
             this.lblType.TabIndex = 24;
@@ -530,7 +442,7 @@
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerName.ForeColor = System.Drawing.Color.White;
-            this.lblCustomerName.Location = new System.Drawing.Point(291, 21);
+            this.lblCustomerName.Location = new System.Drawing.Point(391, 21);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(110, 16);
             this.lblCustomerName.TabIndex = 21;
@@ -541,7 +453,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(235, 21);
+            this.label8.Location = new System.Drawing.Point(335, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 16);
             this.label8.TabIndex = 19;
@@ -579,14 +491,14 @@
             this.Returndate,
             this.EarlyIssue});
             this.dgvStudentIssuedBooks.DataSource = this.ctIssueDataTableBindingSource2;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Goldenrod;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudentIssuedBooks.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Goldenrod;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudentIssuedBooks.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvStudentIssuedBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudentIssuedBooks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvStudentIssuedBooks.Location = new System.Drawing.Point(3, 16);
@@ -937,8 +849,6 @@
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.pnlNonRental.ResumeLayout(false);
-            this.pnlNonRental.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCustImage)).EndInit();
@@ -1012,13 +922,6 @@
         private System.Windows.Forms.PictureBox pbCustImage;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel pnlNonRental;
-        internal System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        internal System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        internal System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.TextBox txtBookCount;
         internal System.Windows.Forms.TextBox txtBookPrice;

@@ -421,11 +421,7 @@ namespace LibraryDesign_frontEndUI
 
             //frmTransactionReport frmReports = new frmTransactionReport();
             //frmReports.MdiParent = this;
-            //frmReports.Show();
-
-            frmMultiIssue frmReports = new frmMultiIssue();
-            frmReports.MdiParent = this;
-            frmReports.Show();
+            //frmReports.Show();            
         }
 
         private void btnBuy_Click(object sender, EventArgs e)

@@ -236,7 +236,7 @@ namespace LibraryDesign_frontEndUI
                     }
                     else if (foundRow != null)
                     {
-                        string[] strCustElements = new string[10];
+                        string[] strCustElements = new string[12];
                         strCustElements[0] = foundRow.CustomerID.ToString();
                         strCustElements[1] = foundRow.CustName;
                         strCustElements[2] = foundRow.DOB;
@@ -247,9 +247,13 @@ namespace LibraryDesign_frontEndUI
                         strCustElements[7] = foundRow.BalanceAmount;
                         strCustElements[8] = foundRow.MembershipType;
                         strCustElements[9] = foundRow.MembershipPeriod;
-
-
-                        frmIssueBooks frmIssueBook = new frmIssueBooks(strCustElements, "Customer", this);
+                        if (foundRow.MembershipType == "N")
+                        {
+                            strCustElements[10] = foundRow.MaxLimit;
+                            strCustElements[11] = foundRow.UsedLimit;
+                        }
+                                               
+                        frmMultiIssue frmIssueBook = new frmMultiIssue(strCustElements,this);
                         frmIssueBook.MdiParent = this.MdiParent;
                         frmIssueBook.Show();
                     }
