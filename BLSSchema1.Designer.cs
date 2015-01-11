@@ -1362,7 +1362,7 @@ namespace LibraryDesign_frontEndUI {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ctStockDataTable : global::System.Data.TypedTableBase<ctStockRow> {
             
-            private global::System.Data.DataColumn columnISBN;
+            private global::System.Data.DataColumn columnShelfNumber;
             
             private global::System.Data.DataColumn columnTitle;
             
@@ -1423,9 +1423,9 @@ namespace LibraryDesign_frontEndUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ISBNColumn {
+            public global::System.Data.DataColumn ShelfNumberColumn {
                 get {
-                    return this.columnISBN;
+                    return this.columnShelfNumber;
                 }
             }
             
@@ -1562,10 +1562,10 @@ namespace LibraryDesign_frontEndUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ctStockRow AddctStockRow(string ISBN, string Title, string Author, string Year, string Edition, string Publisher, int Count, string PriceChangable, string OriginalPrice, string Discount, string PurchasePrice, string LastUpdated, int OutCount) {
+            public ctStockRow AddctStockRow(int ShelfNumber, string Title, string Author, string Year, string Edition, string Publisher, int Count, string PriceChangable, string OriginalPrice, string Discount, string PurchasePrice, string LastUpdated, int OutCount) {
                 ctStockRow rowctStockRow = ((ctStockRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ISBN,
+                        ShelfNumber,
                         Title,
                         Author,
                         Year,
@@ -1600,7 +1600,7 @@ namespace LibraryDesign_frontEndUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnISBN = base.Columns["ISBN"];
+                this.columnShelfNumber = base.Columns["ShelfNumber"];
                 this.columnTitle = base.Columns["Title"];
                 this.columnAuthor = base.Columns["Author"];
                 this.columnYear = base.Columns["Year"];
@@ -1618,8 +1618,8 @@ namespace LibraryDesign_frontEndUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnISBN = new global::System.Data.DataColumn("ISBN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnISBN);
+                this.columnShelfNumber = new global::System.Data.DataColumn("ShelfNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShelfNumber);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
                 this.columnAuthor = new global::System.Data.DataColumn("Author", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1644,7 +1644,6 @@ namespace LibraryDesign_frontEndUI {
                 base.Columns.Add(this.columnLastUpdated);
                 this.columnOutCount = new global::System.Data.DataColumn("OutCount", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOutCount);
-                this.columnISBN.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5644,7 +5643,7 @@ namespace LibraryDesign_frontEndUI {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ctStockSearchDataTable : global::System.Data.TypedTableBase<ctStockSearchRow> {
             
-            private global::System.Data.DataColumn columnISBN;
+            private global::System.Data.DataColumn columnShelfNumber;
             
             private global::System.Data.DataColumn columnTitle;
             
@@ -5703,9 +5702,9 @@ namespace LibraryDesign_frontEndUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ISBNColumn {
+            public global::System.Data.DataColumn ShelfNumberColumn {
                 get {
-                    return this.columnISBN;
+                    return this.columnShelfNumber;
                 }
             }
             
@@ -5834,10 +5833,10 @@ namespace LibraryDesign_frontEndUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ctStockSearchRow AddctStockSearchRow(string ISBN, string Title, string Author, string Year, string Edition, string Publisher, long Count, string OriginalPrice, string PurchasePrice, bool PriceChangable, double Discount, int OutCount) {
+            public ctStockSearchRow AddctStockSearchRow(int ShelfNumber, string Title, string Author, string Year, string Edition, string Publisher, long Count, string OriginalPrice, string PurchasePrice, bool PriceChangable, double Discount, int OutCount) {
                 ctStockSearchRow rowctStockSearchRow = ((ctStockSearchRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ISBN,
+                        ShelfNumber,
                         Title,
                         Author,
                         Year,
@@ -5871,7 +5870,7 @@ namespace LibraryDesign_frontEndUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnISBN = base.Columns["ISBN"];
+                this.columnShelfNumber = base.Columns["ShelfNumber"];
                 this.columnTitle = base.Columns["Title"];
                 this.columnAuthor = base.Columns["Author"];
                 this.columnYear = base.Columns["Year"];
@@ -5888,8 +5887,8 @@ namespace LibraryDesign_frontEndUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnISBN = new global::System.Data.DataColumn("ISBN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnISBN);
+                this.columnShelfNumber = new global::System.Data.DataColumn("ShelfNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShelfNumber);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
                 this.columnAuthor = new global::System.Data.DataColumn("Author", typeof(string), null, global::System.Data.MappingType.Element);
@@ -5912,7 +5911,6 @@ namespace LibraryDesign_frontEndUI {
                 base.Columns.Add(this.columnDiscount);
                 this.columnOutCount = new global::System.Data.DataColumn("OutCount", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOutCount);
-                this.columnISBN.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6342,12 +6340,17 @@ namespace LibraryDesign_frontEndUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ISBN {
+            public int ShelfNumber {
                 get {
-                    return ((string)(this[this.tablectStock.ISBNColumn]));
+                    try {
+                        return ((int)(this[this.tablectStock.ShelfNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShelfNumber\' in table \'ctStock\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablectStock.ISBNColumn] = value;
+                    this[this.tablectStock.ShelfNumberColumn] = value;
                 }
             }
             
@@ -6541,6 +6544,18 @@ namespace LibraryDesign_frontEndUI {
                 set {
                     this[this.tablectStock.OutCountColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsShelfNumberNull() {
+                return this.IsNull(this.tablectStock.ShelfNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetShelfNumberNull() {
+                this[this.tablectStock.ShelfNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9791,12 +9806,17 @@ namespace LibraryDesign_frontEndUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ISBN {
+            public int ShelfNumber {
                 get {
-                    return ((string)(this[this.tablectStockSearch.ISBNColumn]));
+                    try {
+                        return ((int)(this[this.tablectStockSearch.ShelfNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShelfNumber\' in table \'ctStockSearch\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablectStockSearch.ISBNColumn] = value;
+                    this[this.tablectStockSearch.ShelfNumberColumn] = value;
                 }
             }
             
@@ -9974,6 +9994,18 @@ namespace LibraryDesign_frontEndUI {
                 set {
                     this[this.tablectStockSearch.OutCountColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsShelfNumberNull() {
+                return this.IsNull(this.tablectStockSearch.ShelfNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetShelfNumberNull() {
+                this[this.tablectStockSearch.ShelfNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

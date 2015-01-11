@@ -45,7 +45,17 @@
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvStockSearchResult = new System.Windows.Forms.DataGridView();
-            this.ISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ctStockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bLSSchema = new LibraryDesign_frontEndUI.BLSSchema();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEditStock = new System.Windows.Forms.Button();
+            this.btnDeleteStock = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.ctStockSearchDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ctStockSearchDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ctStockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ShelfNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,16 +68,6 @@
             this.PriceChangable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Issue = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ctStockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bLSSchema = new LibraryDesign_frontEndUI.BLSSchema();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnEditStock = new System.Windows.Forms.Button();
-            this.btnDeleteStock = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.ctStockSearchDataTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ctStockSearchDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ctStockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStockSearchResult)).BeginInit();
@@ -217,7 +217,7 @@
             this.dgvStockSearchResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStockSearchResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStockSearchResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ISBN,
+            this.ShelfNumber,
             this.Title,
             this.Author,
             this.Year,
@@ -246,89 +246,6 @@
             this.dgvStockSearchResult.TabIndex = 0;
             this.dgvStockSearchResult.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvStockSearchResult_CellMouseClick);
             this.dgvStockSearchResult.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvStockSearchResult_RowPostPaint);
-            // 
-            // ISBN
-            // 
-            this.ISBN.DataPropertyName = "ISBN";
-            this.ISBN.HeaderText = "ISBN";
-            this.ISBN.Name = "ISBN";
-            this.ISBN.Visible = false;
-            // 
-            // Title
-            // 
-            this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            // 
-            // Author
-            // 
-            this.Author.DataPropertyName = "Author";
-            this.Author.HeaderText = "Author";
-            this.Author.Name = "Author";
-            // 
-            // Year
-            // 
-            this.Year.DataPropertyName = "Year";
-            this.Year.HeaderText = "Year";
-            this.Year.Name = "Year";
-            // 
-            // Edition
-            // 
-            this.Edition.DataPropertyName = "Edition";
-            this.Edition.HeaderText = "Edition";
-            this.Edition.Name = "Edition";
-            // 
-            // Publisher
-            // 
-            this.Publisher.DataPropertyName = "Publisher";
-            this.Publisher.HeaderText = "Publisher";
-            this.Publisher.Name = "Publisher";
-            // 
-            // Count
-            // 
-            this.Count.DataPropertyName = "Count";
-            this.Count.HeaderText = "Count";
-            this.Count.Name = "Count";
-            // 
-            // OriginalPrice
-            // 
-            this.OriginalPrice.DataPropertyName = "OriginalPrice";
-            this.OriginalPrice.HeaderText = "OriginalPrice";
-            this.OriginalPrice.Name = "OriginalPrice";
-            // 
-            // Discount
-            // 
-            this.Discount.DataPropertyName = "Discount";
-            this.Discount.HeaderText = "Discount";
-            this.Discount.Name = "Discount";
-            this.Discount.Visible = false;
-            // 
-            // PurchasePrice
-            // 
-            this.PurchasePrice.DataPropertyName = "PurchasePrice";
-            this.PurchasePrice.HeaderText = "PurchasePrice";
-            this.PurchasePrice.Name = "PurchasePrice";
-            // 
-            // PriceChangable
-            // 
-            this.PriceChangable.DataPropertyName = "PriceChangable";
-            this.PriceChangable.HeaderText = "PriceChangable";
-            this.PriceChangable.Name = "PriceChangable";
-            this.PriceChangable.Visible = false;
-            // 
-            // OutCount
-            // 
-            this.OutCount.DataPropertyName = "OutCount";
-            this.OutCount.HeaderText = "OutCount";
-            this.OutCount.Name = "OutCount";
-            this.OutCount.Visible = false;
-            // 
-            // Issue
-            // 
-            this.Issue.HeaderText = "Select";
-            this.Issue.Name = "Issue";
-            this.Issue.Text = "Select";
-            this.Issue.UseColumnTextForButtonValue = true;
             // 
             // ctStockBindingSource1
             // 
@@ -432,6 +349,89 @@
             this.ctStockBindingSource.DataMember = "ctStock";
             this.ctStockBindingSource.DataSource = this.bLSSchema;
             // 
+            // ShelfNumber
+            // 
+            this.ShelfNumber.DataPropertyName = "ShelfNumber";
+            this.ShelfNumber.HeaderText = "ShelfNumber";
+            this.ShelfNumber.Name = "ShelfNumber";
+            this.ShelfNumber.Visible = false;
+            // 
+            // Title
+            // 
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "Title";
+            this.Title.Name = "Title";
+            // 
+            // Author
+            // 
+            this.Author.DataPropertyName = "Author";
+            this.Author.HeaderText = "Author";
+            this.Author.Name = "Author";
+            // 
+            // Year
+            // 
+            this.Year.DataPropertyName = "Year";
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            // 
+            // Edition
+            // 
+            this.Edition.DataPropertyName = "Edition";
+            this.Edition.HeaderText = "Edition";
+            this.Edition.Name = "Edition";
+            // 
+            // Publisher
+            // 
+            this.Publisher.DataPropertyName = "Publisher";
+            this.Publisher.HeaderText = "Publisher";
+            this.Publisher.Name = "Publisher";
+            // 
+            // Count
+            // 
+            this.Count.DataPropertyName = "Count";
+            this.Count.HeaderText = "Count";
+            this.Count.Name = "Count";
+            // 
+            // OriginalPrice
+            // 
+            this.OriginalPrice.DataPropertyName = "OriginalPrice";
+            this.OriginalPrice.HeaderText = "OriginalPrice";
+            this.OriginalPrice.Name = "OriginalPrice";
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "Discount";
+            this.Discount.HeaderText = "Discount";
+            this.Discount.Name = "Discount";
+            this.Discount.Visible = false;
+            // 
+            // PurchasePrice
+            // 
+            this.PurchasePrice.DataPropertyName = "PurchasePrice";
+            this.PurchasePrice.HeaderText = "PurchasePrice";
+            this.PurchasePrice.Name = "PurchasePrice";
+            // 
+            // PriceChangable
+            // 
+            this.PriceChangable.DataPropertyName = "PriceChangable";
+            this.PriceChangable.HeaderText = "PriceChangable";
+            this.PriceChangable.Name = "PriceChangable";
+            this.PriceChangable.Visible = false;
+            // 
+            // OutCount
+            // 
+            this.OutCount.DataPropertyName = "OutCount";
+            this.OutCount.HeaderText = "OutCount";
+            this.OutCount.Name = "OutCount";
+            this.OutCount.Visible = false;
+            // 
+            // Issue
+            // 
+            this.Issue.HeaderText = "Select";
+            this.Issue.Name = "Issue";
+            this.Issue.Text = "Select";
+            this.Issue.UseColumnTextForButtonValue = true;
+            // 
             // frmCustomerSearch1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,7 +483,10 @@
         private System.Windows.Forms.BindingSource ctStockSearchDataTableBindingSource1;
         private System.Windows.Forms.Button btnEditStock;
         private System.Windows.Forms.Button btnDeleteStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ISBN;
+        private System.Windows.Forms.BindingSource ctStockBindingSource1;
+        private BLSSchema bLSSchema;
+        private System.Windows.Forms.BindingSource ctStockBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ShelfNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Author;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
@@ -496,8 +499,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceChangable;
         private System.Windows.Forms.DataGridViewTextBoxColumn OutCount;
         private System.Windows.Forms.DataGridViewButtonColumn Issue;
-        private System.Windows.Forms.BindingSource ctStockBindingSource1;
-        private BLSSchema bLSSchema;
-        private System.Windows.Forms.BindingSource ctStockBindingSource;
     }
 }
