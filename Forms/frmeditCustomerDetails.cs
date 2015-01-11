@@ -245,7 +245,9 @@ namespace LibraryDesign_frontEndUI.Forms
                     txtBalanceamount.Text = "0";
                 }
 
-
+                //TODO
+                //Check this condition for Non rental customers, 
+                // Right now Receipt Number is not shown for Non-Rental customers, but still on update this validation message is shown.
                 if (string.IsNullOrWhiteSpace(txtReciptNo.Text) && (txtMembershipType.Text == "Non-Rental"))
                 {
                     MessageBox.Show("Receipt Number field is empty", "Error");
