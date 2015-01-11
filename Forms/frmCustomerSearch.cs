@@ -224,39 +224,42 @@ namespace LibraryDesign_frontEndUI
                     string strCustomerID = dgvCustDetails.Rows[_intRowIndex].Cells[0].Value.ToString();
                     BLSSchema.ctCustomerRow foundRow = (BLSSchema.ctCustomerRow)_Bschema.ctCustomer.Rows.Find(strCustomerID);
 
-                    if (foundRow != null && _frmParentReference != null)
+                    if (foundRow != null)
                     {
-                        _frmParentReference.txtID.Text = foundRow.CustomerID.ToString();
-                        _frmParentReference.txtFirstName.Text = foundRow.CustName;
-                        _frmParentReference.txtDOB.Text = foundRow.DOB;
-                        _frmParentReference.txtMobileNumber.Text = foundRow.Student_Mobile;
-                        _frmParentReference.txtEmail.Text = foundRow.EmailID;
-                        _frmParentReference.txtCollegeName.Text = foundRow.CollegeName;
-
-                    }
-                    else if (foundRow != null)
-                    {
-                        string[] strCustElements = new string[12];
-                        strCustElements[0] = foundRow.CustomerID.ToString();
-                        strCustElements[1] = foundRow.CustName;
-                        strCustElements[2] = foundRow.DOB;
-                        strCustElements[3] = foundRow.Student_Mobile;
-                        strCustElements[4] = foundRow.EmailID;
-                        strCustElements[5] = foundRow.CollegeName;
-                        strCustElements[6] = foundRow.AdvanceAmount;
-                        strCustElements[7] = foundRow.BalanceAmount;
-                        strCustElements[8] = foundRow.MembershipType;
-                        strCustElements[9] = foundRow.MembershipPeriod;
-                        if (foundRow.MembershipType == "N")
+                        if (_frmParentReference != null)
                         {
-                            strCustElements[10] = foundRow.MaxLimit;
-                            strCustElements[11] = foundRow.UsedLimit;
+                            _frmParentReference.txtID.Text = foundRow.CustomerID.ToString();
+                            _frmParentReference.txtFirstName.Text = foundRow.CustName;
+                            _frmParentReference.txtDOB.Text = foundRow.DOB;
+                            _frmParentReference.txtMobileNumber.Text = foundRow.Student_Mobile;
+                            _frmParentReference.txtEmail.Text = foundRow.EmailID;
+                            _frmParentReference.txtCollegeName.Text = foundRow.CollegeName;
                         }
-                                               
-                        frmMultiIssue frmIssueBook = new frmMultiIssue(strCustElements,this);
-                        frmIssueBook.MdiParent = this.MdiParent;
-                        frmIssueBook.Show();
-                    }
+                        else
+                        {
+                            string[] strCustElements = new string[13];
+                            strCustElements[0] = foundRow.CustomerID.ToString();
+                            strCustElements[1] = foundRow.CustName;
+                            strCustElements[2] = foundRow.DOB;
+                            strCustElements[3] = foundRow.Student_Mobile;
+                            strCustElements[4] = foundRow.EmailID;
+                            strCustElements[5] = foundRow.CollegeName;
+                            strCustElements[6] = foundRow.AdvanceAmount;
+                            strCustElements[7] = foundRow.BalanceAmount;
+                            strCustElements[8] = foundRow.MembershipType;
+                            strCustElements[9] = foundRow.MembershipPeriod;
+
+                            if (foundRow.MembershipType == "N")
+                            {
+                                strCustElements[10] = foundRow.MaxLimit;
+                                strCustElements[11] = foundRow.UsedLimit;
+                            }
+                            strCustElements[12] = foundRow.ImagePath;
+                            frmMultiIssue frmIssueBook = new frmMultiIssue(strCustElements, this);
+                            frmIssueBook.MdiParent = this.MdiParent;
+                            frmIssueBook.Show();
+                        }
+                    }                   
                     else
                     {
                         MessageBox.Show("Some internal error occured.", "Error");

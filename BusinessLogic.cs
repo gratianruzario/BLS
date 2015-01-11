@@ -259,6 +259,26 @@ namespace LibraryDesign_frontEndUI
             }
 
         }
+
+        internal void GetIssueDetails(BLSSchema.ctIssueBookListDataTable dtIssuedBooks, string strCustID)
+        {
+            try
+            {
+                _sqlConnection.Open();
+                dtIssuedBooks.Clear();
+                SqlCommand cmd = new SqlCommand("up_usr_select_UserIssues", _sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@CustID", SqlDbType.VarChar, 20).Value = strCustID;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(dtIssuedBooks);
+                _sqlConnection.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("Error occured while placing order.\nError  :" + ex);
+            }
+
+        }
         
         internal bool AddIssue(DataTable dtIssue, string strCustomerID ,string strTitle,string strAuthor,
             string strEdition, float fltPrice,DateTime dtIssueDate)

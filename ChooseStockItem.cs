@@ -18,14 +18,21 @@ namespace LibraryDesign_frontEndUI
         int _intColumnIndex = 0;
         bool _blnPurposeEarlyIssue = false;
         frmMultiIssue _frmParentRef = null;
+        internal string _strType = string.Empty;
 
         string _strEdition = string.Empty;
         string _strTitle = string.Empty;
         string _strPublisher = string.Empty;
         string _strAuthor = string.Empty;
         string _strYear = string.Empty;
+
+        internal float _MaxLimit = 0;
+        internal float _UsedLimit = 0;
+        internal float _CurrentLimit = 0;
+
         internal BLSSchema _BSchema = new BLSSchema();
-      
+        BLSSchema.ctStockSearchDataTable _ctSelectedStockItems = new BLSSchema.ctStockSearchDataTable();
+
         string _strColumns = "[ISBN],[Title],[Author],[Year],[Edition],[Publisher],[Count],[OriginalPrice],[Discount],[PurchasePrice],[PriceChangable],[OutCount]";
 
         #endregion
@@ -33,8 +40,7 @@ namespace LibraryDesign_frontEndUI
         public frmChooseStockItem(frmMultiIssue frmRef)
         {
             InitializeComponent();
-            _frmParentRef = frmRef;
-
+            _frmParentRef = frmRef;            
             _BSchema.ctStockSearch.Clear();
             SearchButtonClick();
         }
@@ -68,17 +74,6 @@ namespace LibraryDesign_frontEndUI
                 _BSchema.ctStockSearch.Clear();
                 BLgc.GetStock(_BSchema, strQuery);
                 dgvStockSearchResult.DataSource = _BSchema.ctStockSearch;
-
-                /*
-                 * if (_frmParentRef == null && _frmPlaceOrderRef == null && _frmAddStockRef == null)
-                {
-                    dgvStockSearchResult.Columns[dgvStockSearchResult.ColumnCount - 1].Visible = false;
-                }
-                else
-                {
-                    dgvStockSearchResult.Columns[dgvStockSearchResult.ColumnCount - 1].Visible = true;
-                }
-                 */
             }
             catch (Exception ex)
             {
@@ -261,8 +256,7 @@ namespace LibraryDesign_frontEndUI
         }
 
         private void dgvStockSearchResult_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            BLSSchema.ctStockSearchDataTable _ctSelectedStockItems = new BLSSchema.ctStockSearchDataTable();
+        {          
 
             if (e.RowIndex != -1)
             {
@@ -271,63 +265,53 @@ namespace LibraryDesign_frontEndUI
 
                 try
                 {
-
-                    if (e.ColumnIndex == dgvStockSearchResult.ColumnCount - 1 && _frmParentRef != null)
+                    if (dgvStockSearchResult.Columns[e.ColumnIndex].HeaderText == "Select" && _frmParentRef != null)
                     {
                         BLSSchema.ctStockSearchDataTable ctStockSearch = ((BLSSchema.ctStockSearchDataTable)(dgvStockSearchResult.DataSource));
-                        
-                        BLSSchema.ctStockSearchRow stockSearchRow = _ctSelectedStockItems.NewctStockSearchRow();
-
-                        stockSearchRow.ISBN = dgvStockSearchResult.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();
-                        _frmParentRef.txtTitle.Text =  stockSearchRow.Title = dgvStockSearchResult.Rows[e.RowIndex].Cells["Title"].Value.ToString();
-                        _frmParentRef.txtAuthor.Text = stockSearchRow.Author = dgvStockSearchResult.Rows[e.RowIndex].Cells["Author"].Value.ToString();
-                        stockSearchRow.Year = dgvStockSearchResult.Rows[e.RowIndex].Cells["Year"].Value.ToString();
-                        _frmParentRef.txtEdition.Text = stockSearchRow.Edition = dgvStockSearchResult.Rows[e.RowIndex].Cells["Edition"].Value.ToString();
-                        _frmParentRef.txtPublisher.Text = stockSearchRow.Publisher = dgvStockSearchResult.Rows[e.RowIndex].Cells["Publisher"].Value.ToString();
-                        stockSearchRow.Count = int.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["Count"].Value.ToString());
-                        _frmParentRef.txtBookCount.Text = stockSearchRow.Count.ToString();
-
-                        stockSearchRow.OriginalPrice = dgvStockSearchResult.Rows[e.RowIndex].Cells["OriginalPrice"].Value.ToString();
-                        _frmParentRef.txtBookPrice.Text = stockSearchRow.PurchasePrice = dgvStockSearchResult.Rows[e.RowIndex].Cells["PurchasePrice"].Value.ToString();
-
-
-                        stockSearchRow.PriceChangable = bool.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["PriceChangable"].Value.ToString());
-                        stockSearchRow.Discount = double.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["Discount"].Value.ToString());
-                        stockSearchRow.OutCount = int.Parse(dgvStockSearchResult.Rows[e.RowIndex].Cells["OutCount"].Value.ToString());
-
-                        if (_frmParentRef.dgvStudentBooks.Rows.Count > 0)
+                        BLSSchema.ctStockSearchRow stockSearchRow = _frmParentRef._dtSelectedStock.NewctStockSearchRow();
+                        BLSSchema.ctStockSearchDataTable ctTemp = (BLSSchema.ctStockSearchDataTable)ctStockSearch.Copy();
+                        stockSearchRow = ctTemp[e.RowIndex];
+                        if (_strType == "R")
                         {
-                            _ctSelectedStockItems = ((BLSSchema.ctStockSearchDataTable)(_frmParentRef.dgvStudentBooks.DataSource));
-                        }
-
-
-                        //Check if the book is already selected
-                        bool blnIsAlreadySelected = false;
-                        foreach (DataRow dr in _ctSelectedStockItems.Rows)
-                        {
-                            var array1 = stockSearchRow.ItemArray;
-                            var array2 = dr.ItemArray;
-
-                            if (array1.SequenceEqual(array2))
+                            stockSearchRow.Count = 1;
+                            _frmParentRef._dtSelectedStock.ImportRow(stockSearchRow);
+                            if (int.Parse(ctStockSearch[e.RowIndex].Count.ToString()) > 1)
                             {
-                                blnIsAlreadySelected = true;
-                                break;
-                            }                          
+                                //decrement the count
+                                _BSchema.ctStockSearch[e.RowIndex].Count = int.Parse(ctStockSearch[e.RowIndex].Count.ToString()) - 1;
+                                _BSchema.ctStockSearch.AcceptChanges();
+                                dgvStockSearchResult.DataSource = _BSchema.ctStockSearch;
+                                dgvStockSearchResult.Refresh();
+                            }
+                            else
+                            {
+                                //Delete the row
+                                _BSchema.ctStockSearch.RemovectStockSearchRow(stockSearchRow);
+                                dgvStockSearchResult.DataSource = _BSchema.ctStockSearch;
+                                dgvStockSearchResult.Refresh();
+                            }
+                            dgvSelectedBooks.DataSource = _frmParentRef._dtSelectedStock;
                         }
-                        if (blnIsAlreadySelected)
+                        else if (_strType == "N")
                         {
-                            MessageBox.Show("This book is already selected.", "Error");
-                            return;
-                        }
-                        
-                        //Add the selected row to the parent gridview for issuing
-                        if (_ctSelectedStockItems.Rows.Count == 0 || !blnIsAlreadySelected)
-                        {
-                            _ctSelectedStockItems.Rows.Add(stockSearchRow.ItemArray);
-                        }
-                        _frmParentRef.dgvStudentBooks.DataSource = _ctSelectedStockItems;
-
-                        Close();
+                           if(CheckForDuplicate(ctStockSearch[e.RowIndex]))
+                           {
+                               MessageBox.Show("This book is not allowed for current type","Duplicate selection");
+                               return;
+                           }
+                           if (CheckLimits(float.Parse(ctStockSearch[e.RowIndex].OriginalPrice)))
+                           {
+                               return;
+                           }                            
+                            //everything OK then add;  
+                           stockSearchRow.Count = 1;
+                           _frmParentRef._dtSelectedStock.ImportRow(stockSearchRow);
+                           _BSchema.ctStockSearch.RemovectStockSearchRow(ctStockSearch[e.RowIndex]);
+                           _CurrentLimit = _CurrentLimit + float.Parse(stockSearchRow.OriginalPrice);
+                            dgvSelectedBooks.DataSource = _frmParentRef._dtSelectedStock;
+                            dgvStockSearchResult.DataSource = _BSchema.ctStockSearch;
+                            dgvStockSearchResult.Refresh();
+                        }              
                     }
                 }
                 catch (Exception ex)
@@ -338,6 +322,46 @@ namespace LibraryDesign_frontEndUI
                     MessageBox.Show("Could not  retrieve records.Please try after some time", "Error");
                 }
             }
+        }
+
+        private bool CheckLimits(float fltBookPrice)
+        {
+            float fltEstimatedLimit = 0;
+            fltEstimatedLimit = _UsedLimit + _CurrentLimit + fltBookPrice;
+            if (fltEstimatedLimit > _MaxLimit)
+            {
+                MessageBox.Show("Cannot issue this book.It exceeds customers Max Limit\n"+"MaxLimit :"+_MaxLimit.ToString()
+                    + "\nLimit after adding this book :" + fltEstimatedLimit.ToString(), "Error");
+                return true;
+
+            }
+            return false;
+        }
+
+
+        private bool CheckForDuplicate(BLSSchema.ctStockSearchRow stockSearchRow)
+        {            
+            foreach (DataRow dr in _ctSelectedStockItems.Rows)
+            {
+                var array1 = stockSearchRow.ItemArray;
+                var array2 = dr.ItemArray;
+
+                if (array1.SequenceEqual(array2))
+                {
+                    return true;
+                }
+            }
+            string strFilterCondition = "Title = '" + stockSearchRow.Title
+                + "' AND Author ='" + stockSearchRow.Author + "' AND Edition ='" + stockSearchRow.Edition
+                + "' AND Publisher ='" + stockSearchRow.Publisher + "' AND BookPrice ='"
+                + stockSearchRow.OriginalPrice + "'";
+            DataRow[] dr1 = _frmParentRef._dtAlreadyIssuedBooks.Select(strFilterCondition);
+            if (dr1 != null && dr1.Length >0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -400,6 +424,17 @@ namespace LibraryDesign_frontEndUI
         private void chkMatchExact_CheckedChanged(object sender, EventArgs e)
         {
             SearchButtonClick();
+        }
+
+        private void btnSelectionDone_Click(object sender, EventArgs e)
+        {
+            _frmParentRef.RefreshGrid();
+            if(_strType == "N")
+            {
+                float TotUsedLimit = _UsedLimit +_CurrentLimit;
+                _frmParentRef.lblRecieptNumber.Text = TotUsedLimit.ToString();
+            }
+            Close();
         }
     }
 }
