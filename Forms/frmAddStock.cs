@@ -17,7 +17,7 @@ namespace LibraryDesign_frontEndUI
     {
         #region [Variables]
 
-        bool _blnCalledFromUI = false;        
+        bool _blnCalledFromUI = false;
         float _fltCurrntLimit = 0;
         string _strCustomerID = string.Empty;
         string _strCustomerType = string.Empty;
@@ -37,10 +37,10 @@ namespace LibraryDesign_frontEndUI
             _blnCalledFromUI = blnCalledFromUI;
             this.Text = "Add Stock";
         }
-        
-        
-        public frmAddStock(Form parentRef,string strType, bool blnCalledFromUI,ref BLSSchema.ctStockDataTable dtstock, 
-            int strCustomerID ,string strCustomerType,float fltCurrentLimit = 0)
+
+
+        public frmAddStock(Form parentRef, string strType, bool blnCalledFromUI, ref BLSSchema.ctStockDataTable dtstock,
+            int strCustomerID, string strCustomerType, float fltCurrentLimit = 0)
         {
             InitializeComponent();
             _blnCalledFromUI = blnCalledFromUI;
@@ -63,7 +63,7 @@ namespace LibraryDesign_frontEndUI
                 _ParentBBRef = (frmEditBooksBorrowed)parentRef;
                 this.Text = "Edit borrowed books";
             }
-        }       
+        }
 
         #endregion
 
@@ -82,17 +82,17 @@ namespace LibraryDesign_frontEndUI
                         fltDiscountPrice = float.Parse(txtPrice.Text) - fltDiscountPrice;
                         BLSSchema.ctStockRow row = dtStock.NewctStockRow();
 
-                        row.ISBN = txtISBN.Text;
+                        row.ShelfNumber = string.IsNullOrWhiteSpace(txtShelfNo.Text) ? 0 : int.Parse(txtShelfNo.Text.Trim());
                         row.Title = txtTitle.Text;
                         row.Author = txtAuthor.Text;
                         row.Edition = txtEdition.Text;
                         row.Publisher = txtPublisher.Text;
                         row.Year = cmbYear.SelectedItem.ToString();
-                        row.Count = (txtCount.Text == "")?1:int.Parse(txtCount.Text);
+                        row.Count = (txtCount.Text == "") ? 1 : int.Parse(txtCount.Text);
                         row.OriginalPrice = txtPrice.Text;
                         row.Discount = txtDiscount.Text;
                         row.PurchasePrice = fltDiscountPrice.ToString();
-                        row.LastUpdated =  DateTime.UtcNow.ToString("yyyy-MM-dd").Substring(0, 10);
+                        row.LastUpdated = DateTime.UtcNow.ToString("yyyy-MM-dd").Substring(0, 10);
                         row.PriceChangable = (cmbPriceChangable.SelectedIndex == 0) ? "1" : "0";
                         row.OutCount = 0;
 
@@ -115,7 +115,7 @@ namespace LibraryDesign_frontEndUI
                             if (_ParentBBRef != null)
                             {
                                 //book we are adding should not be duplicate in both borrowed and selected list.
-                                blnStatus = DuplicateEntryCheck(_ParentBBRef._dtIssue) && DuplicateEntryCheck(_dtstock);                                
+                                blnStatus = DuplicateEntryCheck(_ParentBBRef._dtIssue) && DuplicateEntryCheck(_dtstock);
                             }
                             else
                             {
@@ -133,7 +133,7 @@ namespace LibraryDesign_frontEndUI
 
                                     BLSSchema.ctStockRow row = _dtstock.NewctStockRow();
 
-                                    row.ISBN = txtISBN.Text;
+                                    row.ShelfNumber = string.IsNullOrWhiteSpace(txtShelfNo.Text) ? 0 : int.Parse(txtShelfNo.Text.Trim());
                                     row.Title = txtTitle.Text;
                                     row.Author = txtAuthor.Text;
                                     row.Edition = txtEdition.Text;
@@ -179,7 +179,7 @@ namespace LibraryDesign_frontEndUI
                         {
                             if (!DuplicateEntryCheck(_dtstock))
                             {
-                                MessageBox.Show("This book is already in list.","Error");
+                                MessageBox.Show("This book is already in list.", "Error");
                                 return;
                             }
                             if (LimitsCheckPass(float.Parse(txtPrice.Text) * int.Parse(txtCount.Text)))
@@ -190,7 +190,7 @@ namespace LibraryDesign_frontEndUI
 
                                 BLSSchema.ctStockRow row = _dtstock.NewctStockRow();
 
-                                row.ISBN = txtISBN.Text;
+                                row.ShelfNumber = string.IsNullOrWhiteSpace(txtShelfNo.Text) ? 0 : int.Parse(txtShelfNo.Text.Trim());
                                 row.Title = txtTitle.Text;
                                 row.Author = txtAuthor.Text;
                                 row.Edition = txtEdition.Text;
@@ -228,8 +228,8 @@ namespace LibraryDesign_frontEndUI
                         #endregion
                     }
                 }
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -252,7 +252,7 @@ namespace LibraryDesign_frontEndUI
         private bool DuplicateEntryCheck(BLSSchema.ctIssueDataTable dtIssue)
         {
             //check whether same book is already added in _dtStock
-            string strQuery = "Title = '" + txtTitle.Text + "' AND Author = '" + txtAuthor.Text + "' AND Edition = '" + txtEdition.Text + 
+            string strQuery = "Title = '" + txtTitle.Text + "' AND Author = '" + txtAuthor.Text + "' AND Edition = '" + txtEdition.Text +
                 "' AND Publisher = '" + txtPublisher.Text + "' AND BookPrice = '" + txtPrice.Text + "'";
             DataRow[] result = dtIssue.Select(strQuery);
             return (result.Length == 0);
@@ -270,7 +270,7 @@ namespace LibraryDesign_frontEndUI
             if (_strCustomerType != "R" && _strCustomerType != "O")
             {
                 return !((fltLimitUsed + (_fltCurrntLimit + fltCurrentBookAmount)) > fltMaxLimit);
-                
+
             }
             else
             {
@@ -282,11 +282,11 @@ namespace LibraryDesign_frontEndUI
         private bool ValidateFields()
         {
             try
-            {            
+            {
 
                 if (string.IsNullOrWhiteSpace(txtTitle.Text))
                 {
-                    MessageBox.Show("Book Title is Empty","Error");
+                    MessageBox.Show("Book Title is Empty", "Error");
                     lblTitle.ForeColor = System.Drawing.Color.Red;
                     return false;
                 }
@@ -320,7 +320,7 @@ namespace LibraryDesign_frontEndUI
                     MessageBox.Show("Please select year of publication", "Error");
                     return false;
                 }
-                
+
                 if (string.IsNullOrWhiteSpace(txtPrice.Text))
                 {
                     MessageBox.Show("Price field is Empty", "Error");
@@ -347,12 +347,12 @@ namespace LibraryDesign_frontEndUI
                 {
                     txtCount.Text = "1";
                 }
-                
+
                 return true;
-                
+
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //log exception
                 Utility.WriteToFile(ex, "Error while validating stock details");
@@ -365,7 +365,7 @@ namespace LibraryDesign_frontEndUI
         {
             cmbYear.SelectedIndex = 6;
             cmbPriceChangable.SelectedIndex = 0;
-            
+
         }
 
         private void txtISBN_KeyPress(object sender, KeyPressEventArgs e)
@@ -385,14 +385,14 @@ namespace LibraryDesign_frontEndUI
         }
 
         private void Name_Validation(object sender, KeyPressEventArgs e)
-       {
+        {
             Char pressedKey = e.KeyChar;
-            if(pressedKey == '!' || pressedKey == '@' || pressedKey == '#' || pressedKey == '$' || pressedKey == '%' || pressedKey == '^' ||
+            if (pressedKey == '!' || pressedKey == '@' || pressedKey == '#' || pressedKey == '$' || pressedKey == '%' || pressedKey == '^' ||
                 pressedKey == '&' || pressedKey == '*' || pressedKey == '(' || pressedKey == ')' || pressedKey == '{' || pressedKey == '}' ||
                 pressedKey == '-' || pressedKey == '+' || pressedKey == '|' || pressedKey == '<' || pressedKey == '>' || pressedKey == '=' ||
-                pressedKey == '~' || pressedKey == '`' || pressedKey == '_' || pressedKey == '[' || pressedKey == ']' || pressedKey == '/' || 
-                pressedKey == ',' || pressedKey == '\\' || pressedKey == '?'||Char.IsLetter(pressedKey) ||Char.IsNumber(pressedKey)||
-                Char.IsWhiteSpace(pressedKey) || pressedKey == '.'||(int)pressedKey == 8)
+                pressedKey == '~' || pressedKey == '`' || pressedKey == '_' || pressedKey == '[' || pressedKey == ']' || pressedKey == '/' ||
+                pressedKey == ',' || pressedKey == '\\' || pressedKey == '?' || Char.IsLetter(pressedKey) || Char.IsNumber(pressedKey) ||
+                Char.IsWhiteSpace(pressedKey) || pressedKey == '.' || (int)pressedKey == 8)
             {
                 // Allow input.
                 e.Handled = false;
@@ -416,14 +416,14 @@ namespace LibraryDesign_frontEndUI
                 e.Handled = true;
                 MessageBox.Show("Only numbers are allowed here.", "Only Numbers");
             }
-               
+
         }
 
         private void Amount_Validation(object sender, KeyPressEventArgs e)
-        {            
-            Char pressedKey = e.KeyChar;           
+        {
+            Char pressedKey = e.KeyChar;
             if (Char.IsNumber(pressedKey) || (int)pressedKey == 8 || pressedKey == '.')
-            {               
+            {
                 if (IsValidAmount(txtPrice.Text + pressedKey))
                 {
                     // Allow input.
@@ -462,7 +462,7 @@ namespace LibraryDesign_frontEndUI
 
         private void ResetAllControls()
         {
-            txtISBN.Text = "";
+            txtShelfNo.Text = "";
             txtTitle.Text = "";
             txtAuthor.Text = "";
             txtEdition.Text = "";
@@ -474,10 +474,10 @@ namespace LibraryDesign_frontEndUI
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            frmCustomerSearch1 frmStockSearch = new frmCustomerSearch1(this, 
-                (_ParentBBRef!= null || _ParentRGRef != null) ? true : false);
+            frmCustomerSearch1 frmStockSearch = new frmCustomerSearch1(this,
+                (_ParentBBRef != null || _ParentRGRef != null) ? true : false);
             frmStockSearch.ShowDialog();
-            
+
         }
 
         private bool IsValidAmount(string strTemp)
@@ -486,11 +486,11 @@ namespace LibraryDesign_frontEndUI
             {
                 return false;
             }
-            
-                return true;
-            
+
+            return true;
+
         }
 
-       
+
     }
 }

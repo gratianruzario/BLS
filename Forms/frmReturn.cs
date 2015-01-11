@@ -305,7 +305,7 @@ namespace LibraryDesign_frontEndUI
 
                 }
                 lblAmountPayable.Text = fltCurrentPayableAmount.ToString();
-                //lblBookCount.Text = inttotalBookCount.ToString();
+                lblBooksCount.Text = inttotalBookCount.ToString();
             }
             catch (Exception ex)
             {
@@ -462,6 +462,10 @@ namespace LibraryDesign_frontEndUI
                     _Bschema.ctIssueBookList.RemovectIssueBookListRow(_Bschema.ctIssueBookList[_intRowIndex]);
                     ClearTexts();
                 }
+                else
+                {
+                    MessageBox.Show("Please select one issued book.", "Error");
+                }
             }
             catch (Exception ex)
             {
@@ -492,6 +496,7 @@ namespace LibraryDesign_frontEndUI
             txtRefundAmt.Text = "";
             txtExtraDays.Text = "";
             txtExtraDays.BackColor = Color.White;
+            _blnIsChecked = false;
         }
 
         private void UpdateRespctdValues()

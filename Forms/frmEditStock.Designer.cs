@@ -52,7 +52,7 @@
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.txtCount = new System.Windows.Forms.TextBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtISBN = new System.Windows.Forms.TextBox();
+            this.txtShelfNo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddStock = new System.Windows.Forms.Button();
@@ -239,11 +239,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 23);
+            this.label1.Location = new System.Drawing.Point(45, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "ISBN :";
+            this.label1.Text = "Shelf No :";
             // 
             // txtPublisher
             // 
@@ -311,14 +311,14 @@
             this.txtTitle.Size = new System.Drawing.Size(318, 23);
             this.txtTitle.TabIndex = 1;
             // 
-            // txtISBN
+            // txtShelfNo
             // 
-            this.txtISBN.Location = new System.Drawing.Point(126, 19);
-            this.txtISBN.MaxLength = 11;
-            this.txtISBN.Name = "txtISBN";
-            this.txtISBN.ReadOnly = true;
-            this.txtISBN.Size = new System.Drawing.Size(318, 23);
-            this.txtISBN.TabIndex = 0;
+            this.txtShelfNo.Location = new System.Drawing.Point(126, 19);
+            this.txtShelfNo.MaxLength = 11;
+            this.txtShelfNo.Name = "txtShelfNo";
+            this.txtShelfNo.ReadOnly = true;
+            this.txtShelfNo.Size = new System.Drawing.Size(318, 23);
+            this.txtShelfNo.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -396,7 +396,7 @@
             this.groupBox1.Controls.Add(this.txtAuthor);
             this.groupBox1.Controls.Add(this.txtCount);
             this.groupBox1.Controls.Add(this.txtTitle);
-            this.groupBox1.Controls.Add(this.txtISBN);
+            this.groupBox1.Controls.Add(this.txtShelfNo);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -519,7 +519,7 @@
         internal System.Windows.Forms.TextBox txtAuthor;
         internal System.Windows.Forms.TextBox txtCount;
         internal System.Windows.Forms.TextBox txtTitle;
-        internal System.Windows.Forms.TextBox txtISBN;
+        internal System.Windows.Forms.TextBox txtShelfNo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAddStock;

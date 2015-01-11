@@ -22,7 +22,7 @@ namespace LibraryDesign_frontEndUI.Forms
         public frmEditStock(string[] strElements, frmCustomerSearch1 frmparentRef)
         {
             InitializeComponent();
-            txtISBN.Text = strElements[0];
+            txtShelfNo.Text = strElements[0];
             txtTitle.Text = strElements[1];
             txtAuthor.Text = strElements[2];
             txtEdition.Text = strElements[3];
@@ -120,7 +120,7 @@ namespace LibraryDesign_frontEndUI.Forms
                      BLSSchema.ctStockDataTable dtStockTable = new BLSSchema.ctStockDataTable();
                      BLSSchema.ctStockRow row = dtStockTable.NewctStockRow();
 
-                     row.ISBN = txtISBN.Text;
+                     row.ShelfNumber = string.IsNullOrWhiteSpace(txtShelfNo.Text) ? 0 : int.Parse(txtShelfNo.Text.Trim());
                      row.Title = txtTitle.Text;
                      row.Author = txtAuthor.Text;
                      row.Edition = txtEdition.Text;

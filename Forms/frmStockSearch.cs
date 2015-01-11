@@ -27,7 +27,7 @@ namespace LibraryDesign_frontEndUI
         string _strAuthor = string.Empty;
         string _strYear = string.Empty;
         internal BLSSchema _BSchema = new BLSSchema();
-        string _strColumns = "[ISBN],[Title],[Author],[Year],[Edition],[Publisher],[Count],[OriginalPrice],[Discount],[PurchasePrice],[PriceChangable],[OutCount]";
+        string _strColumns = "[ShelfNumber],[Title],[Author],[Year],[Edition],[Publisher],[Count],[OriginalPrice],[Discount],[PurchasePrice],[PriceChangable],[OutCount]";
         
         #endregion
 
@@ -317,7 +317,7 @@ namespace LibraryDesign_frontEndUI
                     }
                     else if(e.ColumnIndex == dgvStockSearchResult.ColumnCount - 1 && _frmAddStockRef!= null)
                     {
-                        _frmAddStockRef.txtISBN.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();
+                        _frmAddStockRef.txtShelfNo.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["ShelfNumber"].Value.ToString();
                         _frmAddStockRef.txtTitle.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Title"].Value.ToString();
                         _frmAddStockRef.txtPublisher.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Publisher"].Value.ToString();
                         _frmAddStockRef.txtAuthor.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["Author"].Value.ToString();
@@ -329,7 +329,7 @@ namespace LibraryDesign_frontEndUI
                     }
                     else if (e.ColumnIndex == dgvStockSearchResult.ColumnCount - 1 && _frmPlaceOrderRef != null)
                     {
-                        _frmPlaceOrderRef.txtISBN.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();                        
+                        _frmPlaceOrderRef.txtISBN.Text = dgvStockSearchResult.Rows[e.RowIndex].Cells["ShelfNumber"].Value.ToString();                        
                         Close();
 
                     }
@@ -396,7 +396,7 @@ namespace LibraryDesign_frontEndUI
             try
             {
                 string[] strStockElements = new string[12];
-                strStockElements[0] = dgvStockSearchResult.Rows[_intRowIndex].Cells["ISBN"].Value.ToString();
+                strStockElements[0] = dgvStockSearchResult.Rows[_intRowIndex].Cells["ShelfNumber"].Value.ToString();
                 strStockElements[1] = dgvStockSearchResult.Rows[_intRowIndex].Cells["Title"].Value.ToString();
                 strStockElements[2] = dgvStockSearchResult.Rows[_intRowIndex].Cells["Author"].Value.ToString();
                 strStockElements[3] = dgvStockSearchResult.Rows[_intRowIndex].Cells["Edition"].Value.ToString();
