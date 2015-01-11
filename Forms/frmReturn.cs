@@ -305,7 +305,7 @@ namespace LibraryDesign_frontEndUI
 
                 }
                 lblAmountPayable.Text = fltCurrentPayableAmount.ToString();
-                //lblBookCount.Text = inttotalBookCount.ToString();
+                lblBooksCount.Text = inttotalBookCount.ToString();
             }
             catch (Exception ex)
             {
