@@ -89,6 +89,59 @@ GO
 USE [BLS]
 GO
 
+/****** Object:  Table [dbo].[TblStock]    Script Date: 01/13/2015 22:38:32 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TblStock]') AND type in (N'U'))
+DROP TABLE [dbo].[TblStock]
+GO
+
+USE [BLS]
+GO
+
+/****** Object:  Table [dbo].[TblStock]    Script Date: 01/13/2015 22:38:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[TblStock](
+	[ShelfNumber] [int] NULL,
+	[Title] [varchar](300) NOT NULL,
+	[Author] [varchar](200) NOT NULL,
+	[Year] [varchar](4) NULL,
+	[Edition] [varchar](20) NOT NULL,
+	[Publisher] [varchar](200) NOT NULL,
+	[Count] [int] NULL,
+	[PriceChangable] [bit] NULL,
+	[OriginalPrice] [float] NULL,
+	[Discount] [float] NULL,
+	[PurchasePrice] [float] NOT NULL,
+	[LastUpdated] [date] NULL,
+	[OutCount] [int] NULL,
+ CONSTRAINT [PK_TblStock] PRIMARY KEY CLUSTERED 
+(
+	[Title] ASC,
+	[Author] ASC,
+	[Edition] ASC,
+	[Publisher] ASC,
+	[PurchasePrice] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+
+USE [BLS]
+GO
+
 /****** Object:  UserDefinedTableType [dbo].[UDTStock]    Script Date: 01/11/2015 19:31:09 ******/
 CREATE TYPE [dbo].[UDTStock] AS TABLE(
 	[ShelfNumber] [int] NULL,
